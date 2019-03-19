@@ -1,0 +1,208 @@
+<?xml version="1.0" ?>
+<library  version="2.0" name="sap.ui.integration">
+  <module name="sap-ui-integration.js" size="4042" compressedSize="1757" raw="true">
+  </module>
+  <module name="sap/ui/integration/host/HostConfiguration.js" size="3906" compressedSize="1657">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/integration/host/HostConfigurationCompiler.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/host/HostConfigurationCompiler.js" size="2705" compressedSize="1172">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/ui/thirdparty/less.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/library-h2-preload.js" size="2643">
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/f/CardRenderer.js"/>
+      <module name="sap/f/cards/Data.js"/>
+      <module name="sap/f/cards/Header.js" conditional="true"/>
+      <module name="sap/f/cards/ListContent.js" conditional="true"/>
+      <module name="sap/f/cards/NumericHeader.js" conditional="true"/>
+      <module name="sap/f/cards/ObjectContent.js" conditional="true"/>
+      <module name="sap/f/cards/TableContent.js" conditional="true"/>
+      <module name="sap/f/library.js"/>
+      <module name="sap/ui/Global.js"/>
+      <module name="sap/ui/base/DataType.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/base/Object.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/Manifest.js"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="sap/ui/thirdparty/jquery.js"/>
+      <module name="sap/ui/thirdparty/less.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+    <includes>
+      <module name="sap/ui/integration/library.js"/>
+      <module name="sap/ui/integration/manifest.json"/>
+      <module name="sap-ui-integration.js"/>
+      <module name="sap/ui/integration/host/HostConfiguration.js"/>
+      <module name="sap/ui/integration/host/HostConfigurationCompiler.js"/>
+      <module name="sap/ui/integration/services/Data.js"/>
+      <module name="sap/ui/integration/services/Navigation.js"/>
+      <module name="sap/ui/integration/services/Service.js"/>
+      <module name="sap/ui/integration/util/CardManifest.js"/>
+      <module name="sap/ui/integration/util/CustomElements.js"/>
+      <module name="sap/ui/integration/util/ServiceManager.js"/>
+      <module name="sap/ui/integration/widgets/Card.js"/>
+    </includes>
+  </module>
+  <module name="sap/ui/integration/library-preload.js" size="23032">
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/f/CardRenderer.js"/>
+      <module name="sap/f/cards/Data.js"/>
+      <module name="sap/f/cards/Header.js" conditional="true"/>
+      <module name="sap/f/cards/ListContent.js" conditional="true"/>
+      <module name="sap/f/cards/NumericHeader.js" conditional="true"/>
+      <module name="sap/f/cards/ObjectContent.js" conditional="true"/>
+      <module name="sap/f/cards/TableContent.js" conditional="true"/>
+      <module name="sap/f/library.js"/>
+      <module name="sap/ui/Global.js"/>
+      <module name="sap/ui/base/DataType.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/base/Object.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/Manifest.js"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="sap/ui/thirdparty/jquery.js"/>
+      <module name="sap/ui/thirdparty/less.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+    <includes>
+      <module name="sap-ui-integration.js"/>
+      <module name="sap/ui/integration/host/HostConfiguration.js"/>
+      <module name="sap/ui/integration/host/HostConfigurationCompiler.js"/>
+      <module name="sap/ui/integration/library.js"/>
+      <module name="sap/ui/integration/manifest.json"/>
+      <module name="sap/ui/integration/services/Data.js"/>
+      <module name="sap/ui/integration/services/Navigation.js"/>
+      <module name="sap/ui/integration/services/Service.js"/>
+      <module name="sap/ui/integration/util/CardManifest.js"/>
+      <module name="sap/ui/integration/util/CustomElements.js"/>
+      <module name="sap/ui/integration/util/ServiceManager.js"/>
+      <module name="sap/ui/integration/widgets/Card.js"/>
+    </includes>
+  </module>
+  <module name="sap/ui/integration/library-preload.json" size="0">
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/f/CardRenderer.js"/>
+      <module name="sap/f/cards/Data.js"/>
+      <module name="sap/f/cards/Header.js" conditional="true"/>
+      <module name="sap/f/cards/ListContent.js" conditional="true"/>
+      <module name="sap/f/cards/NumericHeader.js" conditional="true"/>
+      <module name="sap/f/cards/ObjectContent.js" conditional="true"/>
+      <module name="sap/f/cards/TableContent.js" conditional="true"/>
+      <module name="sap/f/library-preload.json"/>
+      <module name="sap/f/library.js"/>
+      <module name="sap/ui/Global.js"/>
+      <module name="sap/ui/base/DataType.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="sap/ui/base/Object.js"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/core/Manifest.js"/>
+      <module name="sap/ui/core/library-preload.json"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="sap/ui/thirdparty/jquery.js"/>
+      <module name="sap/ui/thirdparty/less.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+    <includes>
+      <module name="sap-ui-integration.js"/>
+      <module name="sap/ui/integration/host/HostConfiguration.js"/>
+      <module name="sap/ui/integration/host/HostConfigurationCompiler.js"/>
+      <module name="sap/ui/integration/library.js"/>
+      <module name="sap/ui/integration/manifest.json"/>
+      <module name="sap/ui/integration/services/Data.js"/>
+      <module name="sap/ui/integration/services/Navigation.js"/>
+      <module name="sap/ui/integration/services/Service.js"/>
+      <module name="sap/ui/integration/util/CardManifest.js"/>
+      <module name="sap/ui/integration/util/CustomElements.js"/>
+      <module name="sap/ui/integration/util/ServiceManager.js"/>
+      <module name="sap/ui/integration/widgets/Card.js"/>
+    </includes>
+  </module>
+  <module name="sap/ui/integration/library.js" size="1239" compressedSize="704">
+    <description>Initialization Code and shared classes of library sap.f.</description>
+    <requires>
+      <module name="sap/f/library.js"/>
+      <module name="sap/ui/Global.js"/>
+      <module name="sap/ui/base/DataType.js"/>
+      <module name="sap/ui/core/library.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/manifest.json" size="969">
+  </module>
+  <module name="sap/ui/integration/services/Data.js" size="1866" compressedSize="388">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/ui/integration/services/Service.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/services/Navigation.js" size="774" compressedSize="269">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/ui/integration/services/Service.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/services/Service.js" size="1731" compressedSize="525">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/util/CardManifest.js" size="8043" compressedSize="2353">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/ui/base/Object.js"/>
+      <module name="sap/ui/core/Manifest.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/util/CustomElements.js" size="10298" compressedSize="5743">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/util/ServiceManager.js" size="5912" compressedSize="2166">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/ui/base/EventProvider.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/integration/widgets/Card.js" size="12565" compressedSize="6454">
+    <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
+    <requires>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/f/CardRenderer.js"/>
+      <module name="sap/f/cards/Data.js"/>
+      <module name="sap/f/cards/Header.js" conditional="true"/>
+      <module name="sap/f/cards/ListContent.js" conditional="true"/>
+      <module name="sap/f/cards/NumericHeader.js" conditional="true"/>
+      <module name="sap/f/cards/ObjectContent.js" conditional="true"/>
+      <module name="sap/f/cards/TableContent.js" conditional="true"/>
+      <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/integration/util/CardManifest.js"/>
+      <module name="sap/ui/integration/util/ServiceManager.js"/>
+      <module name="sap/ui/thirdparty/jquery.js"/>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+</library>

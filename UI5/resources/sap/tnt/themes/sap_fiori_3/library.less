@@ -1,0 +1,140 @@
+/* NOTE: This file was generated as an optimized version of "library.source.less" for the Theme Designer. */
+
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2019 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+
+@import "../base/library.less";
+@import "../../../../../Base/baseLib/sap_fiori_3/base.less"; /* ORIGINAL IMPORT PATH: "../../../../sap/ui/core/themes/sap_fiori_3/base.less" */
+
+@import "../../../../sap/ui/core/themes/sap_fiori_3/global.less";
+/* START "global.less" */
+// ===================================================
+// Global CSS for 'sap_fiori_3' theme for TNT library
+// ===================================================
+
+@_sap_tnt_InfoLabel_BackgroundColor1: lighten(@sapUiAccent1, 40);
+@_sap_tnt_InfoLabel_BackgroundColor2: lighten(@sapUiAccent2, 24);
+@_sap_tnt_InfoLabel_BackgroundColor3: lighten(@sapUiAccent3, 40);
+@_sap_tnt_InfoLabel_BackgroundColor4: lighten(@sapUiAccent4, 39);
+@_sap_tnt_InfoLabel_BackgroundColor5: lighten(@sapUiAccent5, 29);
+@_sap_tnt_InfoLabel_BackgroundColor6: lighten(@sapUiAccent6, 31);
+@_sap_tnt_InfoLabel_BackgroundColor7: lighten(@sapUiAccent7, 50);
+@_sap_tnt_InfoLabel_BackgroundColor8: lighten(@sapUiAccent8, 52);
+@_sap_tnt_InfoLabel_BackgroundColor9: lighten(@sapUiContentForegroundBorderColor, 35);
+
+@_sap_tnt_InfoLabel_BorderColor1: @sapUiAccent1;
+@_sap_tnt_InfoLabel_BorderColor2: darken(@sapUiAccent2, 8);
+@_sap_tnt_InfoLabel_BorderColor3: @sapUiAccent3;
+@_sap_tnt_InfoLabel_BorderColor4: @sapUiAccent4;
+@_sap_tnt_InfoLabel_BorderColor5: @sapUiAccent5;
+@_sap_tnt_InfoLabel_BorderColor6: darken(@sapUiAccent6, 7);
+@_sap_tnt_InfoLabel_BorderColor7: darken(@sapUiAccent7, 4);
+@_sap_tnt_InfoLabel_BorderColor8: darken(@sapUiAccent8, 3);
+@_sap_tnt_InfoLabel_BorderColor9: darken(@sapUiContentForegroundBorderColor, 4);
+/* END "global.less" */
+
+
+/* START "InfoLabel.less" */
+/* ================================= */
+/* CSS for control sap.tnt/InfoLabel */
+/* Fiori 3 theme                     */
+/* ================================= */
+
+// ==========================================================================
+// Variables overriding
+// ==========================================================================
+
+@_sap_tnt_InfoLabel_Margin: 0.8125rem;
+@_sap_tnt_InfoLabel_NoTextPadding: 0.5rem;
+@_sap_tnt_InfoLabel_NoTextDisplayOnlyPadding: 0.4375rem;
+@_sap_tnt_InfoLabel_LineHeight: 1rem;
+@_sap_tnt_InfoLabel_LineHeightDisplayOnly: 0.875rem;
+
+// ==========================================================================
+// Variables and mixins
+// ==========================================================================
+
+@_sap_tnt_InfoLabel_ColorsArray:
+	@_sap_tnt_InfoLabel_BackgroundColor1 @_sap_tnt_InfoLabel_BorderColor1,
+	@_sap_tnt_InfoLabel_BackgroundColor2 @_sap_tnt_InfoLabel_BorderColor2,
+	@_sap_tnt_InfoLabel_BackgroundColor3 @_sap_tnt_InfoLabel_BorderColor3,
+	@_sap_tnt_InfoLabel_BackgroundColor4 @_sap_tnt_InfoLabel_BorderColor4,
+	@_sap_tnt_InfoLabel_BackgroundColor5 @_sap_tnt_InfoLabel_BorderColor5,
+	@_sap_tnt_InfoLabel_BackgroundColor6 @_sap_tnt_InfoLabel_BorderColor6,
+	@_sap_tnt_InfoLabel_BackgroundColor7 @_sap_tnt_InfoLabel_BorderColor7,
+	@_sap_tnt_InfoLabel_BackgroundColor8 @_sap_tnt_InfoLabel_BorderColor8,
+	@_sap_tnt_InfoLabel_BackgroundColor9 @_sap_tnt_InfoLabel_BorderColor9;
+
+.create-classes-for-background-and-border-colors(backgroundColor, @_sap_tnt_InfoLabel_ColorsArray);
+
+// Iterate over the InfoLabel ColorsArray and create separate class for each
+// color named with the passed prefix and the number of the color
+.create-classes-for-background-and-border-colors(@prefix, @list) {
+	.iter(length(@list));
+	.iter(@i) when (@i > 0) {
+		.iter(@i - 1);
+
+		@pair: extract(@list, @i);
+		@backgroundColor: extract(@pair, 1);
+		@borderColor: extract(@pair, 2);
+
+		.@{prefix}@{i} {
+			border: 1px solid @borderColor;
+			background-color: @backgroundColor;
+
+			.sapTntInfoLabelInner {
+				color: @sapUiBaseText;
+			}
+		}
+	}
+}
+/* END "InfoLabel.less" */
+
+/* START "NavigationList.less" */
+/* ======================================= */
+/* CSS for control sap.tnt/NavigationList  */
+/* Fiori 3 theme                           */
+/* ======================================= */
+
+ .sapTntNavLIGroupItem.sapTntNavLIItem {
+	background-color: darken(@sapUiListBackground, 3);
+}
+/* END "NavigationList.less" */
+
+/* START "ToolHeader.less" */
+/* =================================== */
+/* CSS for control sap.tnt/ToolHeader  */
+/* Fiori 3 theme                       */
+/* =================================== */
+
+// ==========================================================================
+// Variables overriding
+// ==========================================================================
+
+@_sap_tnt_ToolHeader_ITHContentArrowHeight: 0.875rem;
+@_sap_tnt_ToolHeader_ITHOverflowButtonTop: 1.5rem;
+@_sap_tnt_ToolHeader_ITHHeight: 2.5rem;
+
+.sapTntToolHeader.sapMTB {
+	background-color: @sapUiPageHeaderBackground;
+}
+
+.sapTntToolHeader .sapMITH,
+.sapTntToolHeaderPopover.sapMOTAPopover.sapMPopover {
+	background-color: @sapUiPageHeaderBackground;
+}
+/* END "ToolHeader.less" */
+
+/* START "SideNavigation.less" */
+/* ======================================= */
+/* CSS for control sap.tnt/SideNavigation  */
+/* Fiori 3 theme                           */
+/* ======================================= */
+
+.sapTntSideNavigationSeparator {
+  background-color: @sapUiAccent6;
+}
+/* END "SideNavigation.less" */
