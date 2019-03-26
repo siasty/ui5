@@ -7,27 +7,31 @@
 @section Scripts
 { 
     <script>
-        var oTC = new sap.m.TileContainer("tc", {
-            width: "100%",
-            height: "100%",
-            tiles: [
-                new sap.m.StandardTile({
-                    type: "Create",
-                    info: "28 days left",
-                    infoState: "Success",
-                    title: "Create Leave Request",
-                    removable: true
-                }),
+       
+            var page1 = sap.ui.getCore().byId('Init');
 
-            ],
-            tileDelete: function (evt) {
-                var tile = evt.getParameter("tile");
-                evt.getSource().removeTile(tile);
-            }
-        });
+            var oTC = new sap.m.TileContainer("tc", {
+                width: "100%",
+                height: "100%",
+                tiles: [
+                    new sap.m.StandardTile({
+                        type: "Create",
+                        info: "28 days left",
+                        infoState: "Success",
+                        title: "Create Leave Request",
+                        removable: true
+                    }),
 
-        page1.addContent(oTC);
-      
+                ],
+                tileDelete: function (evt) {
+                    var tile = evt.getParameter("tile");
+                    evt.getSource().removeTile(tile);
+                }
+            });
+
+
+            page1.addContent(oTC);
+
 
     </script>
 }
