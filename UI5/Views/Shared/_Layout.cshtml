@@ -2,32 +2,39 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ui5 .Net Core</title>
 
     <script id='sap-ui-bootstrap'
             src='/resources/sap-ui-core.js'
             data-sap-ui-theme="sap_belize"
-            data-sap-ui-libs="sap.m">
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-frameOptions="trusted"
+            data-sap-ui-libs="sap.m" >
     </script>
 
     <script>
-        var page1 = new sap.m.Page({
-            showHeader: true,
-            title: ".Net Core",
-            footer: new sap.m.Bar({})
-        });
+    
+        new sap.m.Shell({
+            app: new sap.m.App({
+                id: 'NetApp',
+                pages: [
+                    new sap.m.Page({
+                        id: "Init",
+                        showHeader: true,
+                        title: ".Net Core",
+                        footer: new sap.m.Bar({}),
+                    })]
+            })
+            }).placeAt("content");
 
-        var app = new sap.m.App();
-        app.initialPage = page1.getId();
-        app.addPage(page1);
-        app.placeAt('content');
+
     </script>
+
     @RenderSection("Scripts", required: false)
 </head>
 <body id='content' class='sapUiBody'>
-    <div class="container">
+    <div class="container" data-id="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
