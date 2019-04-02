@@ -10,7 +10,9 @@
             data-sap-ui-theme="sap_belize"
             data-sap-ui-compatVersion="edge"
             data-sap-ui-frameOptions="trusted"
-            data-sap-ui-libs="sap.m" >
+            data-sap-ui-preload="sync"
+            data-sap-ui-libs="sap.m, sap.ui.table, sap.ui.commons, sap.ui.ux3"
+            data-sap-ui-resourceroots='{"view": "./ui5/"}'>
     </script>
 
     <script>
@@ -19,12 +21,8 @@
             app: new sap.m.App({
                 id: 'NetApp',
                 pages: [
-                    new sap.m.Page({
-                        id: "Init",
-                        showHeader: true,
-                        title: ".Net Core",
-                        footer: new sap.m.Bar({}),
-                    })]
+
+                ]
             })
             }).placeAt("content");
 

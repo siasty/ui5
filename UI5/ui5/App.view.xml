@@ -1,0 +1,24 @@
+﻿<mvc:View
+   height="100%"
+   controllerName="view.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+  <Page
+     title="Page"
+     class="marginBoxContent" >
+    <customHeader>
+      <Toolbar>
+        <Button type="Back" press="onPress" />
+        <ToolbarSpacer/>
+        <Label text="Title" />
+        <ToolbarSpacer/>
+      </Toolbar>
+    </customHeader>
+    <content>
+    
+    </content>
+    <footer>
+    
+    </footer>
+  </Page>
+</mvc:View>

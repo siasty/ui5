@@ -8,30 +8,15 @@
 { 
     <script>
        
-            var page1 = sap.ui.getCore().byId('Init');
+            var app = sap.ui.getCore().byId('NetApp');
 
-            var oTC = new sap.m.TileContainer("tc", {
-                width: "100%",
-                height: "100%",
-                tiles: [
-                    new sap.m.StandardTile({
-                        type: "Create",
-                        info: "28 days left",
-                        infoState: "Success",
-                        title: "Create Leave Request",
-                        removable: true
-                    }),
-
-                ],
-                tileDelete: function (evt) {
-                    var tile = evt.getParameter("tile");
-                    evt.getSource().removeTile(tile);
-                }
+            var page = sap.ui.view({
+                       id: "Init",
+                       viewName: "view.App",
+                       type: sap.ui.core.mvc.ViewType.XML
             });
 
-
-            page1.addContent(oTC);
-
+           app.addPage(page);
 
     </script>
 }
