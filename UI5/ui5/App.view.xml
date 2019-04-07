@@ -2,6 +2,7 @@
    height="100%"
    controllerName="view.App"
    xmlns="sap.m"
+   xmlns:table="sap.ui.table"
    xmlns:mvc="sap.ui.core.mvc">
   <Page
      title="Page"
@@ -15,7 +16,34 @@
       </Toolbar>
     </customHeader>
     <content>
-    
+      <Table items="{	path: '/Books' }">
+        <headerToolbar>
+          <Toolbar>
+            <Label text="Books"></Label>
+          </Toolbar>
+        </headerToolbar>
+        <columns>
+          <Column width="12em">
+            <Label text="Id" />
+          </Column>
+          <Column width="12em">
+            <Label text="Title" />
+          </Column>
+          <Column width="12em">
+            <Label text="Author" />
+          </Column>
+        </columns>
+        <items>
+
+          <ColumnListItem>
+            <cells>
+              <ObjectIdentifier text="{value>Id}" />
+              <ObjectIdentifier text="{value>Title}" />
+              <ObjectIdentifier text="{value>Author}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
     </content>
     <footer>
     

@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Mvc;
 using UI5.Data;
 using static UI5.Models.OData;
 
 namespace UI5.Controllers
 {
-    public class HomeController : Controller
+    public class BooksController : ODataController
     {
         private readonly MyDbContext _context;
-        public HomeController(MyDbContext context)
+        public BooksController(MyDbContext context)
         {
             _context = context;
             if (!_context.Books.Any())
@@ -49,11 +50,16 @@ namespace UI5.Controllers
             }
         }
 
-        public IActionResult Index()
+        [EnableQuery]
+        public IActionResult Get()
         {
-            return View();
+            return Ok(_context.Books);
         }
 
- 
+        [EnableQuery]
+        public IActionResult Get(int Id)
+        {
+            return Ok(_context.Books.FirstOrDefault(c => c.Id == Id));
+        }
     }
 }
