@@ -33,7 +33,7 @@ sap.ui.define([
 	 * @class
 	 * The column menu provides all common actions that can be performed on a column.
 	 * @extends sap.ui.unified.Menu
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public
@@ -119,18 +119,19 @@ sap.ui.define([
 		}
 	};
 
-	ColumnMenu._destroyColumnVisibilityMenuItem = function() {
-		if (ColumnMenu._oColumnVisibilityMenuItem) {
-			ColumnMenu._oColumnVisibilityMenuItem.destroy();
-			ColumnMenu._oColumnVisibilityMenuItem = null;
+	ColumnMenu._destroyColumnVisibilityMenuItem = function(oTable) {
+		if (!oTable || !oTable._oColumnVisibilityMenuItem) {
+			return;
 		}
+		oTable._oColumnVisibilityMenuItem.destroy();
+		oTable._oColumnVisibilityMenuItem = null;
 	};
 
 	ColumnMenu.prototype._removeColumnVisibilityFromAggregation = function() {
-		if (!ColumnMenu._oColumnVisibilityMenuItem) {
+		if (!this.oParent || !this.oParent._oColumnVisibilityMenuItem) {
 			return;
 		}
-		this.removeAggregation("items", ColumnMenu._oColumnVisibilityMenuItem, true);
+		this.removeAggregation("items", this.oParent._oColumnVisibilityMenuItem, true);
 	};
 
 	/**
@@ -334,15 +335,15 @@ sap.ui.define([
 		var oTable = this._oTable;
 
 		if (oTable && oTable.getShowColumnVisibilityMenu()) {
-			if (ColumnMenu._oColumnVisibilityMenuItem && !ColumnMenu._oColumnVisibilityMenuItem.bIsDestroyed) {
-				this.addItem(ColumnMenu._oColumnVisibilityMenuItem);
+			if (oTable._oColumnVisibilityMenuItem && !oTable._oColumnVisibilityMenuItem.bIsDestroyed) {
+				this.addItem(oTable._oColumnVisibilityMenuItem);
 				return;
 			}
 
-			ColumnMenu._oColumnVisibilityMenuItem = this._createMenuItem("column-visibilty", "TBL_COLUMNS");
+			oTable._oColumnVisibilityMenuItem = this._createMenuItem("column-visibilty", "TBL_COLUMNS");
 
-			var oColumnVisibiltyMenu = new Menu(ColumnMenu._oColumnVisibilityMenuItem.getId() + "-menu");
-			ColumnMenu._oColumnVisibilityMenuItem.setSubmenu(oColumnVisibiltyMenu);
+			var oColumnVisibiltyMenu = new Menu(oTable._oColumnVisibilityMenuItem.getId() + "-menu");
+			oTable._oColumnVisibilityMenuItem.setSubmenu(oColumnVisibiltyMenu);
 
 			var aColumns = oTable.getColumns();
 
@@ -377,7 +378,7 @@ sap.ui.define([
 					oMenuItem.setEnabled(false); // Indicate to the user that changing the visibility of the last visible column is not allowed
 				}
 			}
-			this.addItem(ColumnMenu._oColumnVisibilityMenuItem);
+			this.addItem(oTable._oColumnVisibilityMenuItem);
 		}
 	};
 
@@ -502,26 +503,28 @@ sap.ui.define([
 		return this;
 	};
 
-	ColumnMenu._updateVisibilityIcon = function(iIndex, bVisible){
-		if (ColumnMenu._oColumnVisibilityMenuItem) {
-			var sIcon = bVisible ? "sap-icon://accept" : "";
-			var oSubmenu = ColumnMenu._oColumnVisibilityMenuItem.getSubmenu();
-			if (!oSubmenu){
-				return;
-			}
-			var aItems = oSubmenu.getItems();
-			var oItem;
-			for (var i = 0; i < aItems.length; i++) {
-				if (aItems[i].getId().endsWith("-item-" + iIndex)) {
-					oItem = aItems[i];
-					break;
-				}
-			}
-			if (!oItem){
-				return;
-			}
-			oItem.setProperty("icon", sIcon);
+	ColumnMenu._updateVisibilityIcon = function(oTable, iIndex, bVisible){
+		if (!oTable || !oTable._oColumnVisibilityMenuItem) {
+			return;
 		}
+
+		var sIcon = bVisible ? "sap-icon://accept" : "";
+		var oSubmenu = oTable._oColumnVisibilityMenuItem.getSubmenu();
+		if (!oSubmenu){
+			return;
+		}
+		var aItems = oSubmenu.getItems();
+		var oItem;
+		for (var i = 0; i < aItems.length; i++) {
+			if (aItems[i].getId().endsWith("-item-" + iIndex)) {
+				oItem = aItems[i];
+				break;
+			}
+		}
+		if (!oItem){
+			return;
+		}
+		oItem.setProperty("icon", sIcon);
 	};
 
 	return ColumnMenu;

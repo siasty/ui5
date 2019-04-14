@@ -35,7 +35,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/ControlObserver.js" size="2536" compressedSize="909">
+  <module name="sap/ui/dt/ControlObserver.js" size="2440" compressedSize="897">
     <description>Provides class sap.ui.dt.ControlObserver.</description>
     <requires>
       <module name="sap/ui/dt/ManagedObjectObserver.js"/>
@@ -52,7 +52,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/DesignTime.js" size="36924" compressedSize="14283">
+  <module name="sap/ui/dt/DesignTime.js" size="38167" compressedSize="15017">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -95,7 +95,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/ElementDesignTimeMetadata.js" size="8866" compressedSize="2933">
+  <module name="sap/ui/dt/ElementDesignTimeMetadata.js" size="9124" compressedSize="2933">
     <description>Provides class sap.ui.dt.ElementDesignTimeMetadata.</description>
     <requires>
       <module name="sap/ui/dt/AggregationDesignTimeMetadata.js"/>
@@ -104,7 +104,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/ElementOverlay.js" size="30406" compressedSize="12879">
+  <module name="sap/ui/dt/ElementOverlay.js" size="29935" compressedSize="12673">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -122,7 +122,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/ElementUtil.js" size="15452" compressedSize="5806">
+  <module name="sap/ui/dt/ElementUtil.js" size="15457" compressedSize="5811">
     <description>Provides object sap.ui.dt.ElementUtil.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -134,9 +134,10 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/ManagedObjectObserver.js" size="21671" compressedSize="10715">
+  <module name="sap/ui/dt/ManagedObjectObserver.js" size="23751" compressedSize="11689">
     <description>Provides class sap.ui.dt.ManagedObjectObserver.</description>
     <requires>
+      <module name="sap/base/util/includes.js"/>
       <module name="sap/ui/base/ManagedObject.js"/>
       <module name="sap/ui/dt/ElementUtil.js"/>
       <module name="ui5loader-autoconfig.js"/>
@@ -250,7 +251,28 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/dt/library-h2-preload.js" size="8106">
+  <module name="sap/ui/dt/designtime/library-preload.designtime.js" size="523">
+    <requires>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+    <includes>
+      <module name="sap/ui/dt/designtime/notAdaptable.designtime.js"/>
+      <module name="sap/ui/dt/designtime/notRemovable.designtime.js"/>
+    </includes>
+  </module>
+  <module name="sap/ui/dt/designtime/notAdaptable.designtime.js" size="317" compressedSize="223">
+    <description>Provides default Designtime for 'not-adaptable' scenario</description>
+    <requires>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/dt/designtime/notRemovable.designtime.js" size="334" compressedSize="232">
+    <description>Provides default Designtime for 'not-adaptable' scenario</description>
+    <requires>
+      <module name="ui5loader-autoconfig.js"/>
+    </requires>
+  </module>
+  <module name="sap/ui/dt/library-h2-preload.js" size="8415">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/assert.js"/>
@@ -272,6 +294,7 @@
       <module name="sap/m/VBox.js"/>
       <module name="sap/ui/Device.js"/>
       <module name="sap/ui/base/ManagedObject.js"/>
+      <module name="sap/ui/base/ManagedObjectMetadata.js"/>
       <module name="sap/ui/base/Object.js"/>
       <module name="sap/ui/core/BusyIndicator.js"/>
       <module name="sap/ui/core/Component.js"/>
@@ -321,6 +344,8 @@
       <module name="sap/ui/dt/SelectionMode.js"/>
       <module name="sap/ui/dt/TaskManager.js"/>
       <module name="sap/ui/dt/Util.js"/>
+      <module name="sap/ui/dt/designtime/notAdaptable.designtime.js"/>
+      <module name="sap/ui/dt/designtime/notRemovable.designtime.js"/>
       <module name="sap/ui/dt/plugin/ContextMenu.js"/>
       <module name="sap/ui/dt/plugin/ControlDragDrop.js"/>
       <module name="sap/ui/dt/plugin/CutPaste.js"/>
@@ -344,7 +369,7 @@
       <module name="sap/ui/dt/util/getNextZIndex.js"/>
     </includes>
   </module>
-  <module name="sap/ui/dt/library-preload.js" size="165439">
+  <module name="sap/ui/dt/library-preload.js" size="167173">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/assert.js"/>
@@ -366,6 +391,7 @@
       <module name="sap/m/VBox.js"/>
       <module name="sap/ui/Device.js"/>
       <module name="sap/ui/base/ManagedObject.js"/>
+      <module name="sap/ui/base/ManagedObjectMetadata.js"/>
       <module name="sap/ui/base/Object.js"/>
       <module name="sap/ui/core/BusyIndicator.js"/>
       <module name="sap/ui/core/Component.js"/>
@@ -460,6 +486,7 @@
       <module name="sap/m/VBox.js"/>
       <module name="sap/ui/Device.js"/>
       <module name="sap/ui/base/ManagedObject.js"/>
+      <module name="sap/ui/base/ManagedObjectMetadata.js"/>
       <module name="sap/ui/base/Object.js"/>
       <module name="sap/ui/core/BusyIndicator.js"/>
       <module name="sap/ui/core/Component.js"/>
@@ -533,9 +560,10 @@
       <module name="sap/ui/dt/util/getNextZIndex.js"/>
     </includes>
   </module>
-  <module name="sap/ui/dt/library.js" size="896" compressedSize="432">
+  <module name="sap/ui/dt/library.js" size="1150" compressedSize="628">
     <description>Initialization Code and shared classes of library sap.ui.dt.</description>
     <requires>
+      <module name="sap/ui/base/ManagedObjectMetadata.js"/>
       <module name="sap/ui/core/library.js"/>
       <module name="sap/ui/dt/SelectionMode.js"/>
       <module name="ui5loader-autoconfig.js"/>

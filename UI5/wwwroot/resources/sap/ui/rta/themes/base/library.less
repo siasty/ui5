@@ -78,6 +78,8 @@
 /**
 	This class is being assigned to the original Fiori Header Toolbar when RTA Toolbar shows
  */
+@_sap_ui_rta_Toolbar_Fiori_TextColor: @sapUiWhite;
+
 .sapUiRtaFioriHeaderInvisible {
 	visibility: hidden;
 }
@@ -99,7 +101,7 @@
 		.sapMBtn .sapMBtnContent,
 		.sapMBtn .sapMBtnIcon {
 			text-shadow: none; /* Override shadow of `.sapMBtnInner` in sap.m */
-			color: #fff;
+			color: @_sap_ui_rta_Toolbar_Fiori_TextColor;
 		}
 
 		.sapMBtn.sapMBtnDisabled {
@@ -111,23 +113,28 @@
 /* END "Toolbar.fiori.less" */
 
 /* START "Toolbar.standalone.less" */
-/* type: standalone */
+/******************************************************************
+	Style of the RTA Standalone Toolbar - base Theme
+*******************************************************************/
+@_sap_ui_rta_Toolbar_Standalone_TextColor: @sapUiWhite; // #fff
+@_sap_ui_rta_Toolbar_Standalone_BGColor : @sapUiDeepBG; // #000
+
 .sapUiRtaToolbar.type_standalone.color_default {
-	background-color: #000;
+	background-color: @_sap_ui_rta_Toolbar_Standalone_BGColor;
 	top: -50px;
 	transition: top 0.25s ease-out;
 	}
 	.sapUiRtaToolbar.type_standalone.color_default .sapMBtn .sapMBtnContent,
 	.sapUiRtaToolbar.type_standalone.color_default .sapMBtn .sapMBtnTransparent .sapMBtnIcon {
 		text-shadow: none; /* Override shadow of `.sapMBtnInner` in sap.m */
-		color: #fff;
+		color: @_sap_ui_rta_Toolbar_Standalone_TextColor;
 		}
 		.sapUiRtaToolbar.type_standalone.color_default .sapMBtn.sapMBtnDisabled .sapMBtnContent,
 		.sapUiRtaToolbar.type_standalone.color_default .sapMBtn.sapMBtnDisabled .sapMBtnIcon {
-			color: #666;
+			opacity: 0.7;
 			}
 		.sapUiRtaToolbar.type_standalone.color_default .sapMBtn:focus .sapMFocusable {
-			outline-color: #fff; /* Override of `html.sap-desktop .sapMBtn:focus > .sapMFocusable` */
+			outline-color: @_sap_ui_rta_Toolbar_Standalone_TextColor; /* Override of `html.sap-desktop .sapMBtn:focus > .sapMFocusable` */
 			}
 	.sapUiRtaToolbar.type_standalone.color_default.is_visible {
 		top: 0;
@@ -136,11 +143,17 @@
 /* END "Toolbar.standalone.less" */
 
 /* START "Toolbar.personalization.less" */
+/******************************************************************
+	Style of the Personalization Toolbar - base Theme
+*******************************************************************/
+@_sap_ui_rta_Toolbar_Personalization_TextColor: @sapUiWhite;  // #fff
+@_sap_ui_rta_Toolbar_Personalization_TextShadowColor : @sapUiDeepBG;  // #000
+
 .sapUiRtaToolbar.type_personalization {
 	top: auto;
 	top: initial;
 	bottom: 0;
-	background-color: #2f3c48;
+	background-color: @_sap_ui_rta_Toolbar_Personalization_TextColor;
 	padding: 0 1rem;
 	opacity: 0.9;
 	height: 48px;
@@ -154,8 +167,8 @@
 			border: none;
 
 			.sapMBtnContent {
-				color: #ffffff;
-				text-shadow: 0 0 0.125rem #000000;
+				color: @_sap_ui_rta_Toolbar_Personalization_TextColor;
+				text-shadow: 0 0 0.125rem @_sap_ui_rta_Toolbar_Personalization_TextShadowColor;
 			}
 		}
 	}
@@ -243,13 +256,14 @@
 
 /* START "Overlay.less" */
 /******************************************************************
-	Style of the RTA Overlays
+	Style of the RTA Overlays - base Theme
 *******************************************************************/
 @_sap_ui_rta_Overlay_ActiveBG : fade(@sapUiSelected, 10%);
-@_sap_ui_rta_Overlay_BaseBG : white;
+@_sap_ui_rta_Overlay_BaseBG : @sapUiWhite;
 @_sap_ui_rta_Overlay_Border: @sapUiSelected;
 @_sap_ui_rta_Overlay_HoverBG : fade(darken(@_sap_ui_rta_Overlay_BaseBG, 100%), 10.8%);
 @_sap_ui_rta_Overlay_ActiveHoverBG : fade(@sapUiSelected, 20%);
+@_sap_ui_rta_Overlay_ErrorBorder : @sapUiErrorBorder;
 
 .sapUiRtaRoot {
 	.sapUiRtaMarginBottom {
@@ -260,12 +274,12 @@
 		padding-top: 40px;
 	}
 
-	.sapUiRtaStretchPaddingTop {
+	&.sapUiRtaStretchPaddingTop, .sapUiRtaStretchPaddingTop {
 		padding-top: 24px;
 	}
 }
 
-.sapUiSizeCozy .sapUiRtaRoot .sapUiRtaStretchPaddingTop {
+.sapUiSizeCozy .sapUiRtaRoot .sapUiRtaStretchPaddingTop, .sapUiSizeCozy .sapUiRtaRoot.sapUiRtaStretchPaddingTop {
 	padding-top: 32px;
 }
 
@@ -289,10 +303,10 @@
 							background-color: @_sap_ui_rta_Overlay_Border;
 							box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
 							cursor: pointer;
-							border: 0.125rem solid #ffffff;
+							border: 0.125rem solid @_sap_ui_rta_Overlay_BaseBG;
 
 							.sapUiIcon {
-								color: @sapUiWhite;
+								color: @_sap_ui_rta_Overlay_BaseBG;
 								font-size: 0.69rem;
 								line-height: 1.25rem;
 								width: 20px;
@@ -405,7 +419,7 @@
 		}
 
 		&.sapUiRtaErrorBg:after {
-			border: 2px solid @sapUiErrorBorder
+			border: 2px solid @_sap_ui_rta_Overlay_ErrorBorder;
 		}
 
 		&.sapUiDtOverlayFocusable {
@@ -490,6 +504,10 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
+
+		>div:hover {
+			cursor: text!important;
+		}
 	}
 
 	.sapUiDtDragGhost {

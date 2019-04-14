@@ -22,7 +22,7 @@ function(
 	 *
 	 * @class Functionality to propagate DesignTime and RelevantContainer
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @static
 	 * @since 1.54

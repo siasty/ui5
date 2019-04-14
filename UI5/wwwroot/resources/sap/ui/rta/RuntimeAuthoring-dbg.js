@@ -126,7 +126,7 @@ function(
 	 * @class The runtime authoring allows to adapt the fields of a running application.
 	 * @extends sap.ui.base.ManagedObject
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @constructor
 	 * @private
 	 * @since 1.30
@@ -1084,7 +1084,7 @@ function(
 		BusyIndicator.show(500);
 		return this._serializeToLrep().then(function () {
 			BusyIndicator.hide();
-			var bAppVariantRunning = FlexUtils.isApplicationVariant(this._oRootControl);
+			var bAppVariantRunning = FlexUtils.isApplicationVariant(this._oRootControl) && !FlexUtils.isVariantByStartupParameter(this._oRootControl);
 			return ((bAppVariantRunning) ? RtaAppVariantFeature.getAppVariantDescriptor(this._oRootControl) : Promise.resolve())
 				.then(function(oAppVariantDescriptor) {
 					var aAppVariantDescriptor = [];

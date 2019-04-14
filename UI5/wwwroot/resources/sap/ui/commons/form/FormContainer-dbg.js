@@ -22,7 +22,7 @@ sap.ui.define(['sap/ui/commons/library', 'sap/ui/layout/form/FormContainer'],
 	 * @extends sap.ui.layout.form.FormContainer
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public

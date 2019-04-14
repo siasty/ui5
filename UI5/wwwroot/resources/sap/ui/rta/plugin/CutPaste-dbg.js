@@ -31,7 +31,7 @@ function(
 	 * @extends sap.ui.dt.plugin.CutPaste
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private
@@ -84,11 +84,11 @@ function(
 	};
 
 	CutPaste.prototype._isPasteEditable = function (oOverlay) {
-		var	oDesignTimeMetadata = oOverlay.getDesignTimeMetadata();
+		var oElementMover = this.getElementMover();
 
 		return this.hasStableId(oOverlay) &&
-			this.getElementMover()._isMoveAvailableOnRelevantContainer(oOverlay) &&
-			oDesignTimeMetadata.isActionAvailableOnAggregations("move");
+			oElementMover.isMoveAvailableOnRelevantContainer(oOverlay) &&
+			oElementMover.isMoveAvailableForChildren(oOverlay);
 	};
 
 	/**

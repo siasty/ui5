@@ -57,6 +57,47 @@
 </Avatar>
 ]]></xmlTemplate>
 </Template>
+<Template name="sap.f.Card" alias="Card">
+	<jsTemplate><![CDATA[new sap.f.Card({
+	id: "${id}", // sap.ui.core.ID
+	blocked: false, // boolean
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	busyIndicatorSize: sap.ui.core.BusyIndicatorSize.Medium, // sap.ui.core.BusyIndicatorSize, since 1.54
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	width: "100%", // sap.ui.core.CSSSize
+	height: "auto", // sap.ui.core.CSSSize
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Element, since 1.19
+	dragDropConfig: [], // sap.ui.core.dnd.DragDropBase, since 1.56
+	header: undefined, // sap.f.cards.IHeader
+	content: undefined, // sap.ui.core.Control
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<Card xmlns="sap.f"
+	id="${id}"
+	blocked="false"
+	busy="false"
+	busyIndicatorDelay="1000"
+	busyIndicatorSize="Medium"
+	visible="true"
+	fieldGroupIds=""
+	width="100%"
+	height="auto"
+	validateFieldGroup="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
+		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
+		<header></header> <!-- sap.f.cards.IHeader -->
+		<content></content> <!-- sap.ui.core.Control -->
+</Card>
+]]></xmlTemplate>
+</Template>
 <Template name="sap.f.DynamicPage" alias="DynamicPage,Page">
 	<jsTemplate><![CDATA[new sap.f.DynamicPage({
 	id: "${id}", // sap.ui.core.ID
@@ -477,13 +518,14 @@
 	showSearch: false, // boolean
 	showNotifications: false, // boolean
 	showProductSwitcher: false, // boolean
+	notificationsNumber: "", // string, since 1.64
 	tooltip: undefined, // sap.ui.core.TooltipBase
 	customData: [], // sap.ui.core.CustomData
 	dependents: [], // sap.ui.core.Element, since 1.19
 	dragDropConfig: [], // sap.ui.core.dnd.DragDropBase, since 1.56
 	menu: undefined, // sap.m.Menu
 	profile: undefined, // sap.f.Avatar
-	additionalContent: [], // sap.ui.core.Control
+	additionalContent: [], // sap.f.IShellBar
 	validateFieldGroup: [function (oEvent) {
 		var ${control} = oEvent.getSource();
 	}, this],
@@ -530,6 +572,7 @@
 	showSearch="false"
 	showNotifications="false"
 	showProductSwitcher="false"
+	notificationsNumber=""
 	validateFieldGroup=""
 	homeIconPressed=""
 	menuButtonPressed=""
@@ -544,8 +587,151 @@
 		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
 		<menu></menu> <!-- sap.m.Menu -->
 		<profile></profile> <!-- sap.f.Avatar -->
-		<additionalContent></additionalContent> <!-- sap.ui.core.Control -->
+		<additionalContent></additionalContent> <!-- sap.f.IShellBar -->
 </ShellBar>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.f.cards.Header" alias="Header">
+	<jsTemplate><![CDATA[new sap.f.cards.Header({
+	id: "${id}", // sap.ui.core.ID
+	blocked: false, // boolean
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	busyIndicatorSize: sap.ui.core.BusyIndicatorSize.Medium, // sap.ui.core.BusyIndicatorSize, since 1.54
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	title: "", // string
+	subtitle: "", // string
+	statusText: "", // string
+	iconDisplayShape: sap.f.AvatarShape.Circle, // sap.f.AvatarShape
+	iconSrc: "", // sap.ui.core.URI
+	iconInitials: "", // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Element, since 1.19
+	dragDropConfig: [], // sap.ui.core.dnd.DragDropBase, since 1.56
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	press: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<cards/Header xmlns="sap.f"
+	id="${id}"
+	blocked="false"
+	busy="false"
+	busyIndicatorDelay="1000"
+	busyIndicatorSize="Medium"
+	visible="true"
+	fieldGroupIds=""
+	title=""
+	subtitle=""
+	statusText=""
+	iconDisplayShape="Circle"
+	iconSrc=""
+	iconInitials=""
+	validateFieldGroup=""
+	press="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
+		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
+</cards/Header>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.f.cards.NumericHeader" alias="NumericHeader,Header">
+	<jsTemplate><![CDATA[new sap.f.cards.NumericHeader({
+	id: "${id}", // sap.ui.core.ID
+	blocked: false, // boolean
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	busyIndicatorSize: sap.ui.core.BusyIndicatorSize.Medium, // sap.ui.core.BusyIndicatorSize, since 1.54
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	title: undefined, // string
+	subtitle: undefined, // string
+	unitOfMeasurement: undefined, // string
+	number: undefined, // string
+	scale: undefined, // string
+	trend: sap.m.DeviationIndicator.None, // sap.m.DeviationIndicator
+	state: sap.m.ValueColor.Neutral, // sap.m.ValueColor
+	details: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Element, since 1.19
+	dragDropConfig: [], // sap.ui.core.dnd.DragDropBase, since 1.56
+	sideIndicators: [], // sap.f.cards.NumericSideIndicator
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this],
+	press: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<cards/NumericHeader xmlns="sap.f"
+	id="${id}"
+	blocked="false"
+	busy="false"
+	busyIndicatorDelay="1000"
+	busyIndicatorSize="Medium"
+	visible="true"
+	fieldGroupIds=""
+	title=""
+	subtitle=""
+	unitOfMeasurement=""
+	number=""
+	scale=""
+	trend="None"
+	state="Neutral"
+	details=""
+	validateFieldGroup=""
+	press="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
+		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
+		<sideIndicators></sideIndicators> <!-- sap.f.cards.NumericSideIndicator -->
+</cards/NumericHeader>
+]]></xmlTemplate>
+</Template>
+<Template name="sap.f.cards.NumericSideIndicator" alias="NumericSideIndicator,Indicator">
+	<jsTemplate><![CDATA[new sap.f.cards.NumericSideIndicator({
+	id: "${id}", // sap.ui.core.ID
+	blocked: false, // boolean
+	busy: false, // boolean
+	busyIndicatorDelay: 1000, // int
+	busyIndicatorSize: sap.ui.core.BusyIndicatorSize.Medium, // sap.ui.core.BusyIndicatorSize, since 1.54
+	visible: true, // boolean
+	fieldGroupIds: [], // string[], since 1.31
+	title: undefined, // string
+	number: undefined, // string
+	unit: undefined, // string
+	tooltip: undefined, // sap.ui.core.TooltipBase
+	customData: [], // sap.ui.core.CustomData
+	dependents: [], // sap.ui.core.Element, since 1.19
+	dragDropConfig: [], // sap.ui.core.dnd.DragDropBase, since 1.56
+	validateFieldGroup: [function (oEvent) {
+		var ${control} = oEvent.getSource();
+	}, this]
+})
+]]></jsTemplate>
+	<xmlTemplate><![CDATA[<cards/NumericSideIndicator xmlns="sap.f"
+	id="${id}"
+	blocked="false"
+	busy="false"
+	busyIndicatorDelay="1000"
+	busyIndicatorSize="Medium"
+	visible="true"
+	fieldGroupIds=""
+	title=""
+	number=""
+	unit=""
+	validateFieldGroup="">
+		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
+		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
+		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
+</cards/NumericSideIndicator>
 ]]></xmlTemplate>
 </Template>
 <Template name="sap.f.semantic.AddAction" alias="AddAction,Action">

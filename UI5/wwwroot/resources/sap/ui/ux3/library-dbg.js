@@ -20,7 +20,7 @@ sap.ui.define([
 	 * @namespace
 	 * @name sap.ui.ux3
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @public
 	 * @deprecated Since 1.38
 	 */
@@ -28,7 +28,7 @@ sap.ui.define([
 	// delegate further initialization of this library to the Core
 	sap.ui.getCore().initLibrary({
 		name : "sap.ui.ux3",
-		version: "1.63.1",
+		version: "1.64.0",
 		dependencies : ["sap.ui.core","sap.ui.commons"],
 		types: [
 			"sap.ui.ux3.ActionBarSocialActions",

@@ -76,6 +76,8 @@
 			"merged": true,
 			"required": [
 				"jquery.sap.global.js",
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
 				"sap/m/CheckBox.js",
@@ -216,6 +218,8 @@
 			"merged": true,
 			"required": [
 				"jquery.sap.global.js",
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
 				"sap/m/CheckBox.js",
@@ -360,6 +364,8 @@
 			"merged": true,
 			"required": [
 				"jquery.sap.global.js",
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
 				"sap/m/CheckBox.js",
@@ -506,6 +512,8 @@
 			"merged": true,
 			"required": [
 				"jquery.sap.global.js",
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
 				"sap/m/CheckBox.js",
@@ -909,14 +917,18 @@
 			"module": "sap/ui/support/supportRules/WindowCommunicationBus.js",
 			"isDebug": true,
 			"required": [
-				"jquery.sap.global.js"
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
+				"sap/ui/thirdparty/URI.js"
 			]
 		},
 		{
 			"name": "supportRules/WindowCommunicationBus.js",
 			"module": "sap/ui/support/supportRules/WindowCommunicationBus.js",
 			"required": [
-				"jquery.sap.global.js"
+				"jquery.sap.script.js",
+				"sap/base/Log.js",
+				"sap/ui/thirdparty/URI.js"
 			]
 		},
 		{

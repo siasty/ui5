@@ -26,7 +26,7 @@ sap.ui.define([
 	 * Utilities for sap.ui.dt library
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @private
 	 * @static

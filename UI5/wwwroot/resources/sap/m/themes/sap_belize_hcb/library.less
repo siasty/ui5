@@ -442,7 +442,7 @@ html.sap-desktop {
 	}
 
 	.sapUiForm .sapMCb:not(.sapMCbBgDis):focus:before {
-		left: -1px; /* Cb in SimpleForm: left border adjustment */
+		left: 0px; /* Cb in SimpleForm: left border adjustment */
 	}
 }
 
@@ -664,7 +664,7 @@ html.sap-desktop .sapMFC:focus {
 /* END "FeedListItem.less" */
 
 /* START "GenericTag.less" */
-.sapMGenericTag {
+html.sap-desktop .sapMGenericTag {
 	&:before {
 		border: 1px solid @sapUiBaseBG;
 	}
@@ -3929,7 +3929,7 @@ html[data-sap-ui-browser^="ed"].sap-desktop {
 
 html.sap-desktop .sapMTBActive:focus {
 	outline: 0.125rem dotted @sapUiContentContrastFocusColor;
-	outline-offset: -0.1875rem;
+	outline-offset: -0.3125rem;
 }
 
 /* Info Toolbar Context */

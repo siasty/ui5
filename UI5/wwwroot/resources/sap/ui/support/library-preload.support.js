@@ -1,3 +1,4 @@
+//@ui5-bundle sap/ui/support/library-preload.support.js
 /*!
  * OpenUI5
  * (c) Copyright 2009-2019 SAP SE or an SAP affiliate company.
@@ -32,7 +33,7 @@ sap.ui.predefine('sap/ui/support/jQuery.sap.support',["sap/ui/support/supportRul
 		 * @deprecated Since version 1.60.0. Please use sap/ui/support/RuleAnalyzer instead.
 		 * @alias jQuery.sap.support
 		 * @author SAP SE
-		 * @version 1.63.1
+		 * @version 1.64.0
 		 * @public
 		 */
 		jQuery.sap.support = {

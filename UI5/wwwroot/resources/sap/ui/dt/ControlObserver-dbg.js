@@ -23,7 +23,7 @@ function(ManagedObjectObserver) {
 	 * @extends sap.ui.dt.ManagedObjectObserver
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private
@@ -48,12 +48,6 @@ function(ManagedObjectObserver) {
 				"target" : {
 					"type" : "sap.ui.core.Control"
 				}
-			},
-			/**
-			 * Fired when the DOM of the observed control is changed
-			 */
-			events : {
-				"afterRendering" : {}
 			}
 		}
 	});
@@ -98,8 +92,9 @@ function(ManagedObjectObserver) {
 	 * @private
 	 */
 	ControlObserver.prototype._onAfterRendering = function() {
-		this.fireAfterRendering();
-
+		this.fireModified({
+			type: "afterRendering"
+		});
 	};
 
 	return ControlObserver;

@@ -130,6 +130,11 @@ sap.ui.define([
 		undefined: mBaseSize.undefined + iRowHorizontalFrameSize
 	};
 
+	var mThemeParameters = {
+		sapUiTableActionNavigationIcon: 'navigation-right-arrow',
+		sapUiTableActionDeleteIcon: 'sys-cancel'
+	};
+
 	/**
 	 * Reason for updates of the rows. Inherits from {@link sap.ui.model.ChangeReason}.
 	 *
@@ -182,7 +187,7 @@ sap.ui.define([
 	 * Static collection of utility functions related to the sap.ui.table.Table, ...
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @namespace
 	 * @alias sap.ui.table.TableUtils
 	 * @private
@@ -201,6 +206,7 @@ sap.ui.define([
 		DefaultRowHeight: mDefaultRowHeight,
 		RowsUpdateReason: ROWS_UPDATE_REASON,
 		INTERACTIVE_ELEMENT_SELECTORS: INTERACTIVE_ELEMENT_SELECTORS,
+		ThemeParameters: mThemeParameters,
 
 		/**
 		 * Returns whether the table has a row header or not
@@ -722,11 +728,11 @@ sap.ui.define([
 			};
 
 			if ($Cell.hasClass("sapUiTableDataCell")) {
-				sColumnId = $Cell.data("sap-ui-colid");
+				sColumnId = $Cell.attr("data-sap-ui-colid");
 				oColumn = sap.ui.getCore().byId(sColumnId);
 
 				oCellInfo.type = TableUtils.CELLTYPE.DATACELL;
-				oCellInfo.rowIndex = parseInt($Cell.parent().data("sap-ui-rowindex"));
+				oCellInfo.rowIndex = parseInt($Cell.parent().attr("data-sap-ui-rowindex"));
 				oCellInfo.columnIndex = oColumn.getIndex();
 				oCellInfo.columnSpan = 1;
 
@@ -738,18 +744,18 @@ sap.ui.define([
 
 				oCellInfo.type = TableUtils.CELLTYPE.COLUMNHEADER;
 				oCellInfo.rowIndex = iRowIndex;
-				oCellInfo.columnIndex = parseInt($Cell.data("sap-ui-colindex"));
+				oCellInfo.columnIndex = parseInt($Cell.attr("data-sap-ui-colindex"));
 				oCellInfo.columnSpan = parseInt($Cell.attr("colspan") || 1);
 
 			} else if ($Cell.hasClass("sapUiTableRowSelectionCell")) {
 				oCellInfo.type = TableUtils.CELLTYPE.ROWHEADER;
-				oCellInfo.rowIndex = parseInt($Cell.data("sap-ui-rowindex"));
+				oCellInfo.rowIndex = parseInt($Cell.attr("data-sap-ui-rowindex"));
 				oCellInfo.columnIndex = -1;
 				oCellInfo.columnSpan = 1;
 
 			} else if ($Cell.hasClass("sapUiTableRowActionCell")) {
 				oCellInfo.type = TableUtils.CELLTYPE.ROWACTION;
-				oCellInfo.rowIndex = parseInt($Cell.data("sap-ui-rowindex"));
+				oCellInfo.rowIndex = parseInt($Cell.attr("data-sap-ui-rowindex"));
 				oCellInfo.columnIndex = -2;
 				oCellInfo.columnSpan = 1;
 
@@ -968,7 +974,7 @@ sap.ui.define([
 		isFirstScrollableRow : function(oTable, row) {
 			if (isNaN(row)) {
 				var $Ref = jQuery(row);
-				row = parseInt($Ref.add($Ref.parent()).filter("[data-sap-ui-rowindex]").data("sap-ui-rowindex"));
+				row = parseInt($Ref.add($Ref.parent()).filter("[data-sap-ui-rowindex]").attr("data-sap-ui-rowindex"));
 			}
 			var iFixed = oTable.getFixedRowCount() || 0;
 			return row == iFixed;
@@ -985,7 +991,7 @@ sap.ui.define([
 		isLastScrollableRow : function(oTable, row) {
 			if (isNaN(row)) {
 				var $Ref = jQuery(row);
-				row = parseInt($Ref.add($Ref.parent()).filter("[data-sap-ui-rowindex]").data("sap-ui-rowindex"));
+				row = parseInt($Ref.add($Ref.parent()).filter("[data-sap-ui-rowindex]").attr("data-sap-ui-rowindex"));
 			}
 			var iFixed = oTable.getFixedBottomRowCount() || 0;
 			return row == oTable.getVisibleRowCount() - iFixed - 1;
@@ -1400,9 +1406,9 @@ sap.ui.define([
 		},
 
 		/**
-		 * Returns all interactive elements in a data cell.
+		 * Returns all interactive elements in a cell.
 		 *
-		 * @param {jQuery|HTMLElement} oCell The data cell from which to get the interactive elements.
+		 * @param {jQuery|HTMLElement} oCell The cell from which to get the interactive elements.
 		 * @returns {jQuery|null} Returns <code>null</code>, if the passed cell is not a cell or does not contain any interactive elements.
 		 */
 		getInteractiveElements: function(oCell) {
@@ -1413,7 +1419,7 @@ sap.ui.define([
 			var $Cell = jQuery(oCell);
 			var oCellInfo = TableUtils.getCellInfo($Cell);
 
-			if (oCellInfo.isOfType(CELLTYPE.DATACELL | CELLTYPE.ROWACTION)) {
+			if (oCellInfo.isOfType(CELLTYPE.ANY)) {
 				var $InteractiveElements = $Cell.find(INTERACTIVE_ELEMENT_SELECTORS);
 				if ($InteractiveElements.length > 0) {
 					return $InteractiveElements;
@@ -1492,6 +1498,9 @@ sap.ui.define([
 			mDefaultRowHeight.sapUiSizeCozy = mBaseSize.sapUiSizeCozy + iRowHorizontalFrameSize;
 			mDefaultRowHeight.sapUiSizeCompact = mBaseSize.sapUiSizeCompact + iRowHorizontalFrameSize;
 			mDefaultRowHeight.sapUiSizeCondensed = mBaseSize.sapUiSizeCondensed + iRowHorizontalFrameSize;
+
+			mThemeParameters.sapUiTableActionNavigationIcon = ThemeParameters.get("_sap_ui_table_RowActionNavigationIcon");
+			mThemeParameters.sapUiTableActionDeleteIcon = ThemeParameters.get("_sap_ui_table_DeleteIcon");
 		}
 	};
 

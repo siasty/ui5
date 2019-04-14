@@ -127,7 +127,7 @@ sap.ui.define([
 	 * @class Extension for sap.ui.table.Table that allows synchronization with a table.
 	 * @extends sap.ui.table.TableExtension
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @constructor
 	 * @private
 	 * @alias sap.ui.table.TableSyncExtension

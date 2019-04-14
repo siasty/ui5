@@ -287,6 +287,7 @@
 			"module": "sap/ui/dt/ManagedObjectObserver.js",
 			"isDebug": true,
 			"required": [
+				"sap/base/util/includes.js",
 				"sap/ui/base/ManagedObject.js",
 				"sap/ui/dt/ElementUtil.js"
 			]
@@ -295,6 +296,7 @@
 			"name": "ManagedObjectObserver.js",
 			"module": "sap/ui/dt/ManagedObjectObserver.js",
 			"required": [
+				"sap/base/util/includes.js",
 				"sap/ui/base/ManagedObject.js",
 				"sap/ui/dt/ElementUtil.js"
 			]
@@ -523,10 +525,48 @@
 			]
 		},
 		{
+			"name": "designtime/library-preload.designtime.js",
+			"module": "sap/ui/dt/designtime/library-preload.designtime.js",
+			"merged": true,
+			"designtime": true,
+			"included": [
+				"sap/ui/dt/designtime/notAdaptable.designtime.js",
+				"sap/ui/dt/designtime/notRemovable.designtime.js"
+			]
+		},
+		{
+			"name": "designtime/library-preload.designtime.js.map",
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/notAdaptable.designtime-dbg.js",
+			"module": "sap/ui/dt/designtime/notAdaptable.designtime.js",
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/notAdaptable.designtime.js",
+			"module": "sap/ui/dt/designtime/notAdaptable.designtime.js",
+			"designtime": true
+		},
+		{
+			"name": "designtime/notRemovable.designtime-dbg.js",
+			"module": "sap/ui/dt/designtime/notRemovable.designtime.js",
+			"isDebug": true,
+			"designtime": true
+		},
+		{
+			"name": "designtime/notRemovable.designtime.js",
+			"module": "sap/ui/dt/designtime/notRemovable.designtime.js",
+			"designtime": true
+		},
+		{
 			"name": "library-dbg.js",
 			"module": "sap/ui/dt/library.js",
 			"isDebug": true,
 			"required": [
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/core/library.js",
 				"sap/ui/dt/SelectionMode.js"
 			]
@@ -557,6 +597,7 @@
 				"sap/m/VBox.js",
 				"sap/ui/Device.js",
 				"sap/ui/base/ManagedObject.js",
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/Component.js",
@@ -605,6 +646,8 @@
 				"sap/ui/dt/SelectionMode.js",
 				"sap/ui/dt/TaskManager.js",
 				"sap/ui/dt/Util.js",
+				"sap/ui/dt/designtime/notAdaptable.designtime.js",
+				"sap/ui/dt/designtime/notRemovable.designtime.js",
 				"sap/ui/dt/plugin/ContextMenu.js",
 				"sap/ui/dt/plugin/ControlDragDrop.js",
 				"sap/ui/dt/plugin/CutPaste.js",
@@ -653,6 +696,7 @@
 				"sap/m/VBox.js",
 				"sap/ui/Device.js",
 				"sap/ui/base/ManagedObject.js",
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/Component.js",
@@ -701,6 +745,8 @@
 				"sap/ui/dt/SelectionMode.js",
 				"sap/ui/dt/TaskManager.js",
 				"sap/ui/dt/Util.js",
+				"sap/ui/dt/designtime/notAdaptable.designtime.js",
+				"sap/ui/dt/designtime/notRemovable.designtime.js",
 				"sap/ui/dt/plugin/ContextMenu.js",
 				"sap/ui/dt/plugin/ControlDragDrop.js",
 				"sap/ui/dt/plugin/CutPaste.js",
@@ -753,6 +799,7 @@
 				"sap/m/VBox.js",
 				"sap/ui/Device.js",
 				"sap/ui/base/ManagedObject.js",
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/Component.js",
@@ -853,6 +900,7 @@
 				"sap/m/VBox.js",
 				"sap/ui/Device.js",
 				"sap/ui/base/ManagedObject.js",
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/Component.js",
@@ -937,6 +985,7 @@
 			"name": "library.js",
 			"module": "sap/ui/dt/library.js",
 			"required": [
+				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/core/library.js",
 				"sap/ui/dt/SelectionMode.js"
 			]

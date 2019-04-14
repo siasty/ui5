@@ -31,7 +31,7 @@ sap.ui.define(["sap/ui/thirdparty/jquery", 'sap/ui/core/library', 'sap/ui/core/E
 		 *
 		 * @namespace
 		 * @author SAP SE
-		 * @version 1.63.1
+		 * @version 1.64.0
 		 * @public
 		 * @since 0.8.8
 		 * @deprecated Since version 1.38. Instead, use the <code>sap.m.MessageBox</code> control.

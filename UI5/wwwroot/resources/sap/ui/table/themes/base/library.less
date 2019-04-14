@@ -40,6 +40,8 @@
 @_sap_ui_table_RowActionColumnSmallWidth: calc(@_sap_ui_table_RowActionItemSize ~"+ 2 *" @_sap_ui_table_RowActionPadding ~"+ 2 *" @_sap_ui_table_BaseBorderWidth);
 @_sap_ui_table_RowActionColumnSmallWidthCozy: calc(@_sap_ui_table_RowActionItemSizeCozy ~"+ 2 *" @_sap_ui_table_RowActionPadding ~"+ 2 *" @_sap_ui_table_BaseBorderWidth);
 @_sap_ui_table_RowActionColumnSmallWidthCondensed: calc(@_sap_ui_table_RowActionItemSizeCondensed ~"+ 2 *" @_sap_ui_table_RowActionPadding ~"+ 2 *" @_sap_ui_table_BaseBorderWidth);
+@_sap_ui_table_RowActionNavigationIcon: navigation-right-arrow;
+@_sap_ui_table_DeleteIcon: sys-cancel;
 
 @_sap_ui_table_FocusOutlineWidth: 1px;
 
@@ -102,17 +104,20 @@
 }
 
 .sapUiTableHdr {
-	padding: 0;
-	background-color: transparent;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	background-color: @sapUiGroupTitleBackground;
 	min-height: 1.5rem;
 	margin-bottom: 0.125rem;
 	height: auto;
 }
 
 .sapUiTableHdrTitle {
+	font-family: @sapUiFontHeaderFamily;
 	font-size: @sapMFontHeader4Size;
-	height: 100%;
+	font-weight: @sapUiFontHeaderWeight;
 	color: @sapUiGroupTitleTextColor;
+	height: 100%;
 }
 
 .sapUiTableCnt {
@@ -795,9 +800,10 @@ html[data-sap-ui-browser^="ie"] .sapUiTableColHdrCnt {
 	padding-bottom: 7px;
 
 	&:active {
-		// The active state background color should not be applied if column reordering is in progress.
+		// The active state background color and text color should not be applied if column reordering is in progress.
 		.sapUiTable:not(.sapUiTableDragDrop) & {
 			background-color: @sapUiListActiveBackground;
+			color: @sapUiListActiveTextColor;
 		}
 
 		& > .sapUiTableCellInner {
@@ -1159,7 +1165,9 @@ html[data-sap-ui-browser^="ie"] .sapUiTableColHdrCnt {
 	}
 
 	&::before {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		/* Select All Checkbox should always be at the bottom */
 		top: auto;
@@ -1191,7 +1199,9 @@ html[data-sap-ui-browser^="ie"] .sapUiTableColHdrCnt {
 	display: none;
 
 	.sapUiTableSelModeMultiToggle.sapUiTableRowSelectors & {
-		display: block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.sapUiTableGroupHeader&,
@@ -1221,6 +1231,33 @@ html[data-sap-ui-browser^="ie"] .sapUiTableColHdrCnt {
 
 	.sapUiTableRowHvr& {
 		border-color: @sapUiFieldHoverBorderColor;
+	}
+}
+
+.sapUiTableSelectClear {
+    width: 100%;
+    height: 100%;
+
+    &::before {
+        display: block;
+		position: absolute;
+		width: 100%;
+		vertical-align: baseline;
+		font-size: @_sap_ui_table_RowSelector_CheckBoxIconSizeCozy;
+		line-height: @_sap_ui_table_RowSelector_CheckBoxSizeCozy;
+        bottom: calc(~"(" @_sap_ui_table_ColumnHeaderHeight ~"-" @_sap_ui_table_RowSelector_CheckBoxSizeCozy ~") / 2");
+
+        .sapUiSizeCozy & {
+            bottom: calc(~"(" @_sap_ui_table_ColumnHeaderHeightCozy ~"-" @_sap_ui_table_RowSelector_CheckBoxSizeCozy ~") / 2");
+        }
+    }
+
+	&:active {
+		// The active state background color and text color should not be applied if column reordering is in progress.
+		.sapUiTable:not(.sapUiTableDragDrop) & {
+			background-color: @sapUiListActiveBackground;
+			color: @sapUiListActiveTextColor;
+		}
 	}
 }
 /* END "RowSelection.less" */
@@ -2052,7 +2089,7 @@ html[data-sap-ui-browser^="ie"] .sapUiTableTreeIcon:focus::before {
 .sapUiTableGroupIcon::before,
 .sapUiTableTreeIcon::before {
 	font-family: "SAP-icons";
-	font-size: 12px;
+	font-size: 0.75rem;
 	color: @sapUiContentIconColor;
 }
 

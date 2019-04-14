@@ -32,7 +32,7 @@ sap.ui.define([
 	 * Provides Rename handling functionality
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private

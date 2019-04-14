@@ -13,7 +13,7 @@ sap.ui.define([
 	'./library',
 	'sap/ui/core/Element',
 	'./TableUtils',
-	"./BindingSelectionAdapter",
+	"./plugins/BindingSelectionPlugin",
 	"sap/base/Log",
 	"sap/base/assert"
 ],
@@ -25,7 +25,7 @@ sap.ui.define([
 		library,
 		Element,
 		TableUtils,
-		BindingSelectionAdapter,
+		BindingSelectionPlugin,
 		Log,
 		assert
 	) {
@@ -40,7 +40,7 @@ sap.ui.define([
 	 * @class
 	 * The TreeTable control provides a comprehensive set of features to display hierarchical data.
 	 * @extends sap.ui.table.Table
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public
@@ -136,15 +136,9 @@ sap.ui.define([
 	 * @private
 	 */
 	TreeTable.prototype.init = function() {
+		this._SelectionAdapterClass = BindingSelectionPlugin;
 		Table.prototype.init.apply(this, arguments);
 		TableUtils.Grouping.setTreeMode(this);
-
-		this._initSelectionAdapter();
-	};
-
-	TreeTable.prototype._initSelectionAdapter = function(){
-		this._oSelectionAdapter = new BindingSelectionAdapter();
-		this._oSelectionAdapter.attachEvent("selectionChange", this._onSelectionChanged, this);
 	};
 
 	TreeTable.prototype.bindRows = function(oBindingInfo) {
@@ -164,25 +158,6 @@ sap.ui.define([
 		}
 
 		return Table.prototype.bindRows.call(this, oBindingInfo);
-	};
-
-	/**
-	 * This function will be called by either by {@link sap.ui.base.ManagedObject#bindAggregation} or {@link sap.ui.base.ManagedObject#setModel}.
-	 *
-	 * @override {@link sap.ui.table.Table#_bindAggregation}
-	 */
-	TreeTable.prototype._bindAggregation = function(sName, oBindingInfo) {
-		// Create the binding.
-		Table.prototype._bindAggregation.call(this, sName, oBindingInfo);
-
-		var oBinding = this.getBinding("rows");
-
-		if (sName === "rows" && oBinding) {
-			// Table._addBindingListener can not be used here, as the selectionChanged event will be added by an adapter applied in #getBinding.
-			oBinding.attachEvents({
-				selectionChanged: this._onSelectionChanged.bind(this)
-			});
-		}
 	};
 
 	/**

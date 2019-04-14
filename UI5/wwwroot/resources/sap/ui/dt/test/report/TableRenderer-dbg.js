@@ -11,7 +11,7 @@ sap.ui.define(function() {
 
 	/**
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @namespace
 	 */
 	var TableRenderer = {

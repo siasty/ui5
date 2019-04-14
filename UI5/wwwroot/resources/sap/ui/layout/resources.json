@@ -110,6 +110,7 @@
 				"sap/base/Log.js",
 				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/layout/BlockLayoutCellData.js",
 				"sap/ui/layout/BlockLayoutCellRenderer.js",
 				"sap/ui/layout/library.js",
 				"sap/ui/thirdparty/jquery.js"
@@ -126,6 +127,7 @@
 				"sap/base/Log.js",
 				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/layout/BlockLayoutCellData.js",
 				"sap/ui/layout/BlockLayoutCellRenderer.js",
 				"sap/ui/layout/library.js",
 				"sap/ui/thirdparty/jquery.js"

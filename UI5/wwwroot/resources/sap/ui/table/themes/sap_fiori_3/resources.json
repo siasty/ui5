@@ -11,6 +11,11 @@
 			"theme": "sap_fiori_3"
 		},
 		{
+			"name": "Table.less",
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
 			"name": "library-RTL-dbg.css",
 			"isDebug": true,
 			"theme": "sap_fiori_3"

@@ -18,7 +18,7 @@ sap.ui.define(['sap/ui/core/Core',
 	 * @namespace
 	 * @name sap.ui.rta
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @experimental This class is experimental and provides only limited functionality. Also the API might be changed in future.
 	 */
@@ -27,7 +27,7 @@ sap.ui.define(['sap/ui/core/Core',
 	// delegate further initialization of this library to the Core
 	sap.ui.getCore().initLibrary({
 		name : "sap.ui.rta",
-		version: "1.63.1",
+		version: "1.64.0",
 		dependencies : ["sap.ui.core","sap.m", "sap.ui.fl", "sap.ui.dt"],
 		types: [
 		],

@@ -29,7 +29,7 @@ function(
 	 * @class Utility functionality to work with elements, e.g. iterate through aggregations, find parents, ...
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @private
 	 * @static
@@ -95,7 +95,7 @@ function(
 	 */
 	ElementUtil.getClosestElementForNode = function(oNode) {
 		var $ClosestElement = jQuery(oNode).closest("[data-sap-ui]");
-		return $ClosestElement.length ? sap.ui.getCore().byId($ClosestElement.data("sap-ui")) : undefined;
+		return $ClosestElement.length ? sap.ui.getCore().byId($ClosestElement.attr("data-sap-ui")) : undefined;
 	};
 
 	/**

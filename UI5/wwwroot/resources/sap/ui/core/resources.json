@@ -3,10 +3,11 @@
 	"resources": [
 		{
 			"name": "../../../jquery-sap-dbg.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "jquery-sap.js",
 			"isDebug": true,
 			"merged": true,
 			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
 				"jquery.sap.encoder.js",
 				"jquery.sap.events.js",
 				"jquery.sap.global.js",
@@ -18,14 +19,19 @@
 				"jquery.sap.strings.js",
 				"jquery.sap.xml.js",
 				"jquery.sap.dom.js",
-				"jquery.sap.script.js"
+				"jquery.sap.script.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
 			"name": "../../../jquery-sap.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "jquery-sap.js",
 			"merged": true,
 			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
 				"jquery.sap.encoder.js",
 				"jquery.sap.events.js",
 				"jquery.sap.global.js",
@@ -37,7 +43,11 @@
 				"jquery.sap.strings.js",
 				"jquery.sap.xml.js",
 				"jquery.sap.dom.js",
-				"jquery.sap.script.js"
+				"jquery.sap.script.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -613,11 +623,18 @@
 		},
 		{
 			"name": "../../../sap-ui-core-dbg.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core-dbg.js",
 			"isDebug": true,
 			"merged": true,
 			"required": [
 				"sap/ui/core/Core.js"
+			],
+			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -626,19 +643,33 @@
 		},
 		{
 			"name": "../../../sap-ui-core-lean-dbg.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core-lean.js",
 			"isDebug": true,
 			"merged": true,
 			"required": [
 				"sap/ui/core/Core.js"
+			],
+			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
 			"name": "../../../sap-ui-core-lean.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core-lean.js",
 			"merged": true,
 			"required": [
 				"sap/ui/core/Core.js"
+			],
+			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -647,11 +678,18 @@
 		},
 		{
 			"name": "../../../sap-ui-core-nojQuery-dbg.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core-nojQuery-dbg.js",
 			"isDebug": true,
 			"merged": true,
 			"required": [
 				"sap/ui/core/Core.js"
+			],
+			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -660,9 +698,10 @@
 		},
 		{
 			"name": "../../../sap-ui-core-nojQuery.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core-nojQuery.js",
 			"merged": true,
 			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
 				"jquery.sap.global.js",
 				"jquery.sap.stubs.js",
 				"sap/base/Log.js",
@@ -700,6 +739,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/base/syncXHRFix.js",
 				"sap/ui/core/BlockLayerUtils.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
@@ -790,7 +830,14 @@
 				"sap/base/util/isPlainObject.js",
 				"sap/base/util/merge.js",
 				"sap/ui/base/ExpressionParser.js",
-				"sap/ui/dom/jquery/Selectors.js"
+				"sap/ui/dom/jquery/Selectors.js",
+				"sap/ui/thirdparty/URI.js",
+				"sap/ui/Device.js",
+				"sap/ui/thirdparty/jquery-mobile-custom.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -799,9 +846,10 @@
 		},
 		{
 			"name": "../../../sap-ui-core.js",
-			"module": "sap/ui/thirdparty/es6-promise.js",
+			"module": "sap-ui-core.js",
 			"merged": true,
 			"included": [
+				"sap/ui/thirdparty/es6-promise.js",
 				"jquery.sap.global.js",
 				"jquery.sap.stubs.js",
 				"sap/base/Log.js",
@@ -839,6 +887,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/base/syncXHRFix.js",
 				"sap/ui/core/BlockLayerUtils.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
@@ -929,7 +978,16 @@
 				"sap/base/util/isPlainObject.js",
 				"sap/base/util/merge.js",
 				"sap/ui/base/ExpressionParser.js",
-				"sap/ui/dom/jquery/Selectors.js"
+				"sap/ui/dom/jquery/Selectors.js",
+				"sap/ui/thirdparty/URI.js",
+				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js",
+				"sap/ui/Device.js",
+				"sap/ui/thirdparty/jquery.js",
+				"sap/ui/thirdparty/jquery-mobile-custom.js",
+				"sap/ui/thirdparty/baseuri.js",
+				"sap/ui/thirdparty/es6-shim-nopromise.js",
+				"ui5loader.js",
+				"ui5loader-autoconfig.js"
 			]
 		},
 		{
@@ -1013,9 +1071,8 @@
 			"isDebug": true,
 			"required": [
 				"sap/ui/thirdparty/baseuri.js",
-				"sap/ui/thirdparty/es6-object-assign.js",
 				"sap/ui/thirdparty/es6-promise.js",
-				"sap/ui/thirdparty/es6-string-methods.js"
+				"sap/ui/thirdparty/es6-shim-nopromise.js"
 			]
 		},
 		{
@@ -1023,9 +1080,8 @@
 			"module": "ui5loader.js",
 			"required": [
 				"sap/ui/thirdparty/baseuri.js",
-				"sap/ui/thirdparty/es6-object-assign.js",
 				"sap/ui/thirdparty/es6-promise.js",
-				"sap/ui/thirdparty/es6-string-methods.js"
+				"sap/ui/thirdparty/es6-shim-nopromise.js"
 			]
 		},
 		{
@@ -1291,6 +1347,7 @@
 				"sap/ui/base/EventProvider.js",
 				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/BindingMode.js",
 				"sap/ui/model/CompositeBinding.js",
 				"sap/ui/model/Context.js",
@@ -1318,6 +1375,7 @@
 				"sap/ui/base/EventProvider.js",
 				"sap/ui/base/ManagedObjectMetadata.js",
 				"sap/ui/base/Object.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/BindingMode.js",
 				"sap/ui/model/CompositeBinding.js",
 				"sap/ui/model/Context.js",
@@ -2323,12 +2381,12 @@
 				"sap/base/assert.js",
 				"sap/base/util/deepEqual.js",
 				"sap/ui/base/DataType.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/BindingMode.js",
 				"sap/ui/model/ChangeReason.js",
 				"sap/ui/model/CompositeDataState.js",
 				"sap/ui/model/CompositeType.js",
-				"sap/ui/model/PropertyBinding.js",
-				"sap/ui/thirdparty/jquery.js"
+				"sap/ui/model/PropertyBinding.js"
 			]
 		},
 		{
@@ -2339,12 +2397,12 @@
 				"sap/base/assert.js",
 				"sap/base/util/deepEqual.js",
 				"sap/ui/base/DataType.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/BindingMode.js",
 				"sap/ui/model/ChangeReason.js",
 				"sap/ui/model/CompositeDataState.js",
 				"sap/ui/model/CompositeType.js",
-				"sap/ui/model/PropertyBinding.js",
-				"sap/ui/thirdparty/jquery.js"
+				"sap/ui/model/PropertyBinding.js"
 			]
 		},
 		{
@@ -2592,6 +2650,7 @@
 			"required": [
 				"sap/base/Log.js",
 				"sap/base/assert.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/Binding.js",
 				"sap/ui/model/DataState.js",
 				"sap/ui/model/SimpleType.js"
@@ -2603,6 +2662,7 @@
 			"required": [
 				"sap/base/Log.js",
 				"sap/base/assert.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/Binding.js",
 				"sap/ui/model/DataState.js",
 				"sap/ui/model/SimpleType.js"
@@ -3346,6 +3406,15 @@
 			]
 		},
 		{
+			"name": "../model/odata/MessageScope-dbg.js",
+			"module": "sap/ui/model/odata/MessageScope.js",
+			"isDebug": true
+		},
+		{
+			"name": "../model/odata/MessageScope.js",
+			"module": "sap/ui/model/odata/MessageScope.js"
+		},
+		{
 			"name": "../model/odata/ODataAnnotations-dbg.js",
 			"module": "sap/ui/model/odata/ODataAnnotations.js",
 			"isDebug": true,
@@ -3868,7 +3937,8 @@
 			"module": "sap/ui/model/odata/type/Currency.js",
 			"isDebug": true,
 			"required": [
-				"sap/base/util/merge.js",
+				"sap/ui/model/ParseException.js",
+				"sap/ui/model/ValidateException.js",
 				"sap/ui/model/type/Currency.js"
 			]
 		},
@@ -3876,7 +3946,8 @@
 			"name": "../model/odata/type/Currency.js",
 			"module": "sap/ui/model/odata/type/Currency.js",
 			"required": [
-				"sap/base/util/merge.js",
+				"sap/ui/model/ParseException.js",
+				"sap/ui/model/ValidateException.js",
 				"sap/ui/model/type/Currency.js"
 			]
 		},
@@ -4316,8 +4387,9 @@
 			"module": "sap/ui/model/odata/type/Unit.js",
 			"isDebug": true,
 			"required": [
-				"sap/base/util/merge.js",
 				"sap/ui/core/format/NumberFormat.js",
+				"sap/ui/model/ParseException.js",
+				"sap/ui/model/ValidateException.js",
 				"sap/ui/model/type/Unit.js"
 			]
 		},
@@ -4325,8 +4397,9 @@
 			"name": "../model/odata/type/Unit.js",
 			"module": "sap/ui/model/odata/type/Unit.js",
 			"required": [
-				"sap/base/util/merge.js",
 				"sap/ui/core/format/NumberFormat.js",
+				"sap/ui/model/ParseException.js",
+				"sap/ui/model/ValidateException.js",
 				"sap/ui/model/type/Unit.js"
 			]
 		},
@@ -4454,6 +4527,7 @@
 				"sap/ui/model/FilterProcessor.js",
 				"sap/ui/model/Model.js",
 				"sap/ui/model/odata/CountMode.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataMessageParser.js",
 				"sap/ui/model/odata/ODataMetaModel.js",
 				"sap/ui/model/odata/ODataMetadata.js",
@@ -4489,6 +4563,7 @@
 				"sap/ui/model/FilterProcessor.js",
 				"sap/ui/model/Model.js",
 				"sap/ui/model/odata/CountMode.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataMessageParser.js",
 				"sap/ui/model/odata/ODataMetaModel.js",
 				"sap/ui/model/odata/ODataMetadata.js",
@@ -4658,6 +4733,7 @@
 			"isDebug": true,
 			"required": [
 				"sap/base/Log.js",
+				"sap/base/util/uid.js",
 				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/Binding.js",
 				"sap/ui/model/ChangeReason.js",
@@ -4682,6 +4758,7 @@
 			"module": "sap/ui/model/odata/v4/ODataListBinding.js",
 			"required": [
 				"sap/base/Log.js",
+				"sap/base/util/uid.js",
 				"sap/ui/base/SyncPromise.js",
 				"sap/ui/model/Binding.js",
 				"sap/ui/model/ChangeReason.js",
@@ -6201,6 +6278,23 @@
 			]
 		},
 		{
+			"name": "../test/_BrowserLogCollector-dbg.js",
+			"module": "sap/ui/test/_BrowserLogCollector.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/base/Object.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
+			"name": "../test/_BrowserLogCollector.js",
+			"module": "sap/ui/test/_BrowserLogCollector.js",
+			"required": [
+				"sap/ui/base/Object.js",
+				"sap/ui/thirdparty/jquery.js"
+			]
+		},
+		{
 			"name": "../test/_ControlFinder-dbg.js",
 			"module": "sap/ui/test/_ControlFinder.js",
 			"isDebug": true,
@@ -7518,6 +7612,15 @@
 			"module": "sap/ui/thirdparty/es6-promise.js"
 		},
 		{
+			"name": "../thirdparty/es6-shim-nopromise-dbg.js",
+			"module": "sap/ui/thirdparty/es6-shim-nopromise.js",
+			"isDebug": true
+		},
+		{
+			"name": "../thirdparty/es6-shim-nopromise.js",
+			"module": "sap/ui/thirdparty/es6-shim-nopromise.js"
+		},
+		{
 			"name": "../thirdparty/es6-string-methods-dbg.js",
 			"module": "sap/ui/thirdparty/es6-string-methods.js",
 			"isDebug": true
@@ -8416,6 +8519,9 @@
 			"name": "../thirdparty/licenses/es6-promise-MIT-LICENSE.txt"
 		},
 		{
+			"name": "../thirdparty/licenses/es6-shim-nopromise-MIT-LICENSE.txt"
+		},
+		{
 			"name": "../thirdparty/licenses/es6-string-methods-basic-MIT-LICENSE.txt"
 		},
 		{
@@ -8963,13 +9069,13 @@
 				"sap/base/util/merge.js",
 				"sap/ui/base/ManagedObject.js",
 				"sap/ui/core/ComponentMetadata.js",
-				"sap/ui/core/Core.js",
 				"sap/ui/core/Manifest.js",
 				"sap/ui/performance/trace/Interaction.js",
 				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/jquery.js"
 			],
 			"condRequired": [
+				"sap/ui/core/Core.js",
 				"sap/ui/core/EventBus.js",
 				"sap/ui/model/odata/ODataUtils.js"
 			]
@@ -8987,13 +9093,13 @@
 				"sap/base/util/merge.js",
 				"sap/ui/base/ManagedObject.js",
 				"sap/ui/core/ComponentMetadata.js",
-				"sap/ui/core/Core.js",
 				"sap/ui/core/Manifest.js",
 				"sap/ui/performance/trace/Interaction.js",
 				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/jquery.js"
 			],
 			"condRequired": [
+				"sap/ui/core/Core.js",
 				"sap/ui/core/EventBus.js",
 				"sap/ui/model/odata/ODataUtils.js"
 			]
@@ -11620,6 +11726,7 @@
 				"sap/m/SelectList.js",
 				"sap/m/Text.js",
 				"sap/m/library.js",
+				"sap/ui/Device.js",
 				"sap/ui/Global.js",
 				"sap/ui/VersionInfo.js",
 				"sap/ui/base/BindingParser.js",
@@ -11631,6 +11738,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
 				"sap/ui/core/CalendarType.js",
 				"sap/ui/core/Component.js",
@@ -11695,7 +11803,13 @@
 				"sap/ui/support/library.js",
 				"sap/ui/support/supportRules/util/StringAnalyzer.js",
 				"sap/ui/test/BlanketReporterUI.controller.js",
+				"sap/ui/thirdparty/URI.js",
+				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/util/ActivityDetection.js"
+			],
+			"condRequired": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js"
 			],
 			"included": [
 				"sap/ui/core/library.js",
@@ -11723,7 +11837,6 @@
 				"jquery.sap.unicode.js",
 				"jquery.sap.xml.js",
 				"sap-ui-boot.js",
-				"sap/ui/thirdparty/es6-promise.js",
 				"sap/base/security/URLWhitelist.js",
 				"sap/base/security/encodeCSS.js",
 				"sap/base/security/encodeJS.js",
@@ -11737,12 +11850,10 @@
 				"sap/base/util/defineCoupledProperty.js",
 				"sap/base/util/includes.js",
 				"sap/base/util/values.js",
-				"sap/ui/Device.js",
 				"sap/ui/app/Application.js",
 				"sap/ui/app/ApplicationMetadata.js",
 				"sap/ui/app/MockServer.js",
 				"sap/ui/base/ManagedObjectObserver.js",
-				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/AppCacheBuster.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/ComponentContainer.js",
@@ -11897,7 +12008,7 @@
 				"sap/ui/core/support/techinfo/moduleTreeHelper.js",
 				"sap/ui/core/support/trace/E2eTraceLib.js",
 				"sap/ui/core/support/trace/EppLib.js",
-				"sap/ui/core/support/usage/UsageAnalytics.js",
+				"sap/ui/core/support/usage/EventBroadcaster.js",
 				"sap/ui/core/syncStyleClass.js",
 				"sap/ui/core/theming/Parameters.js",
 				"sap/ui/core/tmpl/DOMAttribute.js",
@@ -11986,6 +12097,7 @@
 				"sap/ui/model/odata/AnnotationParser.js",
 				"sap/ui/model/odata/CountMode.js",
 				"sap/ui/model/odata/Filter.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataAnnotations.js",
 				"sap/ui/model/odata/ODataContextBinding.js",
 				"sap/ui/model/odata/ODataListBinding.js",
@@ -12102,6 +12214,7 @@
 				"sap/ui/test/RecordReplay.js",
 				"sap/ui/test/TestEnv.js",
 				"sap/ui/test/TestUtils.js",
+				"sap/ui/test/_BrowserLogCollector.js",
 				"sap/ui/test/_ControlFinder.js",
 				"sap/ui/test/_LogCollector.js",
 				"sap/ui/test/_OpaLogger.js",
@@ -12164,9 +12277,7 @@
 				"sap/ui/thirdparty/IPv6.js",
 				"sap/ui/thirdparty/RequestRecorder.js",
 				"sap/ui/thirdparty/SecondLevelDomains.js",
-				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/URITemplate.js",
-				"sap/ui/thirdparty/baseuri.js",
 				"sap/ui/thirdparty/bignumber.js",
 				"sap/ui/thirdparty/blanket.js",
 				"sap/ui/thirdparty/caja-html-sanitizer.js",
@@ -12182,8 +12293,6 @@
 				"sap/ui/thirdparty/hyphenopoly/hyphenopoly.bundle.js",
 				"sap/ui/thirdparty/iscroll-lite.js",
 				"sap/ui/thirdparty/iscroll.js",
-				"sap/ui/thirdparty/jquery-mobile-custom.js",
-				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-blind.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-bounce.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-clip.js",
@@ -12217,7 +12326,6 @@
 				"sap/ui/thirdparty/jqueryui/jquery-ui-effect-transfer.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-effect.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-mouse.js",
-				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-resizable.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-selectable.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-sortable.js",
@@ -12248,9 +12356,7 @@
 				"sap/ui/thirdparty/zyngascroll.js",
 				"sap/ui/util/Mobile.js",
 				"sap/ui/util/Storage.js",
-				"sap/ui/util/XMLHelper.js",
-				"ui5loader-autoconfig.js",
-				"ui5loader.js"
+				"sap/ui/util/XMLHelper.js"
 			]
 		},
 		{
@@ -12293,6 +12399,7 @@
 				"sap/m/SelectList.js",
 				"sap/m/Text.js",
 				"sap/m/library.js",
+				"sap/ui/Device.js",
 				"sap/ui/Global.js",
 				"sap/ui/VersionInfo.js",
 				"sap/ui/base/BindingParser.js",
@@ -12304,6 +12411,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
 				"sap/ui/core/CalendarType.js",
 				"sap/ui/core/Component.js",
@@ -12368,7 +12476,13 @@
 				"sap/ui/support/library.js",
 				"sap/ui/support/supportRules/util/StringAnalyzer.js",
 				"sap/ui/test/BlanketReporterUI.controller.js",
+				"sap/ui/thirdparty/URI.js",
+				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/util/ActivityDetection.js"
+			],
+			"condRequired": [
+				"sap/ui/thirdparty/es6-promise.js",
+				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js"
 			],
 			"included": [
 				"sap/ui/core/library.js",
@@ -12396,7 +12510,6 @@
 				"jquery.sap.unicode.js",
 				"jquery.sap.xml.js",
 				"sap-ui-boot.js",
-				"sap/ui/thirdparty/es6-promise.js",
 				"sap/base/security/URLWhitelist.js",
 				"sap/base/security/encodeCSS.js",
 				"sap/base/security/encodeJS.js",
@@ -12410,12 +12523,10 @@
 				"sap/base/util/defineCoupledProperty.js",
 				"sap/base/util/includes.js",
 				"sap/base/util/values.js",
-				"sap/ui/Device.js",
 				"sap/ui/app/Application.js",
 				"sap/ui/app/ApplicationMetadata.js",
 				"sap/ui/app/MockServer.js",
 				"sap/ui/base/ManagedObjectObserver.js",
-				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/AppCacheBuster.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/ComponentContainer.js",
@@ -12570,7 +12681,7 @@
 				"sap/ui/core/support/techinfo/moduleTreeHelper.js",
 				"sap/ui/core/support/trace/E2eTraceLib.js",
 				"sap/ui/core/support/trace/EppLib.js",
-				"sap/ui/core/support/usage/UsageAnalytics.js",
+				"sap/ui/core/support/usage/EventBroadcaster.js",
 				"sap/ui/core/syncStyleClass.js",
 				"sap/ui/core/theming/Parameters.js",
 				"sap/ui/core/tmpl/DOMAttribute.js",
@@ -12659,6 +12770,7 @@
 				"sap/ui/model/odata/AnnotationParser.js",
 				"sap/ui/model/odata/CountMode.js",
 				"sap/ui/model/odata/Filter.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataAnnotations.js",
 				"sap/ui/model/odata/ODataContextBinding.js",
 				"sap/ui/model/odata/ODataListBinding.js",
@@ -12775,6 +12887,7 @@
 				"sap/ui/test/RecordReplay.js",
 				"sap/ui/test/TestEnv.js",
 				"sap/ui/test/TestUtils.js",
+				"sap/ui/test/_BrowserLogCollector.js",
 				"sap/ui/test/_ControlFinder.js",
 				"sap/ui/test/_LogCollector.js",
 				"sap/ui/test/_OpaLogger.js",
@@ -12837,9 +12950,7 @@
 				"sap/ui/thirdparty/IPv6.js",
 				"sap/ui/thirdparty/RequestRecorder.js",
 				"sap/ui/thirdparty/SecondLevelDomains.js",
-				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/URITemplate.js",
-				"sap/ui/thirdparty/baseuri.js",
 				"sap/ui/thirdparty/bignumber.js",
 				"sap/ui/thirdparty/blanket.js",
 				"sap/ui/thirdparty/caja-html-sanitizer.js",
@@ -12855,8 +12966,6 @@
 				"sap/ui/thirdparty/hyphenopoly/hyphenopoly.bundle.js",
 				"sap/ui/thirdparty/iscroll-lite.js",
 				"sap/ui/thirdparty/iscroll.js",
-				"sap/ui/thirdparty/jquery-mobile-custom.js",
-				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-blind.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-bounce.js",
 				"sap/ui/thirdparty/jqueryui/jquery-effects-clip.js",
@@ -12890,7 +12999,6 @@
 				"sap/ui/thirdparty/jqueryui/jquery-ui-effect-transfer.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-effect.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-mouse.js",
-				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-resizable.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-selectable.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-sortable.js",
@@ -12921,9 +13029,7 @@
 				"sap/ui/thirdparty/zyngascroll.js",
 				"sap/ui/util/Mobile.js",
 				"sap/ui/util/Storage.js",
-				"sap/ui/util/XMLHelper.js",
-				"ui5loader-autoconfig.js",
-				"ui5loader.js"
+				"sap/ui/util/XMLHelper.js"
 			]
 		},
 		{
@@ -12959,6 +13065,7 @@
 				"sap/base/util/merge.js",
 				"sap/base/util/now.js",
 				"sap/base/util/uid.js",
+				"sap/ui/Device.js",
 				"sap/ui/Global.js",
 				"sap/ui/base/BindingParser.js",
 				"sap/ui/base/DataType.js",
@@ -12968,6 +13075,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
 				"sap/ui/core/CalendarType.js",
 				"sap/ui/core/Component.js",
@@ -13025,8 +13133,10 @@
 				"sap/ui/performance/trace/FESR.js",
 				"sap/ui/performance/trace/Interaction.js",
 				"sap/ui/performance/trace/Passport.js",
+				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/datajs.js",
 				"sap/ui/thirdparty/handlebars.js",
+				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/sinon.js",
 				"sap/ui/thirdparty/unorm.js",
 				"sap/ui/thirdparty/unormdata.js",
@@ -13035,6 +13145,7 @@
 			],
 			"condRequired": [
 				"sap/ui/core/support/trace/E2eTraceLib.js",
+				"sap/ui/thirdparty/es6-promise.js",
 				"sap/ui/thirdparty/sinon-ie.js",
 				"sap/ui/thirdparty/zyngascroll.js"
 			],
@@ -13071,12 +13182,10 @@
 				"sap/base/util/defineCoupledProperty.js",
 				"sap/base/util/includes.js",
 				"sap/base/util/values.js",
-				"sap/ui/Device.js",
 				"sap/ui/app/Application.js",
 				"sap/ui/app/ApplicationMetadata.js",
 				"sap/ui/app/MockServer.js",
 				"sap/ui/base/ManagedObjectObserver.js",
-				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/AppCacheBuster.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/ComponentContainer.js",
@@ -13270,6 +13379,7 @@
 				"sap/ui/model/odata/AnnotationParser.js",
 				"sap/ui/model/odata/CountMode.js",
 				"sap/ui/model/odata/Filter.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataAnnotations.js",
 				"sap/ui/model/odata/ODataContextBinding.js",
 				"sap/ui/model/odata/ODataListBinding.js",
@@ -13361,25 +13471,15 @@
 				"sap/ui/model/xml/XMLModel.js",
 				"sap/ui/model/xml/XMLPropertyBinding.js",
 				"sap/ui/model/xml/XMLTreeBinding.js",
-				"sap/ui/thirdparty/URI.js",
-				"sap/ui/thirdparty/baseuri.js",
 				"sap/ui/thirdparty/caja-html-sanitizer.js",
 				"sap/ui/thirdparty/crossroads.js",
-				"sap/ui/thirdparty/es6-object-assign.js",
-				"sap/ui/thirdparty/es6-promise.js",
-				"sap/ui/thirdparty/es6-string-methods.js",
 				"sap/ui/thirdparty/hasher.js",
-				"sap/ui/thirdparty/jquery-mobile-custom.js",
-				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-core.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-datepicker.js",
-				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js",
 				"sap/ui/thirdparty/signals.js",
 				"sap/ui/util/Mobile.js",
 				"sap/ui/util/Storage.js",
-				"sap/ui/util/XMLHelper.js",
-				"ui5loader-autoconfig.js",
-				"ui5loader.js"
+				"sap/ui/util/XMLHelper.js"
 			]
 		},
 		{
@@ -13415,6 +13515,7 @@
 				"sap/base/util/merge.js",
 				"sap/base/util/now.js",
 				"sap/base/util/uid.js",
+				"sap/ui/Device.js",
 				"sap/ui/Global.js",
 				"sap/ui/base/BindingParser.js",
 				"sap/ui/base/DataType.js",
@@ -13424,6 +13525,7 @@
 				"sap/ui/base/Metadata.js",
 				"sap/ui/base/Object.js",
 				"sap/ui/base/ObjectPool.js",
+				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/BusyIndicatorUtils.js",
 				"sap/ui/core/CalendarType.js",
 				"sap/ui/core/Component.js",
@@ -13481,8 +13583,10 @@
 				"sap/ui/performance/trace/FESR.js",
 				"sap/ui/performance/trace/Interaction.js",
 				"sap/ui/performance/trace/Passport.js",
+				"sap/ui/thirdparty/URI.js",
 				"sap/ui/thirdparty/datajs.js",
 				"sap/ui/thirdparty/handlebars.js",
+				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/sinon.js",
 				"sap/ui/thirdparty/unorm.js",
 				"sap/ui/thirdparty/unormdata.js",
@@ -13491,6 +13595,7 @@
 			],
 			"condRequired": [
 				"sap/ui/core/support/trace/E2eTraceLib.js",
+				"sap/ui/thirdparty/es6-promise.js",
 				"sap/ui/thirdparty/sinon-ie.js",
 				"sap/ui/thirdparty/zyngascroll.js"
 			],
@@ -13527,12 +13632,10 @@
 				"sap/base/util/defineCoupledProperty.js",
 				"sap/base/util/includes.js",
 				"sap/base/util/values.js",
-				"sap/ui/Device.js",
 				"sap/ui/app/Application.js",
 				"sap/ui/app/ApplicationMetadata.js",
 				"sap/ui/app/MockServer.js",
 				"sap/ui/base/ManagedObjectObserver.js",
-				"sap/ui/base/SyncPromise.js",
 				"sap/ui/core/AppCacheBuster.js",
 				"sap/ui/core/BusyIndicator.js",
 				"sap/ui/core/ComponentContainer.js",
@@ -13726,6 +13829,7 @@
 				"sap/ui/model/odata/AnnotationParser.js",
 				"sap/ui/model/odata/CountMode.js",
 				"sap/ui/model/odata/Filter.js",
+				"sap/ui/model/odata/MessageScope.js",
 				"sap/ui/model/odata/ODataAnnotations.js",
 				"sap/ui/model/odata/ODataContextBinding.js",
 				"sap/ui/model/odata/ODataListBinding.js",
@@ -13817,25 +13921,15 @@
 				"sap/ui/model/xml/XMLModel.js",
 				"sap/ui/model/xml/XMLPropertyBinding.js",
 				"sap/ui/model/xml/XMLTreeBinding.js",
-				"sap/ui/thirdparty/URI.js",
-				"sap/ui/thirdparty/baseuri.js",
 				"sap/ui/thirdparty/caja-html-sanitizer.js",
 				"sap/ui/thirdparty/crossroads.js",
-				"sap/ui/thirdparty/es6-object-assign.js",
-				"sap/ui/thirdparty/es6-promise.js",
-				"sap/ui/thirdparty/es6-string-methods.js",
 				"sap/ui/thirdparty/hasher.js",
-				"sap/ui/thirdparty/jquery-mobile-custom.js",
-				"sap/ui/thirdparty/jquery.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-core.js",
 				"sap/ui/thirdparty/jqueryui/jquery-ui-datepicker.js",
-				"sap/ui/thirdparty/jqueryui/jquery-ui-position.js",
 				"sap/ui/thirdparty/signals.js",
 				"sap/ui/util/Mobile.js",
 				"sap/ui/util/Storage.js",
-				"sap/ui/util/XMLHelper.js",
-				"ui5loader-autoconfig.js",
-				"ui5loader.js"
+				"sap/ui/util/XMLHelper.js"
 			]
 		},
 		{
@@ -16020,20 +16114,22 @@
 			"module": "sap/ui/core/support/trace/EppLib.js"
 		},
 		{
-			"name": "support/usage/UsageAnalytics-dbg.js",
-			"module": "sap/ui/core/support/usage/UsageAnalytics.js",
+			"name": "support/usage/EventBroadcaster-dbg.js",
+			"module": "sap/ui/core/support/usage/EventBroadcaster.js",
 			"isDebug": true,
 			"required": [
-				"jquery.sap.global.js",
+				"sap/base/Log.js",
+				"sap/ui/core/Component.js",
 				"sap/ui/core/Element.js",
 				"sap/ui/core/routing/Router.js"
 			]
 		},
 		{
-			"name": "support/usage/UsageAnalytics.js",
-			"module": "sap/ui/core/support/usage/UsageAnalytics.js",
+			"name": "support/usage/EventBroadcaster.js",
+			"module": "sap/ui/core/support/usage/EventBroadcaster.js",
 			"required": [
-				"jquery.sap.global.js",
+				"sap/base/Log.js",
+				"sap/ui/core/Component.js",
 				"sap/ui/core/Element.js",
 				"sap/ui/core/routing/Router.js"
 			]

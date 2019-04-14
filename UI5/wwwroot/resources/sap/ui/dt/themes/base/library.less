@@ -10,10 +10,13 @@
 
 @import "../../../../../sap/ui/core/themes/base/global.less";
 /* START "Overlay.less" */
+/******************************************************************
+	Style of the DT Overlays - base Theme
+*******************************************************************/
 @_sap_ui_dt_Overlay_FocusColor : @sapUiContentFocusColor;
 @_sap_ui_dt_Overlay_TargetZoneColor : @sapUiSelected;
-@_sap_ui_dt_Overlay_SelectionColor : #35F;
-@_sap_ui_dt_Overlay_CuttedColor : white;
+@_sap_ui_dt_Overlay_SelectionColor : lighten(@sapUiBlue,10);
+@_sap_ui_dt_Overlay_CuttedColor : @sapUiWhite;
 
 #overlay-container {
 	position: absolute;
@@ -125,6 +128,12 @@
 /* END "Overlay.less" */
 
 /* START "ContextMenu.less" */
+/******************************************************************
+	Style of the DT Contextmenu - base Theme
+*******************************************************************/
+@_sap_ui_dt_ContextMenu_InnerShadow: lighten(@sapInformativeColor, 42); //#d5e3ef
+@_sap_ui_dt_ContextMenu_Border: @sapUiBlackBG; //#000
+
 .sapUiDtContextMenu .sapMPopoverScroll {
 	margin-right: 0 !important;
 }
@@ -136,14 +145,14 @@
 .sapUiDtContextMenu.sapContrast.sapMPopover, .sapUiDtContextMenu.sapContrast .sapMPopover {
 	opacity: 0;
 	min-width: 0;
-	border: 1px solid #3f5161;
-	box-shadow: 0 0 0 1px #cae4fb inset, 3px 3px 8px 0 rgba(0, 0, 0, 0.3);
+	border: 1px solid @_sap_ui_dt_ContextMenu_Border;
+	box-shadow: 0 0 0 1px @_sap_ui_dt_ContextMenu_InnerShadow inset, 3px 3px 8px 0 rgba(0, 0, 0, 0.3);
 	padding: 0.2rem;
 }
 
 .sapUiDtContextMenu.sapContrast.sapMPopoverArr:after, .sapUiDtContextMenu.sapContrast .sapMPopoverArr:after {
-	border: 1px solid #3f5161;
-	box-shadow: 0 0 0 1px #cae4fb inset;
+	border: 1px solid @_sap_ui_dt_ContextMenu_Border;
+	box-shadow: 0 0 0 1px @_sap_ui_dt_ContextMenu_InnerShadow inset;
 }
 
 .sapUiDtContextMenu.sapContrast.sapMPopoverArr, .sapUiDtContextMenu.sapContrast .sapMPopoverArr{

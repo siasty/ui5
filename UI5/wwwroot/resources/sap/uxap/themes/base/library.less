@@ -1099,6 +1099,28 @@ html[dir=rtl] .sapUxAPObjectPageHeaderMarks .sapMObjStatusMarker .sapUiIcon:firs
   background: transparent;
   box-shadow: none;
 }
+
+/* Phone Size */
+.sapUxAPObjectPageLayout-Std-Phone {
+
+	.sapUxAPObjectPageHeaderTitle.sapUxAPObjectPageHeaderSnappedTitleOnMobile > .sapFDynamicPageTitle {
+		padding: 0 0.25rem 0 1rem;
+		min-height: 2rem;
+		height: 2rem;
+	}
+}
+
+/* Tablet Size */
+.sapUxAPObjectPageLayout-Std-Tablet {
+
+	// Needed because on some high-end phones in landscape mode,
+	// the width of the viewport is bigger than 600 (Tablet breakpoint).
+	.sapUxAPObjectPageHeaderTitle.sapUxAPObjectPageHeaderSnappedTitleOnMobile > .sapFDynamicPageTitle {
+		padding: 0 0.25rem 0 2rem;
+		min-height: 2rem;
+		height: 2rem;
+	}
+}
 /* END "ObjectPageHeader.less" */
 
 /* START "ObjectPageHeaderContent.less" */
@@ -1126,10 +1148,6 @@ html[dir=rtl] .sapUxAPObjectPageHeaderMarks .sapMObjStatusMarker .sapUiIcon:firs
 
 	.sapUxAPObjectPageHeaderContentItem .sapMText {
 		line-height: 1.5rem;
-	}
-
-	.sapMObjectAttributeDiv .sapMText {
-		line-height: normal;
 	}
 
 	.sapUxAPObjectPageHeaderContentItem.sapUiRespGrid {
@@ -1206,6 +1224,15 @@ html[dir=rtl] .sapUxAPObjectPageHeaderMarks .sapMObjStatusMarker .sapUiIcon:firs
 		/* ObjectAttribute will not truncate inside ObjectPage but rather will go on more lines */
 		.sapUxAPObjectPageHeaderContentItem.sapMObjectAttributeActive {
 			line-height:1rem;
+		}
+
+		.sapUxAPObjectPageHeaderContentItem {
+			.sapMObjectAttributeDiv .sapMText,
+			.sapMObjectAttributeDiv .sapMObjectAttributeTitle,
+			.sapMObjectAttributeDiv .sapMObjectAttributeColon,
+			.sapMObjectAttributeDiv .sapMObjectAttributeText {
+				vertical-align: middle;
+			}
 		}
 
 		.sapUiVltCell > .sapMObjectAttributeDiv, .sapUiVltCell > .sapMObjStatus {

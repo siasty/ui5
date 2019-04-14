@@ -5,7 +5,7 @@
     "type": "library",
     "embeds": [],
     "applicationVersion": {
-      "version": "1.63.1"
+      "version": "1.64.0"
     },
     "title": "Controls that implement the SAP User Experience (UX) Guidelines 3.0",
     "description": "Controls that implement the SAP User Experience (UX) Guidelines 3.0",
@@ -22,13 +22,13 @@
   },
   "sap.ui5": {
     "dependencies": {
-      "minUI5Version": "1.63",
+      "minUI5Version": "1.64",
       "libs": {
         "sap.ui.core": {
-          "minVersion": "1.63.1"
+          "minVersion": "1.64.0"
         },
         "sap.ui.commons": {
-          "minVersion": "1.63.1"
+          "minVersion": "1.64.0"
         }
       }
     },

@@ -1,0 +1,13 @@
+﻿<core:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:core="sap.ui.core"
+	xmlns:smartTable="sap.ui.comp.smarttable" controllerName="host.ui5.Controllers.App">
+  <u:Shell id="myShell">
+    <u:content>
+      <smartTable:SmartTable id="oTable" header="Test List" editable="false" showRowCount="true" enableAutoBinding="true"
+				showFullScreenButton="true" tableType="Table">
+        <smartTable:layoutData>
+          <FlexItemData growFactor="1" baseSize="0%"/>
+        </smartTable:layoutData>
+      </smartTable:SmartTable>
+    </u:content>
+  </u:Shell>
+</core:View>

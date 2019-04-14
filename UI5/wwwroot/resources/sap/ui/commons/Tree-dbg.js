@@ -25,7 +25,7 @@ sap.ui.define(['sap/ui/thirdparty/jquery', 'sap/base/Log', './library', 'sap/ui/
 	 * @class
 	 * Simple tree to display item in a hierarchical way
 	 * @extends sap.ui.core.Control
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public

@@ -56,7 +56,7 @@ sap.ui.define([
 	 * @extends sap.ui.core.Control
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public
@@ -238,6 +238,9 @@ sap.ui.define([
 		var that = this;
 
 		this._oEditor.addEventListener("change", function(oEvent) {
+			if (!that.getEditable()) {
+				return;
+			}
 			var sValue = that.getCurrentValue();
 			that.fireLiveChange({
 				value: sValue,
@@ -248,7 +251,7 @@ sap.ui.define([
 			var sValue = that.getCurrentValue(),
 				sCurrentValue = that.getValue();
 			that.setProperty("value", sValue, true);
-			if (sValue != sCurrentValue) {
+			if (sValue != sCurrentValue && that.getEditable()) {
 				that.fireChange({
 					value: sValue,
 					oldValue: sCurrentValue

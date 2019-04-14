@@ -303,8 +303,8 @@ sap.ui.define([
 		updateScrollPosition: function(oTable, nScrollPosition, sTrigger, bPreventScroll) {
 			sTrigger = sTrigger == null ? ScrollTrigger.EXTENSION : sTrigger;
 
-			var oScrollExtension = oTable._getScrollExtension();
-			var oVSb = oScrollExtension.getVerticalScrollbar();
+			var oScrollExtension = oTable ? oTable._getScrollExtension() : null;
+			var oVSb = oScrollExtension ? oScrollExtension.getVerticalScrollbar() : null;
 
 			if (!oTable || !oVSb || !oScrollExtension.isVerticalScrollbarRequired() || internal(oTable).bVerticalScrollingSuspended) {
 				log("VerticalScrollingHelper#updateScrollPosition: Not executed - Guard clause not passed", oTable);
@@ -888,7 +888,8 @@ sap.ui.define([
 												 || mOptions.scrollDirection === ScrollDirection.BOTH)) {
 				var oVSb = oScrollExtension.getVerticalScrollbar();
 				var iMaxFirstRenderedRowIndex = this._getMaxFirstRenderedRowIndex();
-				var bIsScrollPositionInBuffer = this._getFirstRenderedRowIndex() === iMaxFirstRenderedRowIndex;
+				var bIsScrollPositionInBuffer = TableUtils.isVariableRowHeightEnabled(this)
+												&& this._getFirstRenderedRowIndex() === iMaxFirstRenderedRowIndex;
 				var nScrollRangeRowFraction = VerticalScrollingHelper.getScrollRangeRowFraction(this);
 				var nScrollDeltaFactor = bIsScrollPositionInBuffer ? this._getDefaultRowHeight() : nScrollRangeRowFraction;
 
@@ -932,6 +933,8 @@ sap.ui.define([
 
 					internal(this).bIsScrolledVerticallyByWheel = true;
 					internal(this).bIsScrolledVerticallyByKeyboard = false;
+
+					this._getKeyboardExtension().setActionMode(false);
 
 					VerticalScrollingHelper.updateScrollPosition(this, nScrollPosition + nPixelsToScroll, ScrollTrigger.MOUSEWHEEL);
 				}
@@ -1020,6 +1023,7 @@ sap.ui.define([
 
 					if (oVSb && (mOptions.scrollDirection === ScrollDirection.VERTICAL
 								 || mOptions.scrollDirection === ScrollDirection.BOTH)) {
+						this._getKeyboardExtension().setActionMode(false);
 
 						if (mTouchSessionData.initialScrolledToEnd == null) {
 							if (iTouchDistanceY < 0) { // Scrolling down.
@@ -1240,18 +1244,27 @@ sap.ui.define([
 			var $ParentCell = TableUtils.getParentCell(this, oEvent.target);
 
 			if ($ParentCell) {
-				Promise.resolve().then(function() {
+				var that = this;
+				var fnScrollBack = function() {
 					var $InnerCellElement = $ParentCell.find(".sapUiTableCellInner");
 
 					if ($InnerCellElement.length > 0) {
-						if (this._bRtlMode) {
+						if (that._bRtlMode) {
 							$InnerCellElement.scrollLeftRTL($InnerCellElement[0].scrollWidth - $InnerCellElement[0].clientWidth);
 						} else {
 							$InnerCellElement[0].scrollLeft = 0;
 						}
 						$InnerCellElement[0].scrollTop = 0;
 					}
-				}.bind(this));
+				};
+
+				Promise.resolve().then(function() {
+					if (Device.browser.safari) {
+						window.setTimeout(fnScrollBack, 0);
+					} else {
+						fnScrollBack();
+					}
+				});
 			}
 		}
 	};
@@ -1333,7 +1346,7 @@ sap.ui.define([
 	 * @class Extension for sap.ui.table.Table which handles scrolling.
 	 * @extends sap.ui.table.TableExtension
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @constructor
 	 * @private
 	 * @alias sap.ui.table.TableScrollExtension

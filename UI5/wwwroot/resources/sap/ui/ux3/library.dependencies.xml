@@ -592,7 +592,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/ux3/ToolPopup.js" size="64822" compressedSize="16016">
+  <module name="sap/ui/ux3/ToolPopup.js" size="64824" compressedSize="16016">
     <description>Provides control sap.ui.ux3.ToolPopup.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -619,7 +619,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/ux3/library-h2-preload.js" size="14001">
+  <module name="sap/ui/ux3/library-h2-preload.js" size="14048">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/assert.js"/>
@@ -742,7 +742,7 @@
       <module name="sap/ui/ux3/ToolPopupRenderer.js"/>
     </includes>
   </module>
-  <module name="sap/ui/ux3/library-preload.js" size="310309">
+  <module name="sap/ui/ux3/library-preload.js" size="310353">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/assert.js"/>

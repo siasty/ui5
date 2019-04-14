@@ -20,7 +20,7 @@ function(
 	 *
 	 * @class Utility functionality to work with overlays
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @static
 	 * @since 1.30

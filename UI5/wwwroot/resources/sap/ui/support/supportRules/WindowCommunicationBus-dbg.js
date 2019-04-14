@@ -8,9 +8,11 @@
  * @typedef {object} EventListener
  */
 sap.ui.define([
-	"jquery.sap.global"
+	"sap/base/Log",
+	"jquery.sap.script", // contains jQuery.sap.getUriParameters
+	"sap/ui/thirdparty/URI"
 ],
-function (jQuery) {
+function (Log, jQuery, URI) {
 	"use strict";
 
 	/**
@@ -21,7 +23,7 @@ function (jQuery) {
 	 * @name sap.ui.support.WindowCommunicationBus
 	 * @memberof sap.ui.support
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 */
 	var CommunicationBus = {
@@ -38,7 +40,7 @@ function (jQuery) {
 
 	if (!origin) {
 		// When loading from CDN, module path needs to be relative to that origin
-		var modulePathURI = new window.URI(jQuery.sap.getModulePath("sap.ui.support"));
+		var modulePathURI = new URI(sap.ui.require.toUrl("sap/ui/support"));
 		var protocol = modulePathURI.protocol() === "" ?
 			window.location.protocol.replace(":", "") : modulePathURI.protocol();
 
@@ -159,7 +161,7 @@ function (jQuery) {
 		});
 
 		if (!checkResults) {
-			jQuery.sap.log.error("Message was received but failed validation");
+			Log.error("Message was received but failed validation");
 			return;
 		}
 

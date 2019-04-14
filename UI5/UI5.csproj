@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\resources\Core\**" />
+    <Content Remove="wwwroot\resources\Core\**" />
+    <EmbeddedResource Remove="wwwroot\resources\Core\**" />
+    <None Remove="wwwroot\resources\Core\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -15,10 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ui5\App.Controller.js">
+    <Content Update="ui5\Components\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ui5\Controllers\App.controller.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="ui5\App.view.xml">
+    <None Update="ui5\Views\App.view.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -20,7 +20,7 @@ sap.ui.define(['sap/ui/core/Element', 'sap/ui/model/SelectionModel', './library'
 	 * @class
 	 * Collection
 	 * @extends sap.ui.core.Element
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public

@@ -26,9 +26,11 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/support/library-h2-preload.js" size="14411">
+  <module name="sap/ui/support/library-h2-preload.js" size="14507">
     <requires>
       <module name="jquery.sap.global.js"/>
+      <module name="jquery.sap.script.js"/>
+      <module name="sap/base/Log.js"/>
       <module name="sap/m/Bar.js"/>
       <module name="sap/m/Button.js"/>
       <module name="sap/m/CheckBox.js"/>
@@ -164,9 +166,11 @@
       <module name="sap/ui/support/supportRules/util/Utils.js"/>
     </includes>
   </module>
-  <module name="sap/ui/support/library-preload.js" size="175961">
+  <module name="sap/ui/support/library-preload.js" size="176043">
     <requires>
       <module name="jquery.sap.global.js"/>
+      <module name="jquery.sap.script.js"/>
+      <module name="sap/base/Log.js"/>
       <module name="sap/m/Bar.js"/>
       <module name="sap/m/Button.js"/>
       <module name="sap/m/CheckBox.js"/>
@@ -305,6 +309,8 @@
   <module name="sap/ui/support/library-preload.json" size="0">
     <requires>
       <module name="jquery.sap.global.js"/>
+      <module name="jquery.sap.script.js"/>
+      <module name="sap/base/Log.js"/>
       <module name="sap/m/Bar.js"/>
       <module name="sap/m/Button.js"/>
       <module name="sap/m/CheckBox.js"/>
@@ -441,7 +447,7 @@
       <module name="sap/ui/support/supportRules/util/Utils.js"/>
     </includes>
   </module>
-  <module name="sap/ui/support/library-preload.support.js" size="5186">
+  <module name="sap/ui/support/library-preload.support.js" size="5242">
     <requires>
       <module name="sap/ui/support/supportRules/Main.js"/>
       <module name="sap/ui/support/supportRules/RuleSetLoader.js"/>
@@ -571,10 +577,12 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/support/supportRules/WindowCommunicationBus.js" size="5417" compressedSize="1768">
+  <module name="sap/ui/support/supportRules/WindowCommunicationBus.js" size="5488" compressedSize="1795">
     <description>@typedef {object} EventListener</description>
     <requires>
-      <module name="jquery.sap.global.js"/>
+      <module name="jquery.sap.script.js"/>
+      <module name="sap/base/Log.js"/>
+      <module name="sap/ui/thirdparty/URI.js"/>
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
@@ -593,7 +601,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/support/supportRules/report/DataCollector.js" size="4860" compressedSize="2832">
+  <module name="sap/ui/support/supportRules/report/DataCollector.js" size="4884" compressedSize="2839">
     <description>Provides methods for information retrieval from the core.</description>
     <requires>
       <module name="jquery.sap.global.js"/>

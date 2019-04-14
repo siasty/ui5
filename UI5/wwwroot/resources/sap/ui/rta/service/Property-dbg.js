@@ -9,13 +9,15 @@ sap.ui.define([
 	"sap/ui/dt/Util",
 	"sap/ui/dt/Overlay",
 	"sap/ui/dt/ElementUtil",
-	"sap/base/util/merge"
+	"sap/base/util/merge",
+	"sap/ui/rta/Utils"
 ], function(
 	OverlayRegistry,
 	DtUtil,
 	Overlay,
 	ElementUtil,
-	merge
+	merge,
+	RtaUtils
 ) {
 	"use strict";
 
@@ -28,7 +30,7 @@ sap.ui.define([
 	 * @author SAP SE
 	 * @experimental Since 1.58
 	 * @since 1.58
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @ui5-restricted
 	*/
@@ -47,9 +49,9 @@ sap.ui.define([
 	 * @property {object} [links] - links from dt-metadata
 	 */
 
-	return function(oRta) {
+	return function() {
 
-		var oProperty = { };
+		var oProperty = {};
 
 		/**
 		 * Returns properties, annotations, label and name
@@ -73,14 +75,14 @@ sap.ui.define([
 			var oDesignTimeMetadata = oOverlay.getDesignTimeMetadata();
 			// require deep cloning so that original dt-metadata is not modified
 			var oDesignTimeMetadataData = merge({}, oDesignTimeMetadata.getData());
-			var mDtProperties = oDesignTimeMetadataData.properties || {};
+			var vDtProperties = oDesignTimeMetadataData.properties || {};
 			var mDtAnnotations = oDesignTimeMetadataData.annotations || {};
 			var vLabel = oDesignTimeMetadataData.getLabel;
 
 			return Promise.all(
 				[
 					oProperty._getConsolidatedAnnotations(mDtAnnotations, oElement),
-					oProperty._getConsolidatedProperties(mDtProperties || {}, mMetadataProperties, oElement),
+					oProperty._getConsolidatedProperties(vDtProperties || {}, mMetadataProperties, oElement),
 					oProperty._getResolvedFunction(vLabel, oElement),
 					oProperty._getResolvedLinks(oDesignTimeMetadataData.links, oElement)
 				]
@@ -101,14 +103,14 @@ sap.ui.define([
 		 * Calculates and returns properties
 		 * from the passed dt-metadata and control metadata objects.
 		 *
-		 * @param {object} mDtObj - dt-metadata properties object
+		 * @param {object|function} vDtProperties - dt-metadata properties
 		 * @param {object} mMetadataObj - control metadata properties object
 		 * @param {sap.ui.core.Element} oElement - element for which properties need to be calculated
 		 *
 		 * @return {object} promise resolving to an object containing all properties consolidated
 		 * @private
 		 */
-		oProperty._getConsolidatedProperties = function (mDtObj, mMetadataObj, oElement) {
+		oProperty._getConsolidatedProperties = function (vDtProperties, mMetadataObj, oElement) {
 			var mFilteredMetadataObject = Object.keys(mMetadataObj)
 				.reduce(function (mFiltered, sKey) {
 					mFiltered[sKey] = {
@@ -116,7 +118,7 @@ sap.ui.define([
 						virtual: false,
 						type: mMetadataObj[sKey].type,
 						name: mMetadataObj[sKey].name,
-						ignore: false,
+						ignore: false, // default value, might be overwritten below if required by designtime metadata
 						group: mMetadataObj[sKey].group,
 						deprecated: mMetadataObj[sKey].deprecated,
 						defaultValue: mMetadataObj[sKey].defaultValue,
@@ -130,46 +132,52 @@ sap.ui.define([
 					return mFiltered;
 				}, {});
 
-			return Promise.all(
-				Object.keys(mDtObj)
-					.map(function (sKey) {
-						return oProperty._getResolvedFunction(mDtObj[sKey].ignore, oElement)
-							.then(function (bIgnore) {
+			return oProperty._getResolvedFunction(vDtProperties, oElement)
+				.then(function(mDtObj) {
+					return Promise.all(
+						// for each property in the mDtObj.properties a promise is returned
+						Object.keys(mDtObj)
+							.map(function (sKey) {
+								return oProperty._getResolvedFunction(mDtObj[sKey].ignore, oElement)
+									.then(function (bIgnore) {
 
-								if (typeof bIgnore !== "boolean" || typeof bIgnore === "undefined") {
-									throw DtUtil.createError(
-										"services.Property#get",
-										"Invalid ignore property value found in designtime for element with id " + oElement.getId() + " .", "sap.ui.rta"
-									);
-								}
+										if (typeof bIgnore !== "boolean") {
+											throw DtUtil.createError(
+												"services.Property#get",
+												"Invalid ignore property value found in designtime for element with id " + oElement.getId() + " .", "sap.ui.rta"
+											);
+										}
 
-								// ensure ignore function is replaced by a boolean value
-								if (bIgnore) {
-									// check if ignore property is set to true - remove from metadata object, if present
-									delete mFilteredMetadataObject[sKey];
-								} else if (!mFilteredMetadataObject[sKey]) {
-									//  if not available in control metadata
-									if (mDtObj[sKey].virtual === true) {
-										// virtual properties
-										return oProperty._getEvaluatedVirtualProperty(mDtObj, sKey, oElement);
-									} else {
-										// dt-metadata properties
-										var mEvaluatedProperty = {};
-										mEvaluatedProperty[sKey] = {
-											value: mDtObj[sKey],
-											virtual: false,
-											ignore: bIgnore
-										};
-										return mEvaluatedProperty;
-									}
-								}
-								return {};
-							});
-					})
-			)
+										var mResult = {};
+
+										// ensure ignore function is replaced by a boolean value
+										if (!mFilteredMetadataObject[sKey]) {
+											//  if not available in control metadata
+											if (mDtObj[sKey].virtual === true) {
+												// virtual properties
+												mResult = oProperty._getEvaluatedVirtualProperty(mDtObj, sKey, oElement, bIgnore);
+											} else {
+												// dt-metadata properties
+												mResult[sKey] = {
+													value: RtaUtils.omit(mDtObj[sKey], "ignore"),
+													virtual: false,
+													ignore: bIgnore
+												};
+											}
+										} else {
+											mResult[sKey] = {
+												ignore: bIgnore
+											};
+										}
+
+										return mResult;
+									});
+							})
+					);
+				})
 				.then(function (aFilteredResults) {
 					return aFilteredResults.reduce(function (mConsolidatedObject, oFilteredResult) {
-						return Object.assign(mConsolidatedObject, oFilteredResult);
+						return merge(mConsolidatedObject, oFilteredResult);
 					}, mFilteredMetadataObject);
 				});
 		};
@@ -180,11 +188,12 @@ sap.ui.define([
 		 * @param {object} mDtObj - dt-metadata properties object
 		 * @param {object} sPropertyName - virtual property name
 		 * @param {sap.ui.core.Element} oElement - element for which the virtual property needs to be evaluated
+		 * @param {boolean} bIgnore - evaluated value of ignore property
 		 *
 		 * @return {Promise} promise resolving to the evaluated virtual property object
 		 * @private
 		 */
-		oProperty._getEvaluatedVirtualProperty = function(mDtObj, sPropertyName, oElement) {
+		oProperty._getEvaluatedVirtualProperty = function(mDtObj, sPropertyName, oElement, bIgnore) {
 			var mEvaluatedProperty = {};
 			// evaluate if virtual - not found in metadata object
 			mEvaluatedProperty[sPropertyName] = {
@@ -193,7 +202,7 @@ sap.ui.define([
 				type: mDtObj[sPropertyName].type,
 				name: mDtObj[sPropertyName].name,
 				group: mDtObj[sPropertyName].group,
-				ignore: false
+				ignore: bIgnore
 			};
 			var mBindingInfo = oProperty._getBindingInfo(sPropertyName, oElement);
 
@@ -363,7 +372,7 @@ sap.ui.define([
 		oProperty._getResolvedFunction = function (vProperty, oElement) {
 			return DtUtil.wrapIntoPromise(function () {
 				return typeof vProperty === "function"
-					? vProperty(oElement) // could return a promise
+					? (vProperty(oElement) || false) // could return a promise
 					: (vProperty || false);
 			})(vProperty, oElement);
 		};

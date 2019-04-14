@@ -33,7 +33,7 @@ sap.ui.define([
 	 * @class
 	 * Responsible for displaying the new incoming messages, one at the time, on top of the MessageBar.
 	 * @extends sap.ui.core.Control
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public

@@ -118,7 +118,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/tnt/library-h2-preload.js" size="3242">
+  <module name="sap/tnt/library-h2-preload.js" size="3286">
     <requires>
       <module name="jquery.sap.global.js"/>
       <module name="sap/base/Log.js"/>
@@ -160,7 +160,7 @@
       <module name="sap/tnt/ToolPageRenderer.js"/>
     </includes>
   </module>
-  <module name="sap/tnt/library-preload.js" size="33010">
+  <module name="sap/tnt/library-preload.js" size="33051">
     <requires>
       <module name="jquery.sap.global.js"/>
       <module name="sap/base/Log.js"/>

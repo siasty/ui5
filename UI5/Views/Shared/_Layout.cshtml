@@ -1,39 +1,49 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Ui5 .Net Core</title>
 
     <script id='sap-ui-bootstrap'
-            src='/resources/sap-ui-core.js'
-            data-sap-ui-theme="sap_belize"
+            @*src="~/resources/sap-ui-core.js"*@
+            @*src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"*@
+            src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
+            data-sap-ui-theme="sap_belize_plus"
+            data-sap-ui-xx-bindingSyntax="complex"
             data-sap-ui-compatVersion="edge"
-            data-sap-ui-frameOptions="trusted"
-            data-sap-ui-preload="sync"
-            data-sap-ui-libs="sap.m, sap.ui.table, sap.ui.commons"
-            data-sap-ui-resourceroots='{"view": "./ui5/"}'>
+            @*data-sap-ui-preload="async"*@
+            data-sap-ui-language="en"
+            data-sap-ui-libs="sap.m,sap.ui.core,sap.ui.layout,sap.ui.comp"
+            data-sap-ui-resourceroots='{"host": "./"}'>
 
     </script>
-
+    <script type="text/javascript" src="/common/error.js"></script>
     <script>
-    
+        var ComponentContainer = new sap.ui.core.ComponentContainer({
+            height: "100%"
+        });
+
         new sap.m.Shell({
-            app: new sap.m.App({
-                id: 'NetApp',
-                pages: [
+            app: ComponentContainer,
+        }).placeAt("content");
 
-                ]
-            })
-            }).placeAt("content");
-
+        var oComponent = sap.ui.component({
+            id: "comp",
+            name: "host.ui5.Components",
+            manifestFirst: true,
+            async: true
+        }).then(function (oComponent) {
+            ComponentContainer.setComponent(oComponent);
+        });
 
     </script>
 
     @RenderSection("Scripts", required: false)
 </head>
-<body id='content' class='sapUiBody'>
-    <div class="container" data-id="container">
+<body class='sapUiBody' role="application">
+    <div class="container" id='content' >
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()

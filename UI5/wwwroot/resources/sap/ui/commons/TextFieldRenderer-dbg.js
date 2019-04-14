@@ -24,7 +24,7 @@ sap.ui.define(['sap/ui/core/Renderer', 'sap/ui/core/ValueStateSupport', 'sap/ui/
 	 * TextField Renderer
 	 * @namespace
 	 * @author SAP
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @since 0.9.0
 	 */
 	var TextFieldRenderer = {};
