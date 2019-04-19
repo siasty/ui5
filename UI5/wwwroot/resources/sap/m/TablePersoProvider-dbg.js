@@ -127,7 +127,7 @@ sap.ui.define(['sap/ui/base/ManagedObject', "sap/base/Log"],
 
 
 	/**
-	* Resets user’s personalization for a given table so that ‘getPersData’ will
+	* Resets user’s personalization for a given table so that "getPersData’ will
 	* deliver its initial state. If no table is specified, all personalizations
 	* of the currently logged on user are reset.
 	*
