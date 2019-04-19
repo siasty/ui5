@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (UIComponent, JSONModel, Device) {
     "use strict";
 
-    return UIComponent.extend("host.ui5.Components.Component", {
+    return UIComponent.extend("ui5.Component", {
 
         metadata: {
             manifest: "json"
@@ -21,8 +21,9 @@ sap.ui.define([
 
             this.setModel(oModel, "device");
 
-            sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
+            UIComponent.prototype.init.apply(this, arguments);
 
+            this.getRouter().initialize();
 
         },
       

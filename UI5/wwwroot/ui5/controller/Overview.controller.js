@@ -1,63 +1,15 @@
-//sap.ui.controller("view.App", {
-
-//    onPress: function (evt) {
-//        jQuery.sap.require("sap.m.MessageToast");
-//        sap.m.MessageToast.show(evt.getSource().getId() + " Pressed");
-//    },
-
-//    getRouter: function () {
-//        return sap.ui.core.UIComponent.getRouterFor(this);
-//    },
-
-//    onInit: function () {
-//        var oTable = this.byId("table");
-
-//        var oModel = new sap.ui.model.odata.v4.ODataModel(
-//            {
-//                groupId: "$direct",
-//                synchronizationMode: "None",
-//                serviceUrl: 'https://localhost:5001/odata/'
-//            });
-//        this.getView().setModel(oModel, "listView");
-
-   
-//    }
-//});
-
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/routing/History",
-    "sap/ui/model/json/JSONModel"
-], function (Controller, History, JSONModel) {
+    "sap/ui/core/routing/History"
+], function (Controller, History) {
     "use strict";
 
-    return Controller.extend("host.ui5.Controllers.App", {
+        return Controller.extend("ui5.controller.Overview", {
 
         onInit: function () {
             this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode
-            var oModel = this.getOwnerComponent().getModel("oModel");
-            var oTable = this.getView().byId("oTable");
 
-            oTable.setModel(oModel,"oModel");
-            oTable.setEntitySet("Books");
-            oTable.setInitiallyVisibleFields("Id,Author,Title");
-
-            //function fnLoadMetadata() {
-            //    oTable.setModel(oModel,"oModel");
-            //    oTable.setEntitySet("Books");
-            //    var oMeta = oModel.getServiceMetadata();
-            //    var headerFields = "";
-            //    for (var i = 0; i < oMeta.dataServices.schema[0].entityType[0].property.length; i++) {
-            //        var property = oMeta.dataServices.schema[0].entityType[0].property[i];
-            //        headerFields += property.name + ",";
-            //    }
-            //    oTable.setInitiallyVisibleFields(headerFields);
-            //};
-            //oModel.getMetadata(oModel, function () {
-            //    fnLoadMetadata();
-            //});
-
-     
+            //this.getView().bindElement("/Books");
 
         },
 

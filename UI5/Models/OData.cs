@@ -22,7 +22,7 @@ namespace UI5.Models
         {
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.Namespace = "MyBooks";
-            builder.ContainerName = "DefaultContainer";
+            //builder.ContainerName = "DefaultContainer";
             builder.EntitySet<Book>("Books");
             return builder.GetEdmModel();
         }
