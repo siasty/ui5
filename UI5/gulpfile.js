@@ -7,11 +7,10 @@ var prettydata = require('gulp-pretty-data');
 var gulpif = require('gulp-if');
 var replace = require('gulp-replace');
 var rm = require('gulp-rimraf');
-
 var gulps = require("gulp-series");
 var prettify = require('gulp-prettify');
 
-var your_project = 'ui5';
+var project = 'ui5';
 
 gulp.task('ui5preload',function () {
         return gulp.src(
@@ -30,5 +29,5 @@ gulp.task('ui5preload',function () {
                 namespace: your_project,
                 fileName: 'Component-preload.js'
             })).pipe(gulp.dest('./wwwroot/ui5/'));
-    });
+});
 
