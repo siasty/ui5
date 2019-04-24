@@ -59,7 +59,7 @@
       "cozy": true
     },
     "models": {
-      "": {
+      "oModel": {
         "dataSources": "default",
         "settings": {
           "synchronizationMode": "None",

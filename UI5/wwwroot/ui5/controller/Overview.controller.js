@@ -9,7 +9,7 @@ sap.ui.define([
         onInit: function () {
             this.getView().addStyleClass("sapUiSizeCompact"); // make everything inside this View appear in Compact mode
 
-            //this.getView().bindElement("/Books");
+            this.getView().bindElement("/Books");
 
         },
 
