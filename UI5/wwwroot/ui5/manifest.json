@@ -9,17 +9,6 @@
     "description": "{{appDescription}}",
     "applicationVersion": {
       "version": "1.0.0"
-    },
-    "ach": "ach",
-    "dataSources": {
-      "default": {
-        "uri": "/odata/",
-        "type": "OData",
-        "settings": {
-          "odataVersion": "4.0"
-        }
-
-      }
     }
   },
   "sap.ui": {
@@ -59,14 +48,6 @@
       "cozy": true
     },
     "models": {
-      "": {
-        "dataSources": "default",
-        "settings": {
-          "synchronizationMode": "None",
-          "serviceUrl": "/odata/"
-        },
-        "type": "sap.ui.model.odata.v4.ODataModel"
-      },
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -82,7 +63,7 @@
         "controlId": "app",
         "controlAggregation": "pages",
         "bypassed": {
-          "target": "search"
+          "target": "NotFound"
         },
         "async": true
       },

@@ -66,12 +66,20 @@ namespace UI5
                 ContentTypeProvider = provider
             });
 
-            
+            app.UseODataBatching();
+
+            app.Use((context, next) =>
+            {
+                context.Response.Headers["OData-Version"] = "4.0";
+                context.Response.Headers["OData-MaxVersion"] = "4.0";
+                return next.Invoke();
+            });
+
             app.UseMvc(routes =>
             {
-                routes.Select().Expand().Filter().OrderBy().Count();
-                routes.MapODataServiceRoute("odata", "odata", Models.OData.GetEdmModel(), new DefaultODataBatchHandler());
 
+                routes.Select().Expand().Filter().OrderBy().MaxTop(null).Count();
+                routes.MapODataServiceRoute("odata", "odata", GetEdmModel(), new DefaultODataBatchHandler());
             });
 
         }
