@@ -57,9 +57,9 @@ namespace UI5.Controllers
         }
 
         [EnableQuery]
-        public IQueryable Get()
+        public IActionResult Get()
         {
-            return _context.Books;
+            return Ok(_context.Books);
         }
 
         [EnableQuery]
