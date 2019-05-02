@@ -9,9 +9,7 @@
     "description": "{{appDescription}}",
     "applicationVersion": {
       "version": "1.0.0"
-    },
-    "ach": "ach"
-
+    }
   },
   "sap.ui": {
     "_version": "1.0.0",
@@ -65,7 +63,7 @@
         "controlId": "app",
         "controlAggregation": "pages",
         "bypassed": {
-          "target": "search"
+          "target": "NotFound"
         },
         "async": true
       },
