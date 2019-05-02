@@ -30,7 +30,7 @@ sap.ui.define([
 	 * @namespace
 	 * @alias sap.ui.fl.variants.util.VariantUtil
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @experimental Since 1.56.0
 	 */
 
@@ -205,24 +205,23 @@ sap.ui.define([
 
 		_adjustForDuplicateParameters: function(aVariantParamValues) {
 			// calculate if duplicate / higher level variant parameter exists
-			var bURLUpdateRequired = false;
 			if (aVariantParamValues.length > 1) {
-				Object.keys(this.oData).forEach(function(sVariantManagementReference) {
-					this.oData[sVariantManagementReference].variants.reduce(function(bVariantExists, oVariant) {
-						var iVariantIndex = aVariantParamValues.indexOf(oVariant.key);
-						if (iVariantIndex > -1) {
-							if (!bVariantExists) {
-								bVariantExists = true;
-							} else {
+				return Object.keys(this.oData).reduce(
+					function(bURLUpdateRequired, sVariantManagementReference) {
+						var sCurrentVariant = this.oData[sVariantManagementReference].currentVariant;
+						this.oData[sVariantManagementReference].variants.forEach(function (oVariant) {
+							var iVariantIndex = aVariantParamValues.indexOf(oVariant.key);
+							// if variantReference exists in this sVariantManagementReference
+							// and it's not the current variant
+							if (iVariantIndex > -1 && oVariant.key !== sCurrentVariant) {
 								aVariantParamValues.splice(iVariantIndex, 1);
 								bURLUpdateRequired = true;
 							}
-						}
-						return bVariantExists;
-					}, false);
-				}.bind(this));
+						});
+						return bURLUpdateRequired;
+					}.bind(this), false
+				);
 			}
-			return bURLUpdateRequired;
 		},
 
 		_setOrUnsetCustomNavigationForParameter: function(bSet) {

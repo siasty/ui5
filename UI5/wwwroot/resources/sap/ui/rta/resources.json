@@ -171,6 +171,7 @@
 				"sap/m/MessageBox.js",
 				"sap/ui/dt/DOMUtil.js",
 				"sap/ui/dt/OverlayUtil.js",
+				"sap/ui/dt/Util.js",
 				"sap/ui/fl/Utils.js",
 				"sap/ui/fl/registry/Settings.js",
 				"sap/ui/thirdparty/jquery.js"
@@ -184,6 +185,7 @@
 				"sap/m/MessageBox.js",
 				"sap/ui/dt/DOMUtil.js",
 				"sap/ui/dt/OverlayUtil.js",
+				"sap/ui/dt/Util.js",
 				"sap/ui/fl/Utils.js",
 				"sap/ui/fl/registry/Settings.js",
 				"sap/ui/thirdparty/jquery.js"
@@ -2907,7 +2909,8 @@
 				"sap/ui/dt/ElementUtil.js",
 				"sap/ui/dt/Overlay.js",
 				"sap/ui/dt/OverlayRegistry.js",
-				"sap/ui/dt/Util.js"
+				"sap/ui/dt/Util.js",
+				"sap/ui/rta/Utils.js"
 			]
 		},
 		{
@@ -2918,7 +2921,8 @@
 				"sap/ui/dt/ElementUtil.js",
 				"sap/ui/dt/Overlay.js",
 				"sap/ui/dt/OverlayRegistry.js",
-				"sap/ui/dt/Util.js"
+				"sap/ui/dt/Util.js",
+				"sap/ui/rta/Utils.js"
 			]
 		},
 		{

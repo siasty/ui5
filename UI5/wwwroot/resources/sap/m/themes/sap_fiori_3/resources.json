@@ -81,6 +81,11 @@
 			"theme": "sap_fiori_3"
 		},
 		{
+			"name": "GenericTag.less",
+			"designtime": true,
+			"theme": "sap_fiori_3"
+		},
+		{
 			"name": "GenericTile.less",
 			"designtime": true,
 			"theme": "sap_fiori_3"

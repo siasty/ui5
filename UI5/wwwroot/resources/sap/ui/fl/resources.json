@@ -641,6 +641,7 @@
 			"required": [
 				"sap/base/Log.js",
 				"sap/base/strings/capitalize.js",
+				"sap/ui/fl/registry/ChangeHandlerRegistration.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -650,6 +651,7 @@
 			"required": [
 				"sap/base/Log.js",
 				"sap/base/strings/capitalize.js",
+				"sap/ui/fl/registry/ChangeHandlerRegistration.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -1034,6 +1036,36 @@
 			]
 		},
 		{
+			"name": "designtime/appVariant/AppVariantUtils-dbg.js",
+			"module": "sap/ui/fl/designtime/appVariant/AppVariantUtils.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/fl/designtime/appVariant/ChangeModifier.js"
+			]
+		},
+		{
+			"name": "designtime/appVariant/AppVariantUtils.js",
+			"module": "sap/ui/fl/designtime/appVariant/AppVariantUtils.js",
+			"required": [
+				"sap/ui/fl/designtime/appVariant/ChangeModifier.js"
+			]
+		},
+		{
+			"name": "designtime/appVariant/ChangeModifier-dbg.js",
+			"module": "sap/ui/fl/designtime/appVariant/ChangeModifier.js",
+			"isDebug": true,
+			"required": [
+				"sap/ui/fl/Utils.js"
+			]
+		},
+		{
+			"name": "designtime/appVariant/ChangeModifier.js",
+			"module": "sap/ui/fl/designtime/appVariant/ChangeModifier.js",
+			"required": [
+				"sap/ui/fl/Utils.js"
+			]
+		},
+		{
 			"name": "designtime/library-preload.designtime.js",
 			"module": "sap/ui/fl/designtime/library-preload.designtime.js",
 			"merged": true,
@@ -1042,6 +1074,8 @@
 				"sap/ui/fl/Utils.js"
 			],
 			"included": [
+				"sap/ui/fl/designtime/appVariant/AppVariantUtils.js",
+				"sap/ui/fl/designtime/appVariant/ChangeModifier.js",
 				"sap/ui/fl/designtime/library.designtime.js",
 				"sap/ui/fl/designtime/variants/VariantManagement.designtime.js"
 			]
@@ -1132,7 +1166,6 @@
 				"sap/m/App.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/CheckBox.js",
 				"sap/m/Column.js",
 				"sap/m/ColumnListItem.js",
@@ -1273,6 +1306,8 @@
 				"sap/ui/fl/descriptorRelated/api/DescriptorInlineChangeFactory.js",
 				"sap/ui/fl/descriptorRelated/api/DescriptorVariantFactory.js",
 				"sap/ui/fl/descriptorRelated/internal/Utils.js",
+				"sap/ui/fl/designtime/appVariant/AppVariantUtils.js",
+				"sap/ui/fl/designtime/appVariant/ChangeModifier.js",
 				"sap/ui/fl/designtime/library.designtime.js",
 				"sap/ui/fl/designtime/variants/VariantManagement.designtime.js",
 				"sap/ui/fl/fieldExt/Access.js",
@@ -1332,7 +1367,6 @@
 				"sap/m/App.js",
 				"sap/m/Bar.js",
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/CheckBox.js",
 				"sap/m/Column.js",
 				"sap/m/ColumnListItem.js",
@@ -1473,6 +1507,8 @@
 				"sap/ui/fl/descriptorRelated/api/DescriptorInlineChangeFactory.js",
 				"sap/ui/fl/descriptorRelated/api/DescriptorVariantFactory.js",
 				"sap/ui/fl/descriptorRelated/internal/Utils.js",
+				"sap/ui/fl/designtime/appVariant/AppVariantUtils.js",
+				"sap/ui/fl/designtime/appVariant/ChangeModifier.js",
 				"sap/ui/fl/designtime/library.designtime.js",
 				"sap/ui/fl/designtime/variants/VariantManagement.designtime.js",
 				"sap/ui/fl/fieldExt/Access.js",
@@ -1589,6 +1625,7 @@
 				"sap/ui/layout/HorizontalLayout.js",
 				"sap/ui/model/Context.js",
 				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/PropertyBinding.js",
 				"sap/ui/model/json/JSONModel.js",
 				"sap/ui/thirdparty/URI.js",
@@ -1744,6 +1781,7 @@
 				"sap/ui/layout/HorizontalLayout.js",
 				"sap/ui/model/Context.js",
 				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/PropertyBinding.js",
 				"sap/ui/model/json/JSONModel.js",
 				"sap/ui/thirdparty/URI.js",
@@ -2327,12 +2365,12 @@
 			"isDebug": true,
 			"required": [
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/Dialog.js",
 				"sap/m/Input.js",
 				"sap/m/Label.js",
 				"sap/m/MessageBox.js",
 				"sap/m/Text.js",
+				"sap/m/library.js",
 				"sap/ui/core/mvc/Controller.js",
 				"sap/ui/fl/support/apps/contentbrowser/lrepConnector/LRepConnector.js",
 				"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils.js"
@@ -2343,12 +2381,12 @@
 			"module": "sap/ui/fl/support/apps/contentbrowser/controller/ContentDetails.controller.js",
 			"required": [
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/Dialog.js",
 				"sap/m/Input.js",
 				"sap/m/Label.js",
 				"sap/m/MessageBox.js",
 				"sap/m/Text.js",
+				"sap/m/library.js",
 				"sap/ui/core/mvc/Controller.js",
 				"sap/ui/fl/support/apps/contentbrowser/lrepConnector/LRepConnector.js",
 				"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils.js"
@@ -2360,11 +2398,11 @@
 			"isDebug": true,
 			"required": [
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/Dialog.js",
 				"sap/m/Input.js",
 				"sap/m/Label.js",
 				"sap/m/Text.js",
+				"sap/m/library.js",
 				"sap/ui/core/mvc/Controller.js",
 				"sap/ui/fl/support/apps/contentbrowser/lrepConnector/LRepConnector.js",
 				"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils.js"
@@ -2375,11 +2413,11 @@
 			"module": "sap/ui/fl/support/apps/contentbrowser/controller/ContentDetailsEdit.controller.js",
 			"required": [
 				"sap/m/Button.js",
-				"sap/m/ButtonType.js",
 				"sap/m/Dialog.js",
 				"sap/m/Input.js",
 				"sap/m/Label.js",
 				"sap/m/Text.js",
+				"sap/m/library.js",
 				"sap/ui/core/mvc/Controller.js",
 				"sap/ui/fl/support/apps/contentbrowser/lrepConnector/LRepConnector.js",
 				"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils.js"
@@ -2871,13 +2909,12 @@
 				"sap/ui/core/Icon.js",
 				"sap/ui/core/InvisibleText.js",
 				"sap/ui/core/library.js",
-				"sap/ui/core/util/reflection/JsControlTreeModifier.js",
 				"sap/ui/events/KeyCodes.js",
-				"sap/ui/fl/Utils.js",
 				"sap/ui/layout/Grid.js",
 				"sap/ui/layout/HorizontalLayout.js",
 				"sap/ui/model/Context.js",
 				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/PropertyBinding.js",
 				"sap/ui/model/json/JSONModel.js"
 			]
@@ -2918,13 +2955,12 @@
 				"sap/ui/core/Icon.js",
 				"sap/ui/core/InvisibleText.js",
 				"sap/ui/core/library.js",
-				"sap/ui/core/util/reflection/JsControlTreeModifier.js",
 				"sap/ui/events/KeyCodes.js",
-				"sap/ui/fl/Utils.js",
 				"sap/ui/layout/Grid.js",
 				"sap/ui/layout/HorizontalLayout.js",
 				"sap/ui/model/Context.js",
 				"sap/ui/model/Filter.js",
+				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/PropertyBinding.js",
 				"sap/ui/model/json/JSONModel.js"
 			]

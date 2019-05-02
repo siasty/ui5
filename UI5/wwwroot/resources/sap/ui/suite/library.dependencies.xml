@@ -44,7 +44,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/suite/library-h2-preload.js" size="2095">
+  <module name="sap/ui/suite/library-h2-preload.js" size="2144">
     <requires>
       <module name="sap/ui/core/Control.js"/>
       <module name="sap/ui/core/Core.js"/>
@@ -64,7 +64,7 @@
       <module name="sap/ui/suite/VerticalProgressIndicatorRenderer.js"/>
     </includes>
   </module>
-  <module name="sap/ui/suite/library-preload.js" size="9976">
+  <module name="sap/ui/suite/library-preload.js" size="10022">
     <requires>
       <module name="sap/ui/core/Control.js"/>
       <module name="sap/ui/core/Core.js"/>

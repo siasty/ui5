@@ -1,0 +1,35 @@
+﻿<mvc:View
+   controllerName="ui5.controller.Overview"
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"
+	 xmlns:smartTable="sap.ui.comp.smarttable">
+  <Page title="{i18n>homePageTitle}">
+    <content>
+      <Table id="oTable"
+        inset="false"
+        items="{items>/Books}">
+        <columns>
+          <Column id="Id" width="auto">
+            <Text text="Id" />
+          </Column>
+          <Column id="Title" width="auto">
+            <Text text="Title"/>
+          </Column>
+          <Column id="Author" width="auto">
+            <Text text="Author" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text id="tId" text="{items>Id}" />
+              <Text id="tTitle" text="{items>Title}" />
+              <Text id="tAuthor" text="{items>Author}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+  </Page>
+</mvc:View>

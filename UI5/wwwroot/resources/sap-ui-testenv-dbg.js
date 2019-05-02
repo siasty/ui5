@@ -1,3 +1,4 @@
+//@ui5-bundle sap-ui-testenv.js
 /*!
  * OpenUI5
  * (c) Copyright 2009-2019 SAP SE or an SAP affiliate company.

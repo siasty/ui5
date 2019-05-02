@@ -1,3 +1,4 @@
+//@ui5-bundle sap/f/library-preload.support.js
 /*!
  * OpenUI5
  * (c) Copyright 2009-2019 SAP SE or an SAP affiliate company.

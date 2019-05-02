@@ -15,7 +15,7 @@ sap.ui.define(['sap/ui/base/Object'], function(BaseObject) {
 	 * @class
 	 * @constructor
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @experimental Since 1.27.0
 	 * @implements sap.ui.core.mvc.View.Preprocessor
 	 */

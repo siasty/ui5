@@ -18,7 +18,7 @@ sap.ui.define(["sap/ui/fl/descriptorRelated/internal/Utils"
 	 * @constructor
 	 * @alias sap.ui.fl.descriptorRelated.api.DescriptorInlineChange
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @sap-restricted
 	 */
@@ -49,7 +49,7 @@ sap.ui.define(["sap/ui/fl/descriptorRelated/internal/Utils"
 	 * @namespace
 	 * @alias sap.ui.fl.descriptorRelated.api.DescriptorInlineChangeFactory
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @sap-restricted
 	 */

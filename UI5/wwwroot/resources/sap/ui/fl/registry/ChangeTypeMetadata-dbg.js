@@ -20,7 +20,7 @@ sap.ui.define(["sap/ui/fl/Utils"], function(Utils) {
 	 * @alias sap.ui.fl.registry.ChangeTypeMetadata
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @experimental Since 1.27.0
 	 *
 	 */

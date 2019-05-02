@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <library  version="2.0" name="sap.ui.unified">
-  <module name="sap/ui/unified/Calendar.js" size="74221" compressedSize="35715">
+  <module name="sap/ui/unified/Calendar.js" size="75434" compressedSize="36069">
     <description>Provides control sap.ui.unified.Calendar.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -152,7 +152,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/CalendarRow.js" size="66325" compressedSize="26245">
+  <module name="sap/ui/unified/CalendarRow.js" size="66350" compressedSize="26262">
     <description>Provides control sap.ui.unified.Calendar.</description>
     <requires>
       <module name="sap/ui/Device.js"/>
@@ -171,7 +171,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/CalendarRowRenderer.js" size="25625" compressedSize="12540">
+  <module name="sap/ui/unified/CalendarRowRenderer.js" size="25820" compressedSize="12633">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -184,7 +184,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/CalendarTimeInterval.js" size="64750" compressedSize="34154">
+  <module name="sap/ui/unified/CalendarTimeInterval.js" size="64657" compressedSize="34079">
     <description>Provides control sap.ui.unified.Calendar.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -322,7 +322,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/FileUploader.js" size="58962" compressedSize="23493">
+  <module name="sap/ui/unified/FileUploader.js" size="59060" compressedSize="23545">
     <description>Provides control sap.ui.unified.FileUploader.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -364,7 +364,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/Menu.js" size="43743" compressedSize="19351">
+  <module name="sap/ui/unified/Menu.js" size="43888" compressedSize="19448">
     <description>Provides control sap.ui.unified.Menu.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -464,7 +464,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/ShellLayout.js" size="17401" compressedSize="10702">
+  <module name="sap/ui/unified/ShellLayout.js" size="17463" compressedSize="9875">
     <description>Provides control sap.ui.unified.ShellLayout.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -544,7 +544,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/calendar/CalendarUtils.js" size="23758" compressedSize="5769">
+  <module name="sap/ui/unified/calendar/CalendarUtils.js" size="23776" compressedSize="5763">
     <description>Provides class sap.ui.unified.calendar.CalendarUtils</description>
     <requires>
       <module name="sap/ui/core/Locale.js"/>
@@ -726,7 +726,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/calendar/YearPicker.js" size="19414" compressedSize="8852">
+  <module name="sap/ui/unified/calendar/YearPicker.js" size="19644" compressedSize="8847">
     <description>Provides control sap.ui.unified.Calendar.</description>
     <requires>
       <module name="sap/ui/Device.js"/>
@@ -801,7 +801,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/unified/designtime/library-preload.designtime.js" size="1721">
+  <module name="sap/ui/unified/designtime/library-preload.designtime.js" size="1791">
     <requires>
       <module name="ui5loader-autoconfig.js"/>
     </requires>
@@ -904,7 +904,7 @@
   </module>
   <module name="sap/ui/unified/designtime/messagebundle_zh_TW.properties" size="691">
   </module>
-  <module name="sap/ui/unified/library-h2-preload.js" size="21495">
+  <module name="sap/ui/unified/library-h2-preload.js" size="21546">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/security/encodeXML.js"/>
@@ -1035,7 +1035,7 @@
       <module name="sap/ui/unified/rules/FileUploader.support.js"/>
     </includes>
   </module>
-  <module name="sap/ui/unified/library-preload.js" size="455616">
+  <module name="sap/ui/unified/library-preload.js" size="455362">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/security/encodeXML.js"/>
@@ -1272,7 +1272,7 @@
       <module name="sap/ui/unified/manifest.json"/>
     </includes>
   </module>
-  <module name="sap/ui/unified/library-preload.support.js" size="5611">
+  <module name="sap/ui/unified/library-preload.support.js" size="5667">
     <requires>
       <module name="sap/ui/support/library.js"/>
       <module name="ui5loader-autoconfig.js"/>

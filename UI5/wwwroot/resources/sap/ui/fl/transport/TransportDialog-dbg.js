@@ -82,7 +82,7 @@ function(
 			ok : {},
 
 			/**
-			 * This event will be fired when the user clicks the Cancel button on the dialog.
+			 * This event will be fired when the user clicks the Cancel button on the dialog or Escape button on the keyboard.
 			 */
 			cancel : {}
 		}
@@ -112,6 +112,10 @@ function(
 
 		// okay, cancel and local-object buttons.
 		this._createButtons();
+		this.setEscapeHandler(function(oPromise) {
+			this.fireCancel();
+			oPromise.resolve();
+		}.bind(this));
 	};
 
 	/**

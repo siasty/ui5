@@ -15,7 +15,7 @@ sap.ui.define(['sap/ui/core/Control'],
 	 * Static collection of utility functions related to the sap.ui.table.TableRenderer
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @namespace
 	 * @alias sap.ui.table.TableRendererUtils
 	 * @private

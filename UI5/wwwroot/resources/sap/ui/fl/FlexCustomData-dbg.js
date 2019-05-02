@@ -27,7 +27,7 @@ sap.ui.define([
 	 * @alias sap.ui.fl.FlexCustomData
 	 * @experimental Since 1.61.0
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 */
 	var FlexCustomData = {};
 

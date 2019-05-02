@@ -19,7 +19,7 @@ sap.ui.define([
 	 * @constructor
 	 * @alias sap.ui.fl.support.Flexibility
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @experimental Since 1.52
 	 */
 	return Controller.extend("sap.ui.fl.support.diagnostics.Flexibility", {

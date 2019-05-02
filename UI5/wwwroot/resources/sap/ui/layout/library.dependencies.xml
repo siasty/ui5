@@ -38,12 +38,13 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/BlockLayoutCell.js" size="6203" compressedSize="2011">
+  <module name="sap/ui/layout/BlockLayoutCell.js" size="7100" compressedSize="2448">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/ui/Device.js"/>
       <module name="sap/ui/core/Control.js"/>
+      <module name="sap/ui/layout/BlockLayoutCellData.js"/>
       <module name="sap/ui/layout/BlockLayoutCellRenderer.js"/>
       <module name="sap/ui/layout/library.js"/>
       <module name="sap/ui/thirdparty/jquery.js"/>
@@ -74,7 +75,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/BlockLayoutRow.js" size="15595" compressedSize="6219">
+  <module name="sap/ui/layout/BlockLayoutRow.js" size="15630" compressedSize="6242">
     <description>@typedef {Object} sap.ui.layout.BlockRowColorSets @typedef {Object} sap.ui.layout.BlockLayoutRow</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -315,7 +316,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/changeHandler/AddFormField.js" size="8069" compressedSize="2768">
+  <module name="sap/ui/layout/changeHandler/AddFormField.js" size="8241" compressedSize="2824">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/ui/fl/Utils.js"/>
@@ -325,7 +326,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/changeHandler/AddSimpleFormField.js" size="10110" compressedSize="3275">
+  <module name="sap/ui/layout/changeHandler/AddSimpleFormField.js" size="10283" compressedSize="3308">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/ui/fl/Utils.js"/>
@@ -385,7 +386,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/cssgrid/CSSGrid.js" size="12650" compressedSize="3281">
+  <module name="sap/ui/layout/cssgrid/CSSGrid.js" size="12707" compressedSize="3327">
     <description>! OpenUI5 (c) Copyright 2009-2019 SAP SE or an SAP affiliate company. Licensed under the Apache License, Version 2.0 - see LICENSE.txt.</description>
     <requires>
       <module name="sap/ui/base/ManagedObjectObserver.js"/>
@@ -557,7 +558,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/designtime/library-preload.designtime.js" size="11259">
+  <module name="sap/ui/layout/designtime/library-preload.designtime.js" size="11328">
     <requires>
       <module name="sap/ui/fl/changeHandler/ChangeHandlerMediator.js"/>
       <module name="sap/ui/layout/form/Form.js"/>
@@ -925,7 +926,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/ui/layout/library-h2-preload.js" size="23273">
+  <module name="sap/ui/layout/library-h2-preload.js" size="23362">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/util/uid.js"/>
@@ -1058,7 +1059,7 @@
       <module name="sap/ui/layout/rules/Form.support.js"/>
     </includes>
   </module>
-  <module name="sap/ui/layout/library-preload.js" size="272603">
+  <module name="sap/ui/layout/library-preload.js" size="273247">
     <requires>
       <module name="sap/base/Log.js"/>
       <module name="sap/base/util/uid.js"/>
@@ -1291,7 +1292,7 @@
       <module name="sap/ui/layout/manifest.json"/>
     </includes>
   </module>
-  <module name="sap/ui/layout/library-preload.support.js" size="30408">
+  <module name="sap/ui/layout/library-preload.support.js" size="30463">
     <requires>
       <module name="sap/ui/support/library.js"/>
       <module name="ui5loader-autoconfig.js"/>

@@ -40,7 +40,7 @@ sap.ui.define([
 	 * @author SAP SE
 	 * @experimental Since 1.56
 	 * @since 1.56
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @ui5-restricted
 	*/

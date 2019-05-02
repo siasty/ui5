@@ -23,7 +23,7 @@ sap.ui.define(['sap/ui/commons/library', 'sap/ui/layout/form/GridContainerData']
 	 * @extends sap.ui.layout.form.GridContainerData
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public

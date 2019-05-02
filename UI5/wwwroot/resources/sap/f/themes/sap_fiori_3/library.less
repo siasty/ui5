@@ -19,11 +19,10 @@
 
 @_sap_f_Avatar_Color: @sapUiContentContrastTextColor;
 
-.sapFAvatarImage {
+.sapFAvatarImageContain {
 	background-color: @sapUiAccent7;
-	border-color: @sapUiAccent7;
-	color: @_sap_f_Avatar_Color;
 }
+
 .sapFAvatarIcon {
 	background-color: @sapUiAccent7;
 	border-color: @sapUiAccent7;
@@ -117,16 +116,29 @@
 
 .sapFDynamicPageToggleHeaderIndicator,
 .sapFDynamicPageHeaderPinButton {
+	width: 1.5rem;
+	height: 2rem;
+	bottom: -0.95rem; // needs refactoring in the base file
+
 	.sapMBtnInner {
 		border-color: @sapUiObjectHeaderBorderColor;
 		min-width: 1.5rem;
 		width: 1.5rem;
 		height: 1.5rem;
-		bottom: 0.675rem;
+		bottom: 0.25rem;
 
 		.sapMBtnIcon {
+			width: 100%;
+			padding: 0;
 			line-height: 1.5rem;
 		}
+	}
+}
+
+html[data-sap-ui-browser^="cr"] .sapFDynamicPageToggleHeaderIndicator,
+html[data-sap-ui-browser^="cr"] .sapFDynamicPageHeaderPinButton {
+	.sapMBtnInner .sapMBtnIcon {
+		line-height: 1.375rem; // in Chrome we need to subtract the border bottom and top (total 2px) from original line-height
 	}
 }
 
@@ -134,8 +146,10 @@
 .sapUiSizeCompact {
 	.sapFDynamicPageToggleHeaderIndicator,
 	.sapFDynamicPageHeaderPinButton {
+		bottom: -0.95rem; // needs refactoring in the base file
+
 		.sapMBtnInner {
-			bottom: 0.175rem;
+			bottom: 0.25rem;
 		}
 	}
 }
@@ -193,6 +207,7 @@
 
 .sapFDynamicPageTitle .sapMTB {
 	background: transparent;
+	padding: 0;
 }
 /* END "DynamicPageTitle.less" */
 
@@ -233,13 +248,31 @@
 /* END "FlexibleColumnLayout.less" */
 
 /* START "ShellBar.less" */
-@_sap_f_Shell_Bar_Copilot_Design: dark; // Possible designs are "dark" and "light"
-
 .sapFShellBar {
 	background: @sapUiShellColor;
+	.CPImage {
+		.color1 {
+			stop-color: #C0D9F2;
+		}
+		.color2 {
+			stop-color: #FFFFFF;
+		}
+		&:focus {
+			outline-color: @sapUiContentContrastFocusColor;
+		}
+		html[data-sap-ui-browser^="ie"] &:focus:before {
+			border-color: @sapUiContentContrastFocusColor;
+		}
+	}
+	.sapFShellBarHomeIcon:focus {
+		outline-color: @sapUiContentContrastFocusColor;
+	}
 	.sapMTB-Transparent-CTX .sapMBtn {
 		&:focus .sapMBtnInner {
 			outline-color: contrast(@sapShellColor, @sapUiContentFocusColor, @sapUiContentContrastFocusColor, @sapContent_ContrastTextThreshold);
+		}
+		&:focus .sapMBtnFocusDiv {
+			border-color: contrast(@sapShellColor, @sapUiContentFocusColor, @sapUiContentContrastFocusColor, @sapContent_ContrastTextThreshold);
 		}
 		.sapMBtnContent,
 		.sapMBtnInner::after,

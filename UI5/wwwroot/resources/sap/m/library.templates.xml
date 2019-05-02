@@ -12433,6 +12433,8 @@
 	maxFileNameLength: undefined, // int
 	maxFileSize: undefined, // float
 	mediaTypes: undefined, // string[]
+	noDataText: undefined, // string
+	noDataDescription: undefined, // string
 	instantUpload: true, // boolean
 	showIcons: true, // boolean
 	terminationEnabled: true, // boolean
@@ -12456,7 +12458,7 @@
 	beforeItemAdded: [function (oEvent) {
 		var ${control} = oEvent.getSource();
 	}, this],
-	beforeItemDeleted: [function (oEvent) {
+	beforeItemRemoved: [function (oEvent) {
 		var ${control} = oEvent.getSource();
 	}, this],
 	beforeItemEdited: [function (oEvent) {
@@ -12485,6 +12487,9 @@
 	}, this],
 	mediaTypeMismatch: [function (oEvent) {
 		var ${control} = oEvent.getSource();
+	}, this],
+	selectionChanged: [function (oEvent) {
+		var ${control} = oEvent.getSource();
 	}, this]
 })
 ]]></jsTemplate>
@@ -12500,6 +12505,8 @@
 	maxFileNameLength=""
 	maxFileSize=""
 	mediaTypes=""
+	noDataText=""
+	noDataDescription=""
 	instantUpload="true"
 	showIcons="true"
 	terminationEnabled="true"
@@ -12508,7 +12515,7 @@
 	validateFieldGroup=""
 	afterItemAdded=""
 	beforeItemAdded=""
-	beforeItemDeleted=""
+	beforeItemRemoved=""
 	beforeItemEdited=""
 	beforeUploadStarts=""
 	uploadCompleted=""
@@ -12517,7 +12524,8 @@
 	fileTypeMismatch=""
 	fileNameLengthExceeded=""
 	fileSizeExceeded=""
-	mediaTypeMismatch="">
+	mediaTypeMismatch=""
+	selectionChanged="">
 		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
 		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
 		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->
@@ -12532,14 +12540,14 @@
 <Template name="sap.m.upload.UploadSetItem" alias="UploadSetItem,Item">
 	<jsTemplate><![CDATA[new sap.m.upload.UploadSetItem({
 	id: "${id}", // sap.ui.core.ID
-	enabledDelete: true, // boolean
+	enabledRemove: true, // boolean
 	enabledEdit: true, // boolean
 	fileName: undefined, // string
 	mediaType: undefined, // string
 	thumbnailUrl: undefined, // string
 	uploadState: undefined, // sap.m.UploadState
 	url: undefined, // string
-	visibleDelete: true, // boolean
+	visibleRemove: true, // boolean
 	visibleEdit: true, // boolean
 	tooltip: undefined, // sap.ui.core.TooltipBase
 	customData: [], // sap.ui.core.CustomData
@@ -12551,24 +12559,24 @@
 	openPressed: [function (oEvent) {
 		var ${control} = oEvent.getSource();
 	}, this],
-	deletePressed: [function (oEvent) {
+	removePressed: [function (oEvent) {
 		var ${control} = oEvent.getSource();
 	}, this]
 })
 ]]></jsTemplate>
 	<xmlTemplate><![CDATA[<upload/UploadSetItem xmlns="sap.m"
 	id="${id}"
-	enabledDelete="true"
+	enabledRemove="true"
 	enabledEdit="true"
 	fileName=""
 	mediaType=""
 	thumbnailUrl=""
 	uploadState=""
 	url=""
-	visibleDelete="true"
+	visibleRemove="true"
 	visibleEdit="true"
 	openPressed=""
-	deletePressed="">
+	removePressed="">
 		<tooltip></tooltip> <!-- sap.ui.core.TooltipBase -->
 		<dependents></dependents> <!-- sap.ui.core.Element, since 1.19 -->
 		<dragDropConfig></dragDropConfig> <!-- sap.ui.core.dnd.DragDropBase, since 1.56 -->

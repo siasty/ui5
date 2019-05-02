@@ -19,11 +19,10 @@
 
 @_sap_f_Avatar_Color: @sapUiContentContrastTextColor;
 
-.sapFAvatarImage {
+.sapFAvatarImageContain {
 	background-color: @sapUiAccent7;
-	border-color: @sapUiAccent7;
-	color: @_sap_f_Avatar_Color;
 }
+
 .sapFAvatarIcon {
 	background-color: @sapUiAccent7;
 	border-color: @sapUiAccent7;
@@ -261,3 +260,17 @@
 	}
 }
 /* END "FlexibleColumnLayout.less" */
+
+/* START "ShellBar.less" */
+/* ============================= */
+/* CSS for control sap.f/ShellBar  */
+/* Belize theme                  */
+/* ============================= */
+
+.sapFButtonNotifications[data-notifications],
+.sapFShellBarOverflowButton[data-notifications] {
+	&:after {
+        color: @sapUiShellActiveTextColor;
+    }
+}
+/* END "ShellBar.less" */

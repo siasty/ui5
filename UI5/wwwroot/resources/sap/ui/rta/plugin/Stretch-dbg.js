@@ -32,7 +32,7 @@ function (
 	 * @extends sap.ui.rta.plugin.Plugin
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private
@@ -104,6 +104,8 @@ function (
 	Stretch.prototype.registerElementOverlay = function (oOverlay) {
 		this._checkParentAndAddToStretchCandidates(oOverlay);
 
+		oOverlay.attachElementModified(this._onElementModified, this);
+
 		Plugin.prototype.registerElementOverlay.apply(this, arguments);
 	};
 
@@ -132,6 +134,31 @@ function (
 		this.getDesignTime().attachEvent("elementPropertyChanged", this._onElementPropertyChanged, this);
 		this.getDesignTime().attachEvent("elementOverlayEditableChanged", this._onElementOverlayEditableChanged, this);
 		this.getDesignTime().attachEvent("elementOverlayDestroyed", this._onElementOverlayDestroyed, this);
+	};
+
+	Stretch.prototype._onElementModified = function(oEvent) {
+		var oParams = oEvent.getParameters();
+		var oOverlay = oEvent.getSource();
+
+		if (oParams.type === "afterRendering") {
+			if (!this.fnDebounced) {
+				// the timeout should be changed to 0 as soon as DT refactoring is done
+				this.fnDebounced = DtUtil.debounce(function() {
+					this._setStyleClassForAllStretchCandidates(this._getNewStretchCandidates(this._aOverlaysCollected));
+					this._aOverlaysCollected = [];
+					this.fnDebounced = undefined;
+				}.bind(this), 16);
+			}
+
+			if (!this._aOverlaysCollected) {
+				this._aOverlaysCollected = [];
+			}
+
+			if (!includes(this._aOverlaysCollected, oOverlay)) {
+				this._aOverlaysCollected.push(oOverlay);
+				this.fnDebounced();
+			}
+		}
 	};
 
 	Stretch.prototype._onElementOverlayDestroyed = function (oEvent) {
@@ -310,7 +337,7 @@ function (
 		// remove padding if it is already stretched
 		var iHeight = oParentGeometry.size.height;
 		if (bIsAlreadyStretched) {
-			iHeight -= oReferenceOverlay.getElement().$().css("padding-top");
+			iHeight -= parseInt(oReferenceOverlay.getElement().$().css("padding-top"));
 		}
 		var iParentSize = Math.round(oParentGeometry.size.width) * Math.round(iHeight);
 		aChildOverlays = aChildOverlays || OverlayUtil.getAllChildOverlays(oReferenceOverlay);

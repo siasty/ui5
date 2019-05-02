@@ -28,7 +28,7 @@ sap.ui.define([
 	 * @extends sap.ui.core.Element
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @public
@@ -192,8 +192,8 @@ sap.ui.define([
 				 * Additionally, the Active property of sap.m.ObjectAttribute is supported.<br>
 				 * Note that if one of the deprecated properties contributor, fileSize or UploadedDate is filled in addition to this attribute, two attributes with the same title
 				 * are displayed as these properties get displayed as an attribute.
-				 * Example: An application passes the property ‘contributor’ with the value ‘A’ and the aggregation attributes ‘contributor’: ‘B’. As a result, the attributes
-				 * ‘contributor’:’A’ and ‘contributor’:’B’ are displayed. To make sure the title does not appear twice, check if one of the properties is filled.
+				 * Example: An application passes the property "contributor’ with the value "A’ and the aggregation attributes "contributor’: "B’. As a result, the attributes
+				 * "contributor’:’A’ and "contributor’:’B’ are displayed. To make sure the title does not appear twice, check if one of the properties is filled.
 				 * @since 1.30.0
 				 */
 				attributes: {

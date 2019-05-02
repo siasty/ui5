@@ -98,13 +98,13 @@
     },
     {
       "name" : "sap/tnt/library-h2-preload.js",
-      "size" : 3242,
+      "size" : 3286,
       "required" : ["jquery.sap.global.js", "sap/base/Log.js", "sap/m/BarInPageEnabler.js", "sap/m/OverflowToolbar.js", "sap/m/OverflowToolbarAssociativePopover.js", "sap/m/OverflowToolbarRenderer.js", "sap/m/Popover.js", "sap/m/library.js", "sap/ui/Device.js", "sap/ui/core/Control.js", "sap/ui/core/Element.js", "sap/ui/core/Icon.js", "sap/ui/core/IconPool.js", "sap/ui/core/InvisibleText.js", "sap/ui/core/Item.js", "sap/ui/core/Renderer.js", "sap/ui/core/ResizeHandler.js", "sap/ui/core/delegate/ItemNavigation.js", "sap/ui/core/delegate/ScrollEnablement.js", "sap/ui/core/library.js", "sap/ui/events/KeyCodes.js", "ui5loader-autoconfig.js"],
       "includes" : ["sap/tnt/library.js", "sap/tnt/manifest.json", "sap/tnt/InfoLabel.js", "sap/tnt/InfoLabelRenderer.js", "sap/tnt/NavigationList.js", "sap/tnt/NavigationListItem.js", "sap/tnt/NavigationListRenderer.js", "sap/tnt/SideNavigation.js", "sap/tnt/SideNavigationRenderer.js", "sap/tnt/ToolHeader.js", "sap/tnt/ToolHeaderRenderer.js", "sap/tnt/ToolHeaderUtilitySeparator.js", "sap/tnt/ToolPage.js", "sap/tnt/ToolPageRenderer.js"]
     },
     {
       "name" : "sap/tnt/library-preload.js",
-      "size" : 33010,
+      "size" : 33051,
       "required" : ["jquery.sap.global.js", "sap/base/Log.js", "sap/m/BarInPageEnabler.js", "sap/m/OverflowToolbar.js", "sap/m/OverflowToolbarAssociativePopover.js", "sap/m/OverflowToolbarRenderer.js", "sap/m/Popover.js", "sap/m/library.js", "sap/ui/Device.js", "sap/ui/core/Control.js", "sap/ui/core/Element.js", "sap/ui/core/Icon.js", "sap/ui/core/IconPool.js", "sap/ui/core/InvisibleText.js", "sap/ui/core/Item.js", "sap/ui/core/Renderer.js", "sap/ui/core/ResizeHandler.js", "sap/ui/core/delegate/ItemNavigation.js", "sap/ui/core/delegate/ScrollEnablement.js", "sap/ui/core/library.js", "sap/ui/events/KeyCodes.js", "ui5loader-autoconfig.js"],
       "includes" : ["sap/tnt/InfoLabel.js", "sap/tnt/InfoLabelRenderer.js", "sap/tnt/NavigationList.js", "sap/tnt/NavigationListItem.js", "sap/tnt/NavigationListRenderer.js", "sap/tnt/SideNavigation.js", "sap/tnt/SideNavigationRenderer.js", "sap/tnt/ToolHeader.js", "sap/tnt/ToolHeaderRenderer.js", "sap/tnt/ToolHeaderUtilitySeparator.js", "sap/tnt/ToolPage.js", "sap/tnt/ToolPageRenderer.js", "sap/tnt/library.js", "sap/tnt/manifest.json"]
     },

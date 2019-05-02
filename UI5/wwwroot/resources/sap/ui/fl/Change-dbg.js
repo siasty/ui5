@@ -26,7 +26,7 @@ sap.ui.define([
 	 * @class Change class.
 	 * @extends sap.ui.base.ManagedObject
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @alias sap.ui.fl.Change
 	 * @experimental Since 1.25.0
 	 */
@@ -121,9 +121,9 @@ sap.ui.define([
 		this.setApplyState(Change.applyState.APPLYING);
 	};
 
-	Change.prototype.markFinished = function(sError) {
+	Change.prototype.markFinished = function(oResult) {
 		this._aQueuedProcesses.pop();
-		this._resolveChangeProcessingPromiseWithError(Change.operations.APPLY, {error: sError});
+		this._resolveChangeProcessingPromiseWithError(Change.operations.APPLY, oResult);
 		this.setApplyState(Change.applyState.APPLY_FINISHED);
 	};
 
@@ -131,9 +131,9 @@ sap.ui.define([
 		this.setApplyState(Change.applyState.REVERTING);
 	};
 
-	Change.prototype.markRevertFinished = function(sError) {
+	Change.prototype.markRevertFinished = function(oResult) {
 		this._aQueuedProcesses.pop();
-		this._resolveChangeProcessingPromiseWithError(Change.operations.REVERT, {error: sError});
+		this._resolveChangeProcessingPromiseWithError(Change.operations.REVERT, oResult);
 		this.setApplyState(Change.applyState.REVERT_FINISHED);
 	};
 
@@ -207,10 +207,9 @@ sap.ui.define([
 		return this.addChangeProcessingPromise(Change.operations.APPLY);
 	};
 
-	Change.prototype._resolveChangeProcessingPromiseWithError = function(sKey, oError) {
+	Change.prototype._resolveChangeProcessingPromiseWithError = function(sKey, oResult) {
 		if (this._oChangeProcessingPromises[sKey]) {
-			oError = oError || {};
-			this._oChangeProcessingPromises[sKey].resolveFunction.resolve(oError);
+			this._oChangeProcessingPromises[sKey].resolveFunction.resolve(oResult);
 			delete this._oChangeProcessingPromises[sKey];
 		}
 	};

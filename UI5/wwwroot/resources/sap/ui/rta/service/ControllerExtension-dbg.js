@@ -26,7 +26,7 @@ function (
 	 * @author SAP SE
 	 * @experimental Since 1.58
 	 * @since 1.58
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @private
 	 * @ui5-restricted
 	*/
@@ -95,7 +95,9 @@ function (
 							controllerName: sControllerName
 						},
 						changeType: "codeExt",
-						namespace: oFlexSettings.namespace
+						namespace: oFlexSettings.namespace,
+						developerMode: oFlexSettings.developerMode,
+						scenario: oFlexSettings.scenario
 					};
 
 					var oPreparedChange = oFlexController.createBaseChange(oChangeSpecificData, oAppComponent);

@@ -9,14 +9,17 @@ sap.ui.define([
 	"sap/m/Dialog",
 	"sap/m/Text",
 	"sap/m/Button",
-	"sap/m/ButtonType",
 	"sap/m/Input",
 	"sap/m/Label",
 	"sap/m/MessageBox",
 	"sap/ui/fl/support/apps/contentbrowser/lrepConnector/LRepConnector",
-	"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils"
-], function (Controller, Dialog, Text, Button, ButtonType, Input, Label, MessageBox, LRepConnector, DataUtils) {
+	"sap/ui/fl/support/apps/contentbrowser/utils/DataUtils",
+	"sap/m/library"
+], function (Controller, Dialog, Text, Button, Input, Label, MessageBox, LRepConnector, DataUtils, mobileLibrary) {
 	"use strict";
+
+	// shortcut for sap.m.ButtonType
+	var ButtonType = mobileLibrary.ButtonType;
 
 	/**
 	 * Controller for displaying detail of content in Content Browser.
@@ -24,7 +27,7 @@ sap.ui.define([
 	 * @constructor
 	 * @alias sap.ui.fl.support.apps.contentbrowser.controller.ContentDetails
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @experimental Since 1.45
 	 */
 	return Controller.extend("sap.ui.fl.support.apps.contentbrowser.controller.ContentDetails", {

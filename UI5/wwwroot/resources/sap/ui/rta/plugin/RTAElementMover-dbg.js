@@ -41,7 +41,7 @@ function(
 	 * The RTAElementMover is responsible for the RTA specific adaptation of element movements.
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private
@@ -122,7 +122,7 @@ function(
 			return false;
 		}
 
-		bValid = this._isMoveAvailableOnRelevantContainer(oOverlay);
+		bValid = this.isMoveAvailableOnRelevantContainer(oOverlay);
 
 		if (bValid) {
 			bValid = this.oBasePlugin.hasStableId(oOverlay) &&
@@ -260,7 +260,7 @@ function(
 	 * @param  {sap.ui.dt.Overlay} oOverlay overlay object
 	 * @return {boolean} true if move available on relevantContainer
 	 */
-	RTAElementMover.prototype._isMoveAvailableOnRelevantContainer = function(oOverlay) {
+	RTAElementMover.prototype.isMoveAvailableOnRelevantContainer = function(oOverlay) {
 		var oChangeHandlerRelevantElement,
 			oMoveAction = this._getMoveAction(oOverlay);
 
@@ -274,6 +274,25 @@ function(
 			return this.oBasePlugin.hasChangeHandler(oMoveAction.changeType, oChangeHandlerRelevantElement);
 		}
 		return false;
+	};
+
+	/**
+	 * Checks if move is available for child overlays
+	 * @param  {sap.ui.dt.ElementOverlay} oOverlay overlay object
+	 * @return {boolean} true if move available for at least one child overlay
+	 */
+	RTAElementMover.prototype.isMoveAvailableForChildren = function(oOverlay) {
+		var oDesignTimeMetadata = oOverlay.getDesignTimeMetadata(),
+			aAggregationsWithMoveAction = oDesignTimeMetadata.getAggregationNamesWithAction("move");
+
+		return aAggregationsWithMoveAction.some(function(oAggregationWithAction) {
+			var aAggregationOverlays = oOverlay.getAggregationOverlay(oAggregationWithAction);
+			if (aAggregationOverlays) {
+				var aChildren = aAggregationOverlays.getChildren();
+				return aChildren.some(this.checkMovable.bind(this));
+			}
+			return false;
+		}.bind(this));
 	};
 
 	/**

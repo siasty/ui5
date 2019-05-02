@@ -512,21 +512,6 @@
 			"designtime": true
 		},
 		{
-			"name": "CalendarAppointment-dbg.js",
-			"module": "sap/m/CalendarAppointment.js",
-			"isDebug": true,
-			"required": [
-				"sap/ui/unified/CalendarAppointment.js"
-			]
-		},
-		{
-			"name": "CalendarAppointment.js",
-			"module": "sap/m/CalendarAppointment.js",
-			"required": [
-				"sap/ui/unified/CalendarAppointment.js"
-			]
-		},
-		{
 			"name": "Carousel-dbg.js",
 			"module": "sap/m/Carousel.js",
 			"isDebug": true,
@@ -629,7 +614,9 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
+				"sap/ui/core/LabelEnablement.js",
 				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -648,7 +635,9 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
+				"sap/ui/core/LabelEnablement.js",
 				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -815,12 +804,14 @@
 			"module": "sap/m/ColumnHeaderPopover.js",
 			"isDebug": true,
 			"required": [
-				"sap/m/OverflowToolbar.js",
-				"sap/m/OverflowToolbarButton.js",
-				"sap/m/OverflowToolbarToggleButton.js",
+				"sap/m/Button.js",
+				"sap/m/ColumnPopoverItem.js",
 				"sap/m/ResponsivePopover.js",
+				"sap/m/ToggleButton.js",
+				"sap/m/Toolbar.js",
 				"sap/m/ToolbarSpacer.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/model/Filter.js",
 				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/base/ManagedObjectModel.js"
@@ -830,12 +821,14 @@
 			"name": "ColumnHeaderPopover.js",
 			"module": "sap/m/ColumnHeaderPopover.js",
 			"required": [
-				"sap/m/OverflowToolbar.js",
-				"sap/m/OverflowToolbarButton.js",
-				"sap/m/OverflowToolbarToggleButton.js",
+				"sap/m/Button.js",
+				"sap/m/ColumnPopoverItem.js",
 				"sap/m/ResponsivePopover.js",
+				"sap/m/ToggleButton.js",
+				"sap/m/Toolbar.js",
 				"sap/m/ToolbarSpacer.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/model/Filter.js",
 				"sap/ui/model/FilterOperator.js",
 				"sap/ui/model/base/ManagedObjectModel.js"
@@ -967,10 +960,12 @@
 				"sap/m/ComboBoxTextField.js",
 				"sap/m/InputBase.js",
 				"sap/m/List.js",
-				"sap/m/Popover.js",
 				"sap/m/StandardListItem.js",
+				"sap/m/SuggestionsPopover.js",
+				"sap/m/Toolbar.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/Item.js",
 				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/events/KeyCodes.js"
@@ -991,10 +986,12 @@
 				"sap/m/ComboBoxTextField.js",
 				"sap/m/InputBase.js",
 				"sap/m/List.js",
-				"sap/m/Popover.js",
 				"sap/m/StandardListItem.js",
+				"sap/m/SuggestionsPopover.js",
+				"sap/m/Toolbar.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/Item.js",
 				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/events/KeyCodes.js"
@@ -1013,6 +1010,7 @@
 				"sap/m/ComboBoxBaseRenderer.js",
 				"sap/m/ComboBoxTextField.js",
 				"sap/m/Dialog.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/Text.js",
 				"sap/m/Title.js",
 				"sap/m/Toolbar.js",
@@ -1020,6 +1018,7 @@
 				"sap/ui/Device.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/core/ValueStateSupport.js",
 				"sap/ui/core/library.js",
 				"sap/ui/dom/containsOrEquals.js",
@@ -1043,6 +1042,7 @@
 				"sap/m/ComboBoxBaseRenderer.js",
 				"sap/m/ComboBoxTextField.js",
 				"sap/m/Dialog.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/Text.js",
 				"sap/m/Title.js",
 				"sap/m/Toolbar.js",
@@ -1050,6 +1050,7 @@
 				"sap/ui/Device.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/InvisibleText.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/core/ValueStateSupport.js",
 				"sap/ui/core/library.js",
 				"sap/ui/dom/containsOrEquals.js",
@@ -1063,6 +1064,7 @@
 			"isDebug": true,
 			"required": [
 				"sap/m/ComboBoxTextFieldRenderer.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/Renderer.js"
 			]
 		},
@@ -1071,6 +1073,7 @@
 			"module": "sap/m/ComboBoxBaseRenderer.js",
 			"required": [
 				"sap/m/ComboBoxTextFieldRenderer.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/Renderer.js"
 			]
 		},
@@ -3021,16 +3024,24 @@
 				"sap/base/assert.js",
 				"sap/base/util/deepEqual.js",
 				"sap/m/ColumnListItem.js",
+				"sap/m/Dialog.js",
+				"sap/m/DisplayListItem.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/InputBase.js",
 				"sap/m/InputRenderer.js",
+				"sap/m/List.js",
 				"sap/m/Popover.js",
+				"sap/m/StandardListItem.js",
 				"sap/m/SuggestionsPopover.js",
 				"sap/m/Table.js",
+				"sap/m/Toolbar.js",
+				"sap/m/ToolbarSpacer.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/Item.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/dom/jquery/selectText.js",
 				"sap/ui/thirdparty/jquery.js"
@@ -3047,16 +3058,24 @@
 				"sap/base/assert.js",
 				"sap/base/util/deepEqual.js",
 				"sap/m/ColumnListItem.js",
+				"sap/m/Dialog.js",
+				"sap/m/DisplayListItem.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/InputBase.js",
 				"sap/m/InputRenderer.js",
+				"sap/m/List.js",
 				"sap/m/Popover.js",
+				"sap/m/StandardListItem.js",
 				"sap/m/SuggestionsPopover.js",
 				"sap/m/Table.js",
+				"sap/m/Toolbar.js",
+				"sap/m/ToolbarSpacer.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/Item.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/dom/containsOrEquals.js",
 				"sap/ui/dom/jquery/selectText.js",
 				"sap/ui/thirdparty/jquery.js"
@@ -4009,6 +4028,7 @@
 				"sap/m/Text.js",
 				"sap/m/Title.js",
 				"sap/m/library.js",
+				"sap/ui/base/ManagedObject.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/library.js",
@@ -4030,6 +4050,7 @@
 				"sap/m/Text.js",
 				"sap/m/Title.js",
 				"sap/m/library.js",
+				"sap/ui/base/ManagedObject.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/library.js",
@@ -4304,11 +4325,15 @@
 				"sap/m/List.js",
 				"sap/m/MultiComboBoxRenderer.js",
 				"sap/m/Popover.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/SuggestionsPopover.js",
 				"sap/m/ToggleButton.js",
 				"sap/m/Token.js",
 				"sap/m/Tokenizer.js",
+				"sap/m/Toolbar.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/Item.js",
@@ -4341,11 +4366,15 @@
 				"sap/m/List.js",
 				"sap/m/MultiComboBoxRenderer.js",
 				"sap/m/Popover.js",
+				"sap/m/StandardListItem.js",
+				"sap/m/SuggestionsPopover.js",
 				"sap/m/ToggleButton.js",
 				"sap/m/Token.js",
 				"sap/m/Tokenizer.js",
+				"sap/m/Toolbar.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
+				"sap/ui/core/Core.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/Item.js",
@@ -4757,7 +4786,8 @@
 				"sap/m/Text.js",
 				"sap/m/library.js",
 				"sap/ui/core/Control.js",
-				"sap/ui/core/library.js"
+				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -4773,7 +4803,8 @@
 				"sap/m/Text.js",
 				"sap/m/library.js",
 				"sap/ui/core/Control.js",
-				"sap/ui/core/library.js"
+				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -4803,6 +4834,7 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -4821,6 +4853,7 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/thirdparty/jquery.js"
 			]
 		},
@@ -6068,6 +6101,7 @@
 			"required": [
 				"sap/m/PanelRenderer.js",
 				"sap/m/library.js",
+				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js"
 			]
@@ -6082,6 +6116,7 @@
 			"required": [
 				"sap/m/PanelRenderer.js",
 				"sap/m/library.js",
+				"sap/ui/Device.js",
 				"sap/ui/core/Control.js",
 				"sap/ui/core/IconPool.js"
 			]
@@ -7720,6 +7755,9 @@
 				"sap/ui/core/Locale.js",
 				"sap/ui/core/LocaleData.js",
 				"sap/ui/core/date/UniversalDate.js",
+				"sap/ui/core/dnd/DragDropInfo.js",
+				"sap/ui/core/dnd/DragInfo.js",
+				"sap/ui/core/dnd/DropInfo.js",
 				"sap/ui/core/format/DateFormat.js",
 				"sap/ui/events/KeyCodes.js",
 				"sap/ui/unified/calendar/CalendarDate.js",
@@ -7739,6 +7777,9 @@
 				"sap/ui/core/Locale.js",
 				"sap/ui/core/LocaleData.js",
 				"sap/ui/core/date/UniversalDate.js",
+				"sap/ui/core/dnd/DragDropInfo.js",
+				"sap/ui/core/dnd/DragInfo.js",
+				"sap/ui/core/dnd/DropInfo.js",
 				"sap/ui/core/format/DateFormat.js",
 				"sap/ui/events/KeyCodes.js",
 				"sap/ui/unified/calendar/CalendarDate.js",
@@ -8160,7 +8201,8 @@
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/InvisibleText.js",
-				"sap/ui/core/library.js"
+				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -8176,7 +8218,8 @@
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
 				"sap/ui/core/InvisibleText.js",
-				"sap/ui/core/library.js"
+				"sap/ui/core/library.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -8562,18 +8605,18 @@
 				"sap/m/ColumnListItem.js",
 				"sap/m/Dialog.js",
 				"sap/m/DisplayListItem.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/List.js",
 				"sap/m/Popover.js",
 				"sap/m/StandardListItem.js",
 				"sap/m/Table.js",
-				"sap/m/Toolbar.js",
-				"sap/m/ToolbarSpacer.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
-				"sap/ui/base/Object.js",
+				"sap/ui/base/EventProvider.js",
 				"sap/ui/core/InvisibleText.js",
 				"sap/ui/core/ListItem.js",
 				"sap/ui/core/ResizeHandler.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/events/KeyCodes.js"
 			]
 		},
@@ -8587,18 +8630,18 @@
 				"sap/m/ColumnListItem.js",
 				"sap/m/Dialog.js",
 				"sap/m/DisplayListItem.js",
+				"sap/m/GroupHeaderListItem.js",
 				"sap/m/List.js",
 				"sap/m/Popover.js",
 				"sap/m/StandardListItem.js",
 				"sap/m/Table.js",
-				"sap/m/Toolbar.js",
-				"sap/m/ToolbarSpacer.js",
 				"sap/m/library.js",
 				"sap/ui/Device.js",
-				"sap/ui/base/Object.js",
+				"sap/ui/base/EventProvider.js",
 				"sap/ui/core/InvisibleText.js",
 				"sap/ui/core/ListItem.js",
 				"sap/ui/core/ResizeHandler.js",
+				"sap/ui/core/SeparatorItem.js",
 				"sap/ui/events/KeyCodes.js"
 			]
 		},
@@ -8654,7 +8697,8 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
-				"sap/ui/core/theming/Parameters.js"
+				"sap/ui/core/theming/Parameters.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -8671,7 +8715,8 @@
 				"sap/ui/core/Control.js",
 				"sap/ui/core/EnabledPropagator.js",
 				"sap/ui/core/IconPool.js",
-				"sap/ui/core/theming/Parameters.js"
+				"sap/ui/core/theming/Parameters.js",
+				"sap/ui/events/KeyCodes.js"
 			]
 		},
 		{
@@ -10436,7 +10481,8 @@
 				"sap/m/TitlePropagationSupport.js",
 				"sap/m/WizardStepRenderer.js",
 				"sap/m/library.js",
-				"sap/ui/core/Control.js"
+				"sap/ui/core/Control.js",
+				"sap/ui/core/InvisibleText.js"
 			]
 		},
 		{
@@ -10452,7 +10498,8 @@
 				"sap/m/TitlePropagationSupport.js",
 				"sap/m/WizardStepRenderer.js",
 				"sap/m/library.js",
-				"sap/ui/core/Control.js"
+				"sap/ui/core/Control.js",
+				"sap/ui/core/InvisibleText.js"
 			]
 		},
 		{
@@ -13201,7 +13248,6 @@
 				"sap/m/BusyIndicatorRenderer.js",
 				"sap/m/Button.js",
 				"sap/m/ButtonRenderer.js",
-				"sap/m/CalendarAppointment.js",
 				"sap/m/Carousel.js",
 				"sap/m/CarouselLayout.js",
 				"sap/m/CarouselRenderer.js",
@@ -14000,7 +14046,6 @@
 				"sap/m/BusyIndicatorRenderer.js",
 				"sap/m/Button.js",
 				"sap/m/ButtonRenderer.js",
-				"sap/m/CalendarAppointment.js",
 				"sap/m/Carousel.js",
 				"sap/m/CarouselLayout.js",
 				"sap/m/CarouselRenderer.js",
@@ -14797,7 +14842,6 @@
 				"sap/m/BusyIndicatorRenderer.js",
 				"sap/m/Button.js",
 				"sap/m/ButtonRenderer.js",
-				"sap/m/CalendarAppointment.js",
 				"sap/m/Carousel.js",
 				"sap/m/CarouselLayout.js",
 				"sap/m/CarouselRenderer.js",
@@ -15435,7 +15479,6 @@
 				"sap/m/BusyIndicatorRenderer.js",
 				"sap/m/Button.js",
 				"sap/m/ButtonRenderer.js",
-				"sap/m/CalendarAppointment.js",
 				"sap/m/Carousel.js",
 				"sap/m/CarouselLayout.js",
 				"sap/m/CarouselRenderer.js",
@@ -18690,6 +18733,8 @@
 				"sap/m/upload/UploadSetRenderer.js",
 				"sap/m/upload/Uploader.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/core/Icon.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/unified/FileUploader.js"
 			]
 		},
@@ -18716,6 +18761,8 @@
 				"sap/m/upload/UploadSetRenderer.js",
 				"sap/m/upload/Uploader.js",
 				"sap/ui/core/Control.js",
+				"sap/ui/core/Icon.js",
+				"sap/ui/events/KeyCodes.js",
 				"sap/ui/unified/FileUploader.js"
 			]
 		},
@@ -18775,11 +18822,17 @@
 		{
 			"name": "upload/UploadSetRenderer-dbg.js",
 			"module": "sap/m/upload/UploadSetRenderer.js",
-			"isDebug": true
+			"isDebug": true,
+			"required": [
+				"sap/m/ListItemBaseRenderer.js"
+			]
 		},
 		{
 			"name": "upload/UploadSetRenderer.js",
-			"module": "sap/m/upload/UploadSetRenderer.js"
+			"module": "sap/m/upload/UploadSetRenderer.js",
+			"required": [
+				"sap/m/ListItemBaseRenderer.js"
+			]
 		},
 		{
 			"name": "upload/Uploader-dbg.js",

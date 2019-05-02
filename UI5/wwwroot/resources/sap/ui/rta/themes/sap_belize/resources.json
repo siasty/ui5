@@ -11,6 +11,11 @@
 			"theme": "sap_belize"
 		},
 		{
+			"name": "Toolbar.personalization.less",
+			"designtime": true,
+			"theme": "sap_belize"
+		},
+		{
 			"name": "library-RTL-dbg.css",
 			"isDebug": true,
 			"theme": "sap_belize"

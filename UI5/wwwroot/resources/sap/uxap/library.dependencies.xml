@@ -51,7 +51,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/BlockBaseMetadata.js" size="3290" compressedSize="1338">
+  <module name="sap/uxap/BlockBaseMetadata.js" size="3331" compressedSize="1338">
     <description>Provides class sap.uxap.BlockBaseMetadata</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -185,7 +185,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/ObjectPageHeader.js" size="42184" compressedSize="19545">
+  <module name="sap/uxap/ObjectPageHeader.js" size="42250" compressedSize="19565">
     <description>Provides control sap.uxap.ObjectPageHeader.</description>
     <requires>
       <module name="sap/m/ActionSheet.js"/>
@@ -258,7 +258,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/ObjectPageLayout.js" size="154985" compressedSize="64301">
+  <module name="sap/uxap/ObjectPageLayout.js" size="157427" compressedSize="65194">
     <description>Provides control sap.uxap.ObjectPageLayout.</description>
     <requires>
       <module name="sap/base/Log.js"/>
@@ -484,7 +484,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/designtime/ObjectPageSection.designtime.js" size="1273" compressedSize="920">
+  <module name="sap/uxap/designtime/ObjectPageSection.designtime.js" size="1605" compressedSize="1029">
     <description>Provides the Design Time Metadata for the sap.uxap.ObjectPageSection control</description>
     <requires>
       <module name="sap/uxap/library.js"/>
@@ -497,7 +497,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/designtime/library-preload.designtime.js" size="4166">
+  <module name="sap/uxap/designtime/library-preload.designtime.js" size="4339">
     <requires>
       <module name="sap/uxap/library.js"/>
       <module name="ui5loader-autoconfig.js"/>
@@ -565,7 +565,7 @@
       <module name="ui5loader-autoconfig.js"/>
     </requires>
   </module>
-  <module name="sap/uxap/library-h2-preload.js" size="13507">
+  <module name="sap/uxap/library-h2-preload.js" size="13552">
     <requires>
       <module name="jquery.sap.global.js"/>
       <module name="sap/base/Log.js"/>
@@ -704,7 +704,7 @@
       <module name="sap/uxap/rules/ObjectPageLayout.support.js"/>
     </includes>
   </module>
-  <module name="sap/uxap/library-preload.js" size="205659">
+  <module name="sap/uxap/library-preload.js" size="206616">
     <requires>
       <module name="jquery.sap.global.js"/>
       <module name="sap/base/Log.js"/>
@@ -959,7 +959,7 @@
       <module name="sap/uxap/manifest.json"/>
     </includes>
   </module>
-  <module name="sap/uxap/library-preload.support.js" size="5840">
+  <module name="sap/uxap/library-preload.support.js" size="5890">
     <requires>
       <module name="sap/ui/support/library.js"/>
       <module name="ui5loader-autoconfig.js"/>

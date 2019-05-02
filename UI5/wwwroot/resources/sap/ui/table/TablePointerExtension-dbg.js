@@ -874,7 +874,11 @@ sap.ui.define([
 				// forward the event
 				if (!this._findAndfireCellEvent(this.fireCellClick, oEvent)) {
 					if (oCellInfo.isOfType(TableUtils.CELLTYPE.COLUMNROWHEADER)) {
-						this._toggleSelectAll();
+						if (this._oSelectionPlugin.onHeaderSelectorPress) {
+							this._oSelectionPlugin.onHeaderSelectorPress();
+						} else {
+							this._toggleSelectAll();
+						}
 					} else {
 						ExtensionHelper._handleClickSelection(oEvent, $Cell, this);
 					}
@@ -913,7 +917,7 @@ sap.ui.define([
 	 * @class Extension for sap.ui.table.Table which handles mouse and touch related things.
 	 * @extends sap.ui.table.TableExtension
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 * @constructor
 	 * @private
 	 * @alias sap.ui.table.TablePointerExtension

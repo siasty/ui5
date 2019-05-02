@@ -39,7 +39,7 @@ function(
 	 * @extends sap.ui.dt.Plugin
 	 *
 	 * @author SAP SE
-	 * @version 1.63.1
+	 * @version 1.64.0
 	 *
 	 * @constructor
 	 * @private
@@ -80,41 +80,47 @@ function(
 	/**
 	 * This function needs to be overwritten in every plugin.
 	 */
-	BasePlugin.prototype._isEditable = function() {};
+	BasePlugin.prototype._isEditable = function () {};
 
-	var _onElementModified = function(oEvent) {
-		var oParams = oEvent.getParameters();
-		var aRelevantOverlays;
-		var oOverlay = sap.ui.getCore().byId(oParams.id);
-		if ((oParams.type === "propertyChanged" && oParams.name === "visible")) {
-			aRelevantOverlays = this._getRelevantOverlays(oOverlay);
-			this.evaluateEditable(aRelevantOverlays, {onRegistration: false});
-		} else if (oParams.type === "overlayRendered") {
-			this.evaluateEditable([oOverlay], {onRegistration: true});
-		} else if (oParams.type === "insertAggregation" || oParams.type === "removeAggregation") {
-			aRelevantOverlays = this._getRelevantOverlays(oOverlay, oParams.name);
-			this.evaluateEditable(aRelevantOverlays, {onRegistration: false});
-		}
-	};
-
-	BasePlugin.prototype._detachReevaluationEditable = function(oOverlay) {
-		oOverlay.detachElementModified(_onElementModified, this);
-	};
-
-	BasePlugin.prototype._attachReevaluationEditable = function(oOverlay) {
-		var fnGeometryChangedCallback = function(oEvent) {
+	var executeWhenVisible = function (oElementOverlay, fnCallback) {
+		var fnGeometryChangedCallback = function (oEvent) {
 			if (oEvent.getSource().getGeometry() && oEvent.getSource().getGeometry().visible) {
-				this.evaluateEditable([oOverlay], {onRegistration: true});
-				oOverlay.detachEvent('geometryChanged', fnGeometryChangedCallback, this);
+				oElementOverlay.detachEvent('geometryChanged', fnGeometryChangedCallback, this);
+				fnCallback();
 			}
 		};
 
-		oOverlay.attachElementModified(_onElementModified, this);
+		if (!oElementOverlay.getGeometry() || !oElementOverlay.getGeometry().visible) {
+			oElementOverlay.attachEvent('geometryChanged', fnGeometryChangedCallback, this);
+		} else {
+			fnCallback();
+		}
+	};
 
-		// the control can be set to visible, but still the control has no size when we do the check.
-		// that's why we also attach to 'geometryChanged' and check if the overlay has a size
-		if (!oOverlay.getGeometry() || !oOverlay.getGeometry().visible) {
-			oOverlay.attachEvent('geometryChanged', fnGeometryChangedCallback, this);
+	var _onElementModified = function (oEvent) {
+		var oParams = oEvent.getParameters();
+		var aRelevantOverlays;
+		var oOverlay = oEvent.getSource();
+		if (oParams.type === "propertyChanged" && oParams.name === "visible") {
+			aRelevantOverlays = this._getRelevantOverlays(oOverlay);
+			if (oParams.value === true) {
+				executeWhenVisible(oOverlay, function () {
+					this.evaluateEditable(aRelevantOverlays, {onRegistration: false});
+				}.bind(this));
+			} else {
+				this.evaluateEditable(aRelevantOverlays, {onRegistration: false});
+			}
+		} else if (oParams.type === "afterRendering") {
+			if (this.getDesignTime().getStatus() === 'synced') {
+				this.evaluateEditable([oOverlay], {onRegistration: false});
+			} else {
+				this.getDesignTime().attachEventOnce("synced", function () {
+					this.evaluateEditable([oOverlay], {onRegistration: false});
+				}, this);
+			}
+		} else if (oParams.type === "insertAggregation" || oParams.type === "removeAggregation") {
+			aRelevantOverlays = this._getRelevantOverlays(oOverlay, oParams.name);
+			this.evaluateEditable(aRelevantOverlays, {onRegistration: false});
 		}
 	};
 
@@ -221,15 +227,17 @@ function(
 	};
 
 	BasePlugin.prototype.registerElementOverlay = function(oOverlay) {
-		this.evaluateEditable([oOverlay], {onRegistration: true});
-		this._attachReevaluationEditable(oOverlay);
+		executeWhenVisible(oOverlay, function () {
+			this.evaluateEditable([oOverlay], {onRegistration: true});
+			oOverlay.attachElementModified(_onElementModified, this);
+		}.bind(this));
 	};
 
 	BasePlugin.prototype.deregisterElementOverlay = function(oOverlay) {
 		this.removeFromPluginsList(oOverlay);
 		this.removeFromPluginsList(oOverlay, true);
 		this.removeFromPluginsList(oOverlay, false);
-		this._detachReevaluationEditable(oOverlay);
+		oOverlay.detachElementModified(_onElementModified, this);
 	};
 
 	/**
