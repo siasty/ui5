@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    "sap/ui/model/odata/v4/ODataModel",
     "sap/ui/core/routing/History"
-], function (Controller, History) {
+], function (Controller, ODataModel, History) {
     "use strict";
 
         return Controller.extend("ui5.controller.Overview", {
