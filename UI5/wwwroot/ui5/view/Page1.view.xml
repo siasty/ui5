@@ -1,4 +1,10 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.sap.build.standard.untitledPrototype.controller.Page1" xmlns="sap.m" xmlns:f="sap.f" xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core">
+<mvc:View 
+  xmlns:mvc="sap.ui.core.mvc" 
+  controllerName="ui5.controller.Page1" 
+  xmlns="sap.m" 
+  xmlns:f="sap.f" 
+  xmlns:form="sap.ui.layout.form" 
+  xmlns:core="sap.ui.core">
     <Page showHeader="true" title="Responsive Page Title" showFooter="true" showNavButton="false">
         <content>
             <f:Avatar src="" initials="" displayShape="Circle" displaySize="M" imageFitType="Cover"/>

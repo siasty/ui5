@@ -5,7 +5,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 ], function(BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
-	return BaseController.extend("com.sap.build.standard.untitledPrototype.controller.Page1", {
+	return BaseController.extend("ui5.controller.Page1", {
 		handleRouteMatched: function(oEvent) {
 			var sAppId = "App5cd26c9676181841b6bf8f12";
 
@@ -48,7 +48,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			this.oRouter.getTarget("Page1").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+            this.oRouter.getTarget("overview").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 
 		}
 	});

@@ -69,14 +69,14 @@
       },
       "routes": [
         {
-          "pattern": "",
-          "name": "overview",
-          "target": "overview"
+            "pattern": "",
+            "name": "overview",
+            "target": "overview"
         }
       ],
       "targets": {
         "overview": {
-          "viewName": "view/Overview",
+          "viewName": "view/Page1",
           "viewLevel": 1
         },
         "notFound": {
