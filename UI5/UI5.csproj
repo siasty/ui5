@@ -14,6 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\assets\js\jquery.min.js" />
     <None Include="wwwroot\ui5\controller\App.controller.js" />
     <None Include="wwwroot\ui5\controller\NotFound.controller.js" />
     <None Include="wwwroot\ui5\controller\Overview.controller.js">
