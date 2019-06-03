@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UI5.Data;
@@ -10,6 +13,7 @@ using static UI5.Models.OData;
 
 namespace UI5.Controllers
 {
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class BooksController : ODataController
     {
         private readonly MyDbContext _context;
@@ -57,19 +61,19 @@ namespace UI5.Controllers
         }
 
         [EnableQuery]
-        public IActionResult Get()
+        public IActionResult Get([FromHeader] string Authorization)
         {
             return Ok(_context.Books);
         }
 
         [EnableQuery]
-        public SingleResult Get([FromODataUri] int Id)
+        public SingleResult Get([FromODataUri] int Id, [FromHeader] string Authorization)
         {
             IQueryable<Book> result = _context.Books.Where(c => c.Id == Id);
             return SingleResult.Create(result);
         }
 
-        public async Task<IActionResult> Post(Book book)
+        public async Task<IActionResult> Post(Book book, [FromHeader] string Authorization)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +84,7 @@ namespace UI5.Controllers
             return Created(book);
         }
 
-        public async Task<IActionResult> Patch([FromODataUri] int key, Delta<Book> book)
+        public async Task<IActionResult> Patch([FromODataUri] int key, Delta<Book> book, [FromHeader] string Authorization)
         {
             if (!ModelState.IsValid)
             {
@@ -110,7 +114,7 @@ namespace UI5.Controllers
             return Updated(entity);
         }
 
-        public async Task<IActionResult> Put([FromODataUri] int key, Book update)
+        public async Task<IActionResult> Put([FromODataUri] int key, Book update, [FromHeader] string Authorization)
         {
             if (!ModelState.IsValid)
             {
@@ -140,7 +144,7 @@ namespace UI5.Controllers
         }
 
 
-        public async Task<IActionResult> Delete([FromODataUri] int key)
+        public async Task<IActionResult> Delete([FromODataUri] int key, [FromHeader] string Authorization)
         {
             var book = await _context.Books.FindAsync(key);
             if (book == null)

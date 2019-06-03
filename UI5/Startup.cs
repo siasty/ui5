@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.OData.Batch;
 using Microsoft.AspNet.OData.Extensions;
@@ -12,8 +13,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
 using UI5.Controllers;
 using UI5.Data;
 using static UI5.Models.OData;
@@ -22,7 +25,12 @@ namespace UI5
 {
     public class Startup
     {
-        
+        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyDbContext>(opt => opt.UseInMemoryDatabase("Test"));
@@ -52,6 +60,27 @@ namespace UI5
                 options.User.AllowedUserNameCharacters =
                 "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
+            });
+
+            var tokenValidationParameters = new TokenValidationParameters
+            {
+                RequireExpirationTime = true,
+                RequireSignedTokens = true,
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("TokenProviderOptions:Key").Value)),
+                ValidateIssuer = true,
+                ValidIssuer = Configuration.GetSection("TokenProviderOptions:Issuer").Value,
+                ValidateAudience = true,
+                ValidAudience = Configuration.GetSection("TokenProviderOptions:Issuer").Value,
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero
+            };
+
+            services.AddAuthentication()
+            .AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = tokenValidationParameters;
+                options.SaveToken = true;
             });
 
             services.ConfigureApplicationCookie(options =>
