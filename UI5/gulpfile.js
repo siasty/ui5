@@ -21,6 +21,7 @@ gulp.task('ui5preload',function () {
                 '!WEB-INF/web.xml',
                 '!model/metadata.xml',
                 '!node_modules/**',
+                '!assets/**',
                 '!resources/**'
             ]
         ).pipe(gulpif('./*.js', uglify())) 
