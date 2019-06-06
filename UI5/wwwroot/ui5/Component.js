@@ -1,9 +1,15 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/Device"
-], function (UIComponent, JSONModel, Device) {
-    "use strict";
+    "sap/ui/Device",
+    "ui5/model/models",
+    "./model/errorHandling"
+], function (UIComponent, JSONModel, Device,models, errorHandling) {
+        "use strict";
+
+        var navigationWithContext = {
+
+        };
 
     return UIComponent.extend("ui5.Component", {
 
@@ -13,15 +19,17 @@ sap.ui.define([
   
 
         init: function () {
-            jQuery.sap.require("sap.m.MessageBox");
-            jQuery.sap.require("sap.m.MessageToast");
 
-            var oModel = new JSONModel(Device);
-            oModel.setDefaultBindingMode("OneWay");
+            this.setModel(models.createDeviceModel(), "device");
 
-            this.setModel(oModel, "device");
+
+            var oApplicationModel = new JSONModel({});
+            this.setModel(oApplicationModel, "applicationModel");
 
             UIComponent.prototype.init.apply(this, arguments);
+
+            errorHandling.register(this);
+
 
             this.getRouter().initialize();
 
@@ -42,6 +50,7 @@ sap.ui.define([
 
         getNavigationPropertyForNavigationWithContext: function (sEntityNameSet, targetPageName) {
             var entityNavigations = navigationWithContext[sEntityNameSet];
+
             return entityNavigations === null ? null : entityNavigations[targetPageName];
         }
 

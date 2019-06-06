@@ -61,6 +61,10 @@ sap.ui.define([
                 var sPath = (oBindingContext) ? oBindingContext.getPath() : null;
                 var oModel = (oBindingContext) ? oBindingContext.getModel() : null;
 
+                console.log('oBindingContext: ' + oBindingContext);
+                console.log('sPatch: ' + sPath);
+
+
                 var sEntityNameSet;
                 if (sPath !== null && sPath !== "") {
                     if (sPath.substring(0, 1) === "/") {
@@ -131,4 +135,4 @@ sap.ui.define([
 
             }
         });
-});
+    }, true);

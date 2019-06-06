@@ -26,6 +26,8 @@
     <None Include="wwwroot\ui5\i18n\i18n_en.properties" />
     <None Include="wwwroot\ui5\i18n\i18n_pl.properties" />
     <None Include="wwwroot\ui5\Component.js" />
+    <None Include="wwwroot\ui5\model\errorHandling.js" />
+    <None Include="wwwroot\ui5\model\models.js" />
     <None Include="wwwroot\ui5\view\Master.view.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

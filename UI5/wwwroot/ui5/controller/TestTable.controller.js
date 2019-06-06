@@ -85,5 +85,5 @@ sap.ui.define([
             }
         });
 
-       
-});
+
+    }, true);
