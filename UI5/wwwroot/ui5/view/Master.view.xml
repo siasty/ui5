@@ -1,0 +1,32 @@
+<mvc:View 
+  xmlns:mvc="sap.ui.core.mvc" 
+  controllerName="ui5.controller.Master" 
+  xmlns="sap.m" 
+  xmlns:layout="sap.ui.commons.layout">
+  <Page showHeader="true" title="Welcome" showFooter="false" showNavButton="false" enableScrolling="false">
+    <content>
+      <layout:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+        <layout:positions>
+          <layout:PositionContainer left="0px" top="0px">
+            <layout:control>
+              <HBox alignItems="Center" direction="Inherit" fitContainer="true" width="auto" height="auto" justifyContent="Center" renderType="Div" visible="true" displayInline="false">
+                <items>
+                  <GenericTile header="OData v4" subheader="Test table" frameType="OneByOne" class="sapUiResponsiveMargin" press="_onGenericTilePress">
+                    <tileContent/>
+                  </GenericTile>
+                </items>
+                <layoutData/>
+              </HBox>
+            </layout:control>
+          </layout:PositionContainer>
+        </layout:positions>
+      </layout:AbsoluteLayout>
+    </content>
+    <footer/>
+    <headerContent>
+      <OverflowToolbarButton text="Action" type="Default" icon="sap-icon://log" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onOverflowToolbarButtonPress"/>
+    </headerContent>
+    <subHeader/>
+    <customHeader/>
+  </Page>
+</mvc:View>

@@ -1,0 +1,50 @@
+﻿<mvc:View
+   controllerName="ui5.controller.TestTable"
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:layout="sap.ui.commons.layout">
+  <Page title="{i18n>homePageTitle}" showHeader="true" showFooter="false" showNavButton="true" enableScrolling="false" navButtonPress="_onPageNavButtonPress">
+    <content>
+      <layout:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+        <layout:positions/>
+      </layout:AbsoluteLayout>
+      <Table id="oTable"
+        inset="false"
+        items="{items>/Books}">
+        <columns>
+          <Column id="Id" width="auto">
+            <Text text="Id" />
+          </Column>
+          <Column id="Title" width="auto">
+            <Text text="Title"/>
+          </Column>
+          <Column id="Author" width="auto">
+            <Text text="Author" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem>
+            <cells>
+              <Text id="tId" text="{items>Id}" />
+              <Text id="tTitle" text="{items>Title}" />
+              <Text id="tAuthor" text="{items>Author}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </content>
+    <footer>
+      <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+        <content>
+          <ToolbarSpacer width=""/>
+          <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+          <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+        </content>
+      </OverflowToolbar>
+    </footer>
+    <headerContent/>
+    <subHeader/>
+    <customHeader/>
+  </Page>
+</mvc:View>

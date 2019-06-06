@@ -26,12 +26,27 @@ sap.ui.define([
             this.getRouter().initialize();
 
         },
-      
-        destroy: function () {
-            UIComponent.prototype.destroy.apply(this, arguments);
+        
+        createContent: function () {
+            var app = new sap.m.App({
+                id: "App"
+            });
+            var appType = "App";
+            var appBackgroundColor = "#FFFFFF";
+            if (appType === "App" && appBackgroundColor) {
+                app.setBackgroundColor(appBackgroundColor);
+            }
+
+            return app;
+        },
+
+        getNavigationPropertyForNavigationWithContext: function (sEntityNameSet, targetPageName) {
+            var entityNavigations = navigationWithContext[sEntityNameSet];
+            return entityNavigations === null ? null : entityNavigations[targetPageName];
         }
 
-     
+      
+   
     });
 
 });

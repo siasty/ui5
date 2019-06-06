@@ -16,9 +16,8 @@
   <ItemGroup>
     <None Include="wwwroot\assets\bootstrap\js\bootstrap.min.js" />
     <None Include="wwwroot\assets\js\jquery.min.js" />
-    <None Include="wwwroot\ui5\controller\App.controller.js" />
-    <None Include="wwwroot\ui5\controller\NotFound.controller.js" />
-    <None Include="wwwroot\ui5\controller\Overview.controller.js">
+    <None Include="wwwroot\ui5\controller\Master.controller.js" />
+    <None Include="wwwroot\ui5\controller\TestTable.controller.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="wwwroot\ui5\i18n\i18n.properties">
@@ -27,13 +26,10 @@
     <None Include="wwwroot\ui5\i18n\i18n_en.properties" />
     <None Include="wwwroot\ui5\i18n\i18n_pl.properties" />
     <None Include="wwwroot\ui5\Component.js" />
-    <None Include="wwwroot\ui5\view\App.view.xml">
+    <None Include="wwwroot\ui5\view\Master.view.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="wwwroot\ui5\view\NotFound.view.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="wwwroot\ui5\view\Overview.view.xml">
+    <None Include="wwwroot\ui5\view\TestTable.view.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

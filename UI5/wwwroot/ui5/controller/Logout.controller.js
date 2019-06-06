@@ -5,9 +5,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 ], function(BaseController, MessageBox, Utilities, History) {
 	"use strict";
 
-	return BaseController.extend("ui5.controller.Page1", {
+	return BaseController.extend("ui5.controller.Logout", {
 		handleRouteMatched: function(oEvent) {
-			var sAppId = "App5cd26c9676181841b6bf8f12";
+			var sAppId = "App5cf6cff4687d54010939e1c2";
 
 			var oParams = {};
 
@@ -19,7 +19,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 					var patternConvert = function(oParam) {
 						if (Object.keys(oParam).length !== 0) {
 							for (var prop in oParam) {
-								if (prop !== "sourcePrototype") {
+								if (prop !== "sourcePrototype" && prop.includes("Set")) {
 									return prop + "(" + oParam[prop][0] + ")";
 								}
 							}
@@ -42,13 +42,32 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			}
 
 		},
-		avatarInitialsFormatter: function(sTextValue) {
-			return typeof sTextValue === 'string' ? sTextValue.substr(0, 2) : undefined;
+		_onPageNavButtonPress: function() {
+			var oHistory = History.getInstance();
+			var sPreviousHash = oHistory.getPreviousHash();
+			var oQueryParams = this.getQueryParameters(window.location);
+
+			if (sPreviousHash !== undefined || oQueryParams.navBackToLaunchpad) {
+				window.history.go(-1);
+			} else {
+				var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+				oRouter.navTo("default", true);
+			}
+
+		},
+		getQueryParameters: function(oLocation) {
+			var oQuery = {};
+			var aParams = oLocation.search.substring(1).split("&");
+			for (var i = 0; i < aParams.length; i++) {
+				var aPair = aParams[i].split("=");
+				oQuery[aPair[0]] = decodeURIComponent(aPair[1]);
+			}
+			return oQuery;
 
 		},
 		onInit: function() {
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-            this.oRouter.getTarget("overview").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
+			this.oRouter.getTarget("Logout").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 
 		}
 	});
