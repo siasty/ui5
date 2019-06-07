@@ -50,8 +50,8 @@ sap.ui.define([
 
         getNavigationPropertyForNavigationWithContext: function (sEntityNameSet, targetPageName) {
             var entityNavigations = navigationWithContext[sEntityNameSet];
-
-            return entityNavigations === null ? null : entityNavigations[targetPageName];
+            if (entityNavigations === "undefined" || entityNavigations === null) { entityNavigations = entityNavigations[targetPageName]; }
+            return entityNavigations;
         }
 
       
