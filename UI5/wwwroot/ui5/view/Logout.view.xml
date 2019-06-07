@@ -1,0 +1,17 @@
+<mvc:View 
+  xmlns:mvc="sap.ui.core.mvc" 
+  controllerName="ui5.controller.Logout" 
+  xmlns="sap.m" 
+  xmlns:layout="sap.ui.commons.layout">
+    <Page showHeader="true" title="Logout" showFooter="false" showNavButton="true" enableScrolling="false" navButtonPress="_onPageNavButtonPress">
+        <content>
+            <layout:AbsoluteLayout horizontalScrolling="Hidden" verticalScrolling="Auto">
+                <layout:positions/>
+            </layout:AbsoluteLayout>
+        </content>
+        <footer/>
+        <headerContent/>
+        <subHeader/>
+        <customHeader/>
+    </Page>
+</mvc:View>
