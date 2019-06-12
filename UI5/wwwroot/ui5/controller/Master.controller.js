@@ -118,16 +118,19 @@ sap.ui.define([
                 }
 
             },
-            _onOverflowToolbarButtonPress: function (oEvent) {
-
-                var oBindingContext = oEvent.getSource().getBindingContext();
-
+            _onOverflowToolbarButtonPress: function () {
                 return new Promise(function (fnResolve) {
-
-                    this.doNavigate("Logout", oBindingContext, fnResolve, "");
-                }.bind(this)).catch(function (err) {
+                    sap.m.MessageBox.confirm("You will be logged out in a moment. Are you sure?", {
+                        title: "Warning !",
+                        actions: ["Ok", "Cancel"],
+                        onClose: function (sActionClicked) {
+                            if (sActionClicked === "Ok") { window.location.href = "/Identity/Account/Logout";}
+                            fnResolve(sActionClicked === "Ok");
+                        }
+                    });
+                }).catch(function (err) {
                     if (err !== undefined) {
-                        MessageBox.error(err.message);
+                        MessageBox.error(err);
                     }
                 });
 
