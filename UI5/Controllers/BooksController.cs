@@ -13,7 +13,8 @@ using static UI5.Models.OData;
 
 namespace UI5.Controllers
 {
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     public class BooksController : ODataController
     {
         private readonly MyDbContext _context;

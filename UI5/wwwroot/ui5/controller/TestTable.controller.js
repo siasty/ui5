@@ -57,6 +57,7 @@ sap.ui.define([
                 }
 
             },
+
             getQueryParameters: function (oLocation) {
                 var oQuery = {};
                 var aParams = oLocation.search.substring(1).split("&");
@@ -72,11 +73,13 @@ sap.ui.define([
                 this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 this.oRouter.getTarget("TestTable").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 
+            
                 this.oModel = new ODataModel({
                     groupId: "$direct",
                     synchronizationMode: "None",
                     serviceUrl: 'https://localhost:5001/odata/'
                 });
+
 
                 this.getView().setModel(this.oModel, 'items');
 
