@@ -1,4 +1,5 @@
-﻿var gulp = require('gulp');
+﻿/// <binding BeforeBuild='ui5preload' />
+var gulp = require('gulp');
 var del = require('del');
 var ui5preload = require('gulp-ui5-preload');
 var uglify = require('gulp-uglify');

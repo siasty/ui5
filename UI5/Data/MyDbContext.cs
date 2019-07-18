@@ -27,9 +27,12 @@ namespace UI5.Data
         }
 
         public DbSet<Book> Books { get; set; }
+        public DbSet<Press> Presses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Book>().OwnsOne(c => c.Location);
+
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UI5.Data;
+using static UI5.Models.OData;
 
 namespace UI5.Helper
 {

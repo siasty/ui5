@@ -4,55 +4,35 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UI5.Data;
+using UI5.Helper;
 using static UI5.Models.OData;
 
 namespace UI5.Controllers
 {
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    [Authorize]
+    //[Authorize]
+    [Route("Books")]
+    [ODataRoutePrefix("Books")]
     public class BooksController : ODataController
     {
         private readonly MyDbContext _context;
         public BooksController(MyDbContext context)
         {
             _context = context;
-            if (!_context.Books.Any())
+            if (_context.Books.Count() == 0)
             {
-                var books = new List<Book>()
+                foreach (var b in DataSource.GetBooks())
                 {
-                new Book
-                {
-                     Id = 1,
-                     Author = "Jone Doe",
-                     Title = "Kaczor Donald"
-                },
-                new Book
-                {
-                     Id = 2,
-                     Author = "Jone Doe",
-                     Title = "Kaczor Donald 2"
-                },
-                new Book
-                {
-                     Id = 3,
-                     Title = "Essential C#5.0",
-                     Author = "Mark Michaelis",
-                },
-                new Book
-                {
-                     Id = 4,
-                     Title = "Enterprise Games",
-                     Author = "Michael Hugos",
-                },
-                };
-
-                _context.Books.AddRange(books);
-                _context.SaveChanges();
+                    _context.Books.Add(b);
+                    _context.Presses.Add(b.Press);
+                }
+                context.SaveChanges();
             }
         }
 
@@ -61,20 +41,29 @@ namespace UI5.Controllers
             return _context.Books.Any(p => p.Id == key);
         }
 
+        [HttpGet]
+        [ODataRoute]
         [EnableQuery]
-        public IActionResult Get([FromHeader] string Authorization)
+        public IActionResult Get()
         {
-            return Ok(_context.Books);
+            var model = _context.Books.Include(x=>x.Press);
+
+            return Ok(model); 
         }
 
+        [HttpGet("{Id}")]
+        [ODataRoute("({Id})")]
         [EnableQuery]
-        public SingleResult Get([FromODataUri] int Id, [FromHeader] string Authorization)
+        public IActionResult Get([FromODataUri] int Id)
         {
-            IQueryable<Book> result = _context.Books.Where(c => c.Id == Id);
-            return SingleResult.Create(result);
+            var result = _context.Books.Where(c => c.Id == Id).Include(x=>x.Press).FirstOrDefault();
+            return Ok(result);
         }
 
-        public async Task<IActionResult> Post(Book book, [FromHeader] string Authorization)
+        [HttpPost]
+        [EnableQuery]
+        [ODataRoute]
+        public async Task<IActionResult> Post(Book book)
         {
             if (!ModelState.IsValid)
             {
@@ -85,7 +74,9 @@ namespace UI5.Controllers
             return Created(book);
         }
 
-        public async Task<IActionResult> Patch([FromODataUri] int key, Delta<Book> book, [FromHeader] string Authorization)
+        [EnableQuery]
+        [ODataRoute]
+        public async Task<IActionResult> Patch([FromODataUri] int key, Delta<Book> book)
         {
             if (!ModelState.IsValid)
             {
@@ -115,7 +106,9 @@ namespace UI5.Controllers
             return Updated(entity);
         }
 
-        public async Task<IActionResult> Put([FromODataUri] int key, Book update, [FromHeader] string Authorization)
+        [EnableQuery]
+        [ODataRoute]
+        public async Task<IActionResult> Put([FromODataUri] int key, Book update)
         {
             if (!ModelState.IsValid)
             {
@@ -144,8 +137,9 @@ namespace UI5.Controllers
             return Updated(update);
         }
 
-
-        public async Task<IActionResult> Delete([FromODataUri] int key, [FromHeader] string Authorization)
+        [EnableQuery]
+        [ODataRoute]
+        public async Task<IActionResult> Delete([FromODataUri] int key)
         {
             var book = await _context.Books.FindAsync(key);
             if (book == null)
@@ -154,7 +148,7 @@ namespace UI5.Controllers
             }
             _context.Books.Remove(book);
             await _context.SaveChangesAsync();
-            return StatusCode(410);
+            return Ok("Deleted");
         }
 
     }

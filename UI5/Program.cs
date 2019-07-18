@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.OData.Builder;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.OData;
+using Microsoft.OData.Edm;
+using UI5.Helper;
 
 namespace UI5
 {
@@ -14,6 +18,8 @@ namespace UI5
     {
         public static void Main(string[] args)
         {
+      
+
             CreateWebHostBuilder(args).Build().Run();
         }
 

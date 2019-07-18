@@ -12,7 +12,8 @@
             <layout:control>
               <Table id="oTable" width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" class="sapUiResponsiveMargin"
                inset="false"
-               items="{items>/Books}">
+               items="{items>/Books}"
+               updateFinished="onUpdateFinished">
                 <infoToolbar>
                   <Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
                     <content>
@@ -23,7 +24,7 @@
                 <headerToolbar>
                   <OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
                     <content>
-                      <Title text="Items (3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+                      <Title id="title" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
                       <ToolbarSpacer width=""/>
                       <OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
                       <OverflowToolbarButton text="Filter" type="Transparent" icon="sap-icon://filter" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
