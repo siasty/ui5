@@ -58,6 +58,18 @@ sap.ui.define([
 
             },
 
+            onUpdateFinished: function (oEvent) {
+                var sTitle = "Books ",
+                    oTable = this.getView().byId("oTable");
+
+                if (oTable.getBinding("items").isLengthFinal()) {
+                    var iCount = oEvent.getParameter("total"),
+                        iItems = oTable.getItems().length;
+                    sTitle += "(" + iItems + "/" + iCount + ")";
+                }
+                this.getView().byId("title").setText(sTitle);
+            },
+
             getQueryParameters: function (oLocation) {
                 var oQuery = {};
                 var aParams = oLocation.search.substring(1).split("&");
@@ -75,9 +87,10 @@ sap.ui.define([
 
             
                 this.oModel = new ODataModel({
-                    groupId: "$direct",
+                    groupId: "$auto",
                     synchronizationMode: "None",
-                    serviceUrl: 'https://localhost:5001/odata/'
+                    serviceUrl: 'odata/',
+                    autoExpandSelect: true
                 });
 
 

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.OData.Routing.Conventions;
 using Microsoft.AspNet.OData.Batch;
 using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -19,6 +20,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using UI5.Controllers;
 using UI5.Data;
+using UI5.Helper;
 using static UI5.Models.OData;
 
 namespace UI5
@@ -98,11 +100,23 @@ namespace UI5
 
 
             services.AddOData();
-            services.AddDirectoryBrowser();
+            services.AddODataQueryFilter();
 
-            services.AddMvc(options => 
-                options.EnableEndpointRouting = false
-                ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddDirectoryBrowser();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("UI5Policy",
+                builder =>
+                {
+                    builder.AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowAnyOrigin();
+                });
+            });
+            services.AddMvc( 
+                options => options.EnableEndpointRouting = false
+                ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddControllersAsServices(); 
         }
 
   
@@ -124,6 +138,8 @@ namespace UI5
             //options.DefaultFileNames.Add("Index.html");
             //app.UseDefaultFiles(options);
 
+            app.UseHsts();
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 
@@ -142,7 +158,7 @@ namespace UI5
                 ContentTypeProvider = provider
             });
 
-            app.UseODataBatching();
+            app.UseCors("UI5Policy");
 
             app.Use((context, next) =>
             {
@@ -150,15 +166,17 @@ namespace UI5
                 return next.Invoke();
             });
 
+            app.UseODataBatching();
+
             app.UseMvc(routes =>
             {
                 routes.Select().Expand().Filter().OrderBy().MaxTop(null).Count();
-                routes.MapODataServiceRoute("odata", "odata", Models.OData.GetEdmModel(), new DefaultODataBatchHandler());
-                routes.MapRoute( name: "default",  template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapODataServiceRoute("odata", "odata", ODataBuilder.GetModel(), new DefaultODataBatchHandler());
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.EnableDependencyInjection();
             });
 
             Helper.Methods.CreateRolesAsync(serviceProvider).Wait();
-
         }
 
 
