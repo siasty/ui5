@@ -110,7 +110,9 @@ namespace UI5
                 {
                     builder.AllowAnyHeader()
                            .AllowAnyMethod()
-                           .AllowAnyOrigin();
+                           .AllowAnyOrigin()
+                           .AllowCredentials()
+                           .WithExposedHeaders("OData-Version");
                 });
             });
             services.AddMvc( 
